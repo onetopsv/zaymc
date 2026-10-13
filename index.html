@@ -111,7 +111,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .chat-feats{list-style:none;margin-bottom:20px}
 .chat-feats li{color:var(--td);font-size:14px;padding:8px 0;border-bottom:1px dashed rgba(108,92,231,.15)}
 .chat-feats li:last-child{border:none}
-.chat-frame-side iframe{background:rgba(26,26,58,.6);min-height:520px;display:block;width:100%;border-radius:16px;border:1px solid rgba(108,92,231,.3)}
+.chat-frame-side widgetbot{display:block;width:100%;min-height:520px;border-radius:16px;border:1px solid rgba(108,92,231,.3)}
 
 /* WIKI */
 .wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
@@ -155,7 +155,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;transition:.3s}
 .socs a.dc:hover{background:var(--dc);border-color:var(--dc);transform:translateY(-3px);box-shadow:0 10px 30px rgba(88,101,242,.5)}
 .socs a.ms:hover{background:var(--ms);border-color:var(--ms);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,132,255,.5)}
-@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side iframe{height:400px;min-height:400px}}
+@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side widgetbot{min-height:400px}}
 </style>
 </head>
 <body>
@@ -225,10 +225,13 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd" style="margin-top:auto;width:100%;justify-content:center">💬 Mở Discord đầy đủ</a>
     </div>
     <div class="chat-frame-side">
-      <iframe src="https://discord.com/widget?id=1479076823504650300&theme=dark" 
-              width="100%" height="520" allowtransparency="true" frameborder="0" 
-              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-      </iframe>
+      <widgetbot
+        server="1479076823504650300"
+        channel="1481261555570966591"
+        width="100%"
+        height="520"
+        id="discord-chat"
+      ></widgetbot>
     </div>
   </div>
 </section>
@@ -621,6 +624,9 @@ document.querySelectorAll('.smooth').forEach(function(a){
   a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
 });
 </script>
+
+<!-- WidgetBot Script -->
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
 
 <!-- Crisp Chat -->
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7dc42c54-2d47-4399-832a-e8c1b722f488";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
