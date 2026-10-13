@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--p:#6c5ce7;--pd:#4834d4;--a:#00d9ff;--ag:#00ff9d;--d:#0a0a1a;--t:#fff;--td:#a0a0c0;--j:#f89820;--b:#00b7c2;--dc:#5865F2;--ms:#0084FF;--red:#ff4757;--tt:#FE2C55}
+:root{--p:#6c5ce7;--pd:#4834d4;--a:#00d9ff;--ag:#00ff9d;--d:#0a0a1a;--t:#fff;--td:#a0a0c0;--j:#f89820;--b:#00b7c2;--dc:#5865F2;--ms:#0084FF;--red:#ff4757;--tt:#FE2C55;--fb:#1877F2;--ig:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{font-family:Poppins,sans-serif;background:var(--d);color:var(--t);overflow-x:hidden;line-height:1.6}
 .bg{position:fixed;inset:0;background-image:linear-gradient(rgba(108,92,231,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,92,231,.05) 1px,transparent 1px);background-size:40px 40px;z-index:-2;animation:gm 20s linear infinite}
@@ -69,6 +69,10 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .bm:hover{background:var(--ms);transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,132,255,.6)}
 .bt{background:rgba(254,44,85,.15);color:#fff;border:2px solid var(--tt)}
 .bt:hover{background:var(--tt);transform:translateY(-3px);box-shadow:0 10px 35px rgba(254,44,85,.6)}
+.bf{background:rgba(24,119,242,.15);color:#fff;border:2px solid var(--fb)}
+.bf:hover{background:var(--fb);transform:translateY(-3px);box-shadow:0 10px 35px rgba(24,119,242,.6)}
+.bi{background:rgba(255,0,105,.1);color:#fff;border:2px solid transparent;background-image:linear-gradient(rgba(10,10,26,.9),rgba(10,10,26,.9)),var(--ig);background-origin:border-box;background-clip:padding-box,border-box;transition:.3s}
+.bi:hover{background-image:var(--ig);background-clip:padding-box;transform:translateY(-3px);box-shadow:0 10px 35px rgba(220,39,67,.6)}
 .st{text-align:center;font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#fff,var(--a));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .ss{text-align:center;color:var(--td);margin-bottom:60px;font-size:16px}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:0 auto 80px}
@@ -154,10 +158,12 @@ footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,2
 .flogo{font-family:'Press Start 2P',cursive;font-size:18px;color:var(--a);margin-bottom:15px;text-shadow:0 0 15px var(--a)}
 footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs{display:flex;gap:15px;justify-content:center;margin-bottom:25px;flex-wrap:wrap}
-.socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;transition:.3s}
+.socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.3s}
 .socs a.dc:hover{background:var(--dc);border-color:var(--dc);transform:translateY(-3px);box-shadow:0 10px 30px rgba(88,101,242,.5)}
 .socs a.ms:hover{background:var(--ms);border-color:var(--ms);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,132,255,.5)}
 .socs a.tt:hover{background:var(--tt);border-color:var(--tt);transform:translateY(-3px);box-shadow:0 10px 30px rgba(254,44,85,.5)}
+.socs a.fb:hover{background:var(--fb);border-color:var(--fb);transform:translateY(-3px);box-shadow:0 10px 30px rgba(24,119,242,.5)}
+.socs a.ig:hover{background:var(--ig);border-color:transparent;transform:translateY(-3px);box-shadow:0 10px 30px rgba(220,39,67,.5)}
 @media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side widgetbot{min-height:400px}}
 </style>
 </head>
@@ -209,6 +215,8 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
     <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Discord</a>
     <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Messenger</a>
     <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bt">🎵 TikTok</a>
+    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="btn bf">📘 Facebook</a>
+    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bi">📷 Instagram</a>
   </div>
 </section>
 
@@ -567,6 +575,8 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Tham gia Discord</a>
       <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Tham gia Messenger</a>
       <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bt">🎵 Theo dõi TikTok</a>
+      <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="btn bf">📘 Theo dõi Facebook</a>
+      <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bi">📷 Theo dõi Instagram</a>
     </div>
   </div>
 </section>
@@ -583,6 +593,12 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
     </a>
     <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="tt" title="TikTok">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+    </a>
+    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="fb" title="Facebook">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="ig" title="Instagram">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913a5.885 5.885 0 001.384 2.126A5.868 5.868 0 004.14 23.37c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558a5.898 5.898 0 002.126-1.384 5.86 5.86 0 001.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913a5.89 5.89 0 00-1.384-2.126A5.847 5.847 0 0019.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 01-.899 1.382 3.744 3.744 0 01-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 01-1.379-.899 3.644 3.644 0 01-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
     </a>
   </div>
 </footer>
