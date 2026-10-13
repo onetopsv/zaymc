@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--p:#6c5ce7;--pd:#4834d4;--a:#00d9ff;--ag:#00ff9d;--d:#0a0a1a;--t:#fff;--td:#a0a0c0;--j:#f89820;--b:#00b7c2;--dc:#5865F2;--ms:#0084FF}
+:root{--p:#6c5ce7;--pd:#4834d4;--a:#00d9ff;--ag:#00ff9d;--d:#0a0a1a;--t:#fff;--td:#a0a0c0;--j:#f89820;--b:#00b7c2;--dc:#5865F2;--ms:#0084FF;--red:#ff4757}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{font-family:Poppins,sans-serif;background:var(--d);color:var(--t);overflow-x:hidden;line-height:1.6}
 .bg{position:fixed;inset:0;background-image:linear-gradient(rgba(108,92,231,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,92,231,.05) 1px,transparent 1px);background-size:40px 40px;z-index:-2;animation:gm 20s linear infinite}
@@ -24,9 +24,13 @@ nav{position:fixed;top:0;left:0;width:100%;padding:20px 5%;display:flex;justify-
 .nl a:hover{color:var(--a);text-shadow:0 0 10px var(--a)}
 section{padding:100px 5%;position:relative;z-index:1}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 5% 60px}
-.badge{display:inline-block;padding:8px 20px;border-radius:50px;background:rgba(0,255,157,.1);border:1px solid var(--ag);color:var(--ag);font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:25px;animation:pl 2s infinite}
+.badge{display:inline-block;padding:8px 20px;border-radius:50px;background:rgba(160,160,192,.1);border:1px solid var(--td);color:var(--td);font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:25px;transition:.3s}
+.badge.online{background:rgba(0,255,157,.1);border-color:var(--ag);color:var(--ag);animation:pl 2s infinite}
+.badge.offline{background:rgba(255,71,87,.1);border-color:var(--red);color:var(--red)}
 @keyframes pl{50%{box-shadow:0 0 0 12px rgba(0,255,157,0)}}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ag);margin-right:8px;animation:bk 1.5s infinite}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--td);margin-right:8px;animation:bk 1.5s infinite;transition:.3s}
+.badge.online .dot{background:var(--ag)}
+.badge.offline .dot{background:var(--red);animation:none}
 @keyframes bk{50%{opacity:.3}}
 h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#fff,var(--a) 50%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-2px}
 .hero p{font-size:clamp(15px,2vw,19px);color:var(--td);max-width:700px;margin-bottom:40px}
@@ -46,6 +50,10 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .ipval{font-family:'Press Start 2P',cursive;font-size:16px;color:var(--a);text-shadow:0 0 15px rgba(0,217,255,.5);word-break:break-all}
 .cicon{font-size:22px;color:var(--a);flex-shrink:0}
 .iphint{font-size:12px;color:var(--td);margin-top:15px;font-style:italic}
+.portbox{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;background:rgba(0,183,194,.08);border:1px solid rgba(0,183,194,.3);border-radius:12px;cursor:pointer;transition:.3s;margin-top:12px;position:relative;overflow:hidden}
+.portbox:hover{transform:translateY(-2px);border-color:var(--b);box-shadow:0 8px 25px rgba(0,183,194,.25)}
+.portlabel{font-size:10px;color:var(--td);text-transform:uppercase;letter-spacing:2px;display:block;margin-bottom:2px;text-align:left}
+.portval{font-family:'Press Start 2P',cursive;font-size:14px;color:var(--b);text-shadow:0 0 12px rgba(0,183,194,.5)}
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--ag);color:var(--d);padding:14px 28px;border-radius:12px;font-weight:700;transition:.3s;z-index:1000;box-shadow:0 10px 40px rgba(0,255,157,.4)}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .btns{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:30px}
@@ -62,7 +70,6 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .sv{font-size:36px;font-weight:800;color:var(--a);margin-bottom:5px}
 .sl{color:var(--td);font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
 .sn{font-size:10px;color:var(--td);opacity:.7;margin-top:5px;font-style:italic}
-
 .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;max-width:1200px;margin:0 auto}
 .fc{display:block;text-decoration:none;color:inherit;background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.2);padding:35px 25px;border-radius:18px;transition:.4s;position:relative;overflow:hidden;cursor:pointer}
 .fc::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:linear-gradient(180deg,var(--a),var(--p));transition:.4s}
@@ -73,7 +80,6 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .fi{font-size:40px;margin-bottom:20px;display:inline-block}
 .fc h3{font-size:20px;margin-bottom:12px;font-weight:700;color:var(--t)}
 .fc p{color:var(--td);font-size:14px;line-height:1.7}
-
 .jcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:40px;max-width:1200px;margin:0 auto}
 .jc{background:rgba(26,26,58,.4);border:1px solid rgba(108,92,231,.2);border-radius:20px;padding:35px 30px;transition:.3s}
 .jc:hover{border-color:rgba(0,217,255,.4);box-shadow:0 15px 40px rgba(108,92,231,.2)}
@@ -90,12 +96,10 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .sco h4{margin-bottom:4px;font-size:15px;font-weight:600}
 .sco p{color:var(--td);font-size:13px;line-height:1.6}
 .sco code{background:rgba(0,217,255,.15);color:var(--a);padding:2px 8px;border-radius:6px;font-family:Consolas,monospace;font-size:12px}
-
 .wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
 .wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
 .wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
 .wpanel{display:none}
-.wpanel.active{display:block;animation:fi .4s ease}
 #w-races:checked~.wtabs label[for=w-races],
 #w-claim:checked~.wtabs label[for=w-claim],
 #w-season:checked~.wtabs label[for=w-season],
@@ -151,7 +155,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 </nav>
 
 <section class="hero" id="home">
-  <div class="badge"><span class="dot"></span>SERVER ĐANG ONLINE</div>
+  <div class="badge" id="statusBadge"><span class="dot"></span>ĐANG KIỂM TRA...</div>
   <h1>ZAYMC<br>NETWORK</h1>
   <p>Chào mừng đến với ZAYMC Network — nơi hội tụ của những nhà xây dựng tài ba, những chiến binh dũng cảm và những cuộc phiêu lưu bất tận. Hỗ trợ cả <strong>Java</strong> và <strong>Bedrock</strong>!</p>
   <div class="tabs">
@@ -170,7 +174,11 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       <div><span class="iplabel">IP Server Bedrock</span><span class="ipval">zaymc.dnipo.fun</span></div>
       <div class="cicon">📋</div>
     </div>
-    <p class="iphint">Port: <strong style="color:var(--a)">25371</strong> (dán vào ô Port khi thêm server)</p>
+    <div class="portbox" onclick="copyIP('25371')">
+      <div><span class="portlabel">Port</span><span class="portval">25371</span></div>
+      <div class="cicon" style="font-size:18px">📋</div>
+    </div>
+    <p class="iphint">Dán IP vào ô "Server Address", Port vào ô "Port" khi thêm server</p>
   </div>
   <div class="btns">
     <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Discord</a>
@@ -189,32 +197,32 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
   </div>
 
   <div class="feats">
-    <a href="#wiki" class="fc" data-wiki="" onclick="openWiki(event,'')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">⚔️</div>
       <h3>Survival & PvP</h3>
       <p>Chế độ sinh tồn cổ điển kết hợp với hệ thống PvP cân bằng. Chiến đấu, xây dựng và khám phá cùng bạn bè.</p>
     </a>
-    <a href="#wiki" class="fc" data-wiki="w-races" onclick="openWiki(event,'w-races')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-races')">
       <div class="fi">🧬</div>
       <h3>Hệ thống chủng tộc</h3>
       <p>8 chủng tộc độc đáo (Dwarf, Angel, Demon, Orc, Elf...) kết hợp 5 nghề nghiệp riêng biệt.</p>
     </a>
-    <a href="#wiki" class="fc" data-wiki="w-season" onclick="openWiki(event,'w-season')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-season')">
       <div class="fi">🌍</div>
       <h3>Hệ thống mùa</h3>
       <p>4 mùa Xuân - Hạ - Thu - Đông ảnh hưởng đến nhiệt độ, cây trồng, mob và thời tiết.</p>
     </a>
-    <a href="#wiki" class="fc" data-wiki="w-claim" onclick="openWiki(event,'w-claim')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-claim')">
       <div class="fi">🏠</div>
       <h3>Bảo vệ đất</h3>
       <p>Bảo vệ căn cứ của bạn khỏi grief. Trust bạn bè dễ dàng để cùng xây dựng.</p>
     </a>
-    <a href="#wiki" class="fc" data-wiki="w-marry" onclick="openWiki(event,'w-marry')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-marry')">
       <div class="fi">💕</div>
       <h3>Kết hôn</h3>
       <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
     </a>
-    <a href="#wiki" class="fc" data-wiki="w-spawner" onclick="openWiki(event,'w-spawner')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-spawner')">
       <div class="fi">⚙️</div>
       <h3>Spawner farm</h3>
       <p>Hệ thống spawner ảo không lag, stack nhiều spawner để farm nhanh hơn.</p>
@@ -266,14 +274,14 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
   </div>
 
   <div class="wpanels">
-    <div class="wpanel active" id="w-races">
+    <div class="wpanel" id="w-races">
       <div class="wc">
         <h3>🧬 Tổng quan</h3>
         <p>Mỗi người chơi có <strong>1 chủng tộc</strong> và <strong>1 nghề nghiệp</strong>. Mỗi lựa chọn đều có chỉ số, kỹ năng và hạn chế riêng.</p>
         <h3>🎯 Chọn lần đầu</h3>
         <ul>
           <li><strong>Miễn phí 1 lần duy nhất</strong></li>
-          <li>Dùng lệnh: <code>/races</code></li>
+          <li>Dùng lệnh: <code>/race</code></li>
           <li>Chọn tộc → menu nghề tự mở → chọn nghề</li>
           <li>Chưa chọn xong sẽ bị khóa di chuyển và nhắc mỗi 15 giây</li>
         </ul>
@@ -299,10 +307,8 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
         </div>
         <h3>📜 Lệnh người chơi</h3>
         <ul>
-          <li><code>/races</code> — Mở menu chọn tộc</li>
-          <li><code>/races list</code> — Danh sách tộc</li>
-          <li><code>/races info &lt;tộc&gt;</code> — Thông tin 1 tộc</li>
-          <li><code>/language &lt;en|ru&gt;</code> — Đổi ngôn ngữ</li>
+          <li><code>/race</code> — Mở menu chọn tộc</li>
+          <li><code>/race info</code> — Danh sách tộc</li>
         </ul>
         <div class="hl"><p>💡 Một số item đặc biệt yêu cầu đúng tộc mới dùng được skill. Sai tộc vẫn cầm được nhưng không kích hoạt ability, có thể bị tháo khỏi ô đồ.</p></div>
       </div>
@@ -314,7 +320,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
         <p>Server có hệ thống bảo vệ đất giúp chống grief. Chỉ claim được ở <strong>Overworld</strong>. Nether và End <strong>KHÔNG</strong> claim được.</p>
         <h3>🎒 Chuẩn bị</h3>
         <ul>
-          <li>Lấy xẻng vàng: <code>/kit claim</code> (hoặc craft: 1 gậy + 2 vàng)</li>
+          <li>Lấy xẻng vàng: <code>/kit</code> (hoặc craft: 1 gậy + 2 vàng)</li>
           <li><strong>Xẻng vàng</strong> = công cụ claim</li>
           <li><strong>Gậy</strong> = công cụ kiểm tra claim</li>
         </ul>
@@ -324,11 +330,10 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
           <li><strong>Bước 2:</strong> Chuột phải vào 2 góc đối diện của khu đất muốn claim</li>
           <li><strong>Bước 3:</strong> Xong! Đất thuộc về bạn</li>
         </ul>
-        <p>Mỗi block claim tốn 1 claim block. Xem số block còn lại: <code>/claimblocks</code></p>
+        <p>Mỗi block claim tốn 1 claim block. Số block còn lại hiển thị trực tiếp trên <strong>scoreboard</strong> góc phải màn hình.</p>
         <p>Muốn claim hình chữ nhật: chuột phải góc 1, chuột trái góc 2.</p>
         <h3>📜 Lệnh cơ bản</h3>
         <ul>
-          <li><code>/claimblocks</code> — Xem số block còn lại</li>
           <li><code>/trust &lt;tên&gt;</code> — Cho người khác xây/dùng</li>
           <li><code>/containertrust &lt;tên&gt;</code> — Cho mở rương, cửa</li>
           <li><code>/accesstrust &lt;tên&gt;</code> — Cho vào khu vực</li>
@@ -496,8 +501,12 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
     </div>
     <div class="panel" id="panel-2-bedrock">
       <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
-        <div><span class="iplabel">Bedrock IP (Port 25371)</span><span class="ipval">zaymc.dnipo.fun</span></div>
+        <div><span class="iplabel">Bedrock IP</span><span class="ipval">zaymc.dnipo.fun</span></div>
         <div class="cicon">📋</div>
+      </div>
+      <div class="portbox" onclick="copyIP('25371')">
+        <div><span class="portlabel">Port</span><span class="portval">25371</span></div>
+        <div class="cicon" style="font-size:18px">📋</div>
       </div>
     </div>
     <div class="btns">
@@ -538,12 +547,27 @@ function openWiki(e,tabId){
   var wiki=document.getElementById('wiki');
   if(wiki){wiki.scrollIntoView({behavior:'smooth',block:'start'})}
 }
+function setStatus(online){
+  var b=document.getElementById('statusBadge');
+  if(!b)return;
+  if(online){
+    b.className='badge online';
+    b.innerHTML='<span class="dot"></span>SERVER ĐANG ONLINE';
+  }else{
+    b.className='badge offline';
+    b.innerHTML='<span class="dot"></span>SERVER ĐANG OFFLINE';
+  }
+}
 async function fetchStatus(){
   try{
     var r=await fetch('https://api.mcsrvstat.us/3/zaymc.dnipo.fun:25126');
     var d=await r.json();
     document.getElementById('onlinePlayers').textContent=d.online?((d.players&&d.players.online)||0):'0';
-  }catch(e){document.getElementById('onlinePlayers').textContent='N/A'}
+    setStatus(d.online);
+  }catch(e){
+    document.getElementById('onlinePlayers').textContent='N/A';
+    setStatus(false);
+  }
 }
 fetchStatus();setInterval(fetchStatus,60000);
 document.querySelectorAll('.smooth').forEach(function(a){
