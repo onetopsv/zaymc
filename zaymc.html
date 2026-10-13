@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ZAYMC Network - Server Minecraft</title>
+<meta name="description" content="ZAYMC Network - Server Minecraft Việt Nam hỗ trợ Java & Bedrock. IP: zaymc.dnipo.fun:25126">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#6c5ce7;--pd:#4834d4;--a:#00d9ff;--ag:#00ff9d;--d:#0a0a1a;--t:#fff;--td:#a0a0c0;--j:#f89820;--b:#00b7c2;--dc:#5865F2;--ms:#0084FF}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Poppins,sans-serif;background:var(--d);color:var(--t);overflow-x:hidden;line-height:1.6}
+.bg{position:fixed;inset:0;background-image:linear-gradient(rgba(108,92,231,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,92,231,.05) 1px,transparent 1px);background-size:40px 40px;z-index:-2;animation:gm 20s linear infinite}
+@keyframes gm{to{transform:translate(40px,40px)}}
+.glow{position:fixed;border-radius:50%;filter:blur(120px);z-index:-1;opacity:.4;animation:fl 8s ease-in-out infinite}
+.g1{top:-100px;left:-100px;width:500px;height:500px;background:var(--p)}
+.g2{bottom:-100px;right:-100px;width:500px;height:500px;background:var(--a);animation-delay:4s}
+@keyframes fl{50%{transform:translateY(-30px)}}
+nav{position:fixed;top:0;left:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(10px);background:rgba(10,10,26,.7);border-bottom:1px solid rgba(108,92,231,.2)}
+.logo{font-family:'Press Start 2P',cursive;font-size:20px;color:var(--a);text-shadow:0 0 20px var(--a);letter-spacing:2px}
+.nl{display:flex;gap:30px;list-style:none}
+.nl a{color:var(--t);text-decoration:none;font-weight:500;font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:.3s}
+.nl a:hover{color:var(--a);text-shadow:0 0 10px var(--a)}
+section{padding:100px 5%;position:relative;z-index:1}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 5% 60px}
+.badge{display:inline-block;padding:8px 20px;border-radius:50px;background:rgba(0,255,157,.1);border:1px solid var(--ag);color:var(--ag);font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:25px;animation:pl 2s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 12px rgba(0,255,157,0)}}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ag);margin-right:8px;animation:bk 1.5s infinite}
+@keyframes bk{50%{opacity:.3}}
+h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#fff,var(--a) 50%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-2px}
+.hero p{font-size:clamp(15px,2vw,19px);color:var(--td);max-width:700px;margin-bottom:40px}
+.tabs{display:inline-flex;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);border-radius:50px;padding:5px;margin-bottom:25px;gap:5px}
+.tab{padding:10px 24px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.3s;color:var(--td);border:none;background:transparent;display:flex;align-items:center;gap:8px;font-family:inherit}
+.tab.active{color:#fff}
+.tab[data-type=java].active{background:linear-gradient(135deg,var(--j),#d97a10);box-shadow:0 5px 20px rgba(248,152,32,.4)}
+.tab[data-type=bedrock].active{background:linear-gradient(135deg,var(--b),#008891);box-shadow:0 5px 20px rgba(0,183,194,.4)}
+.panel{display:none}
+.panel.active{display:block;animation:fi .4s ease}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.ipbox{display:inline-flex;align-items:center;gap:15px;padding:20px 30px;background:linear-gradient(135deg,rgba(108,92,231,.15),rgba(0,217,255,.1));border:2px solid rgba(108,92,231,.4);border-radius:16px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.ipbox:hover{transform:translateY(-3px);border-color:var(--a);box-shadow:0 10px 40px rgba(0,217,255,.3)}
+.ipbox::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:.5s}
+.ipbox:hover::before{left:100%}
+.iplabel{font-size:11px;color:var(--td);text-transform:uppercase;letter-spacing:2px;display:block;margin-bottom:4px;text-align:left}
+.ipval{font-family:'Press Start 2P',cursive;font-size:16px;color:var(--a);text-shadow:0 0 15px rgba(0,217,255,.5);word-break:break-all}
+.cicon{font-size:22px;color:var(--a);flex-shrink:0}
+.iphint{font-size:12px;color:var(--td);margin-top:15px;font-style:italic}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--ag);color:var(--d);padding:14px 28px;border-radius:12px;font-weight:700;transition:.3s;z-index:1000;box-shadow:0 10px 40px rgba(0,255,157,.4)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.btns{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.btn{padding:15px 32px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:1px;transition:.3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;font-family:inherit}
+.bd{background:rgba(88,101,242,.15);color:#fff;border:2px solid var(--dc)}
+.bd:hover{background:var(--dc);transform:translateY(-3px);box-shadow:0 10px 35px rgba(88,101,242,.6)}
+.bm{background:rgba(0,132,255,.15);color:#fff;border:2px solid var(--ms)}
+.bm:hover{background:var(--ms);transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,132,255,.6)}
+.st{text-align:center;font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#fff,var(--a));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ss{text-align:center;color:var(--td);margin-bottom:60px;font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:0 auto 80px}
+.sc{background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);padding:30px 20px;border-radius:16px;text-align:center;transition:.3s;backdrop-filter:blur(10px)}
+.sc:hover{transform:translateY(-5px);border-color:var(--a);box-shadow:0 15px 40px rgba(0,217,255,.2)}
+.sv{font-size:36px;font-weight:800;color:var(--a);margin-bottom:5px}
+.sl{color:var(--td);font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
+.sn{font-size:10px;color:var(--td);opacity:.7;margin-top:5px;font-style:italic}
+
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;max-width:1200px;margin:0 auto}
+.fc{display:block;text-decoration:none;color:inherit;background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.2);padding:35px 25px;border-radius:18px;transition:.4s;position:relative;overflow:hidden;cursor:pointer}
+.fc::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:linear-gradient(180deg,var(--a),var(--p));transition:.4s}
+.fc:hover::before{height:100%}
+.fc:hover{transform:translateY(-8px);border-color:rgba(0,217,255,.4);box-shadow:0 20px 50px rgba(108,92,231,.3)}
+.fc::after{content:'→ Xem wiki';position:absolute;bottom:15px;right:20px;font-size:11px;color:var(--a);opacity:0;transition:.3s;font-weight:600;letter-spacing:.5px}
+.fc:hover::after{opacity:1}
+.fi{font-size:40px;margin-bottom:20px;display:inline-block}
+.fc h3{font-size:20px;margin-bottom:12px;font-weight:700;color:var(--t)}
+.fc p{color:var(--td);font-size:14px;line-height:1.7}
+
+.jcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:40px;max-width:1200px;margin:0 auto}
+.jc{background:rgba(26,26,58,.4);border:1px solid rgba(108,92,231,.2);border-radius:20px;padding:35px 30px;transition:.3s}
+.jc:hover{border-color:rgba(0,217,255,.4);box-shadow:0 15px 40px rgba(108,92,231,.2)}
+.jh{display:flex;align-items:center;gap:15px;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid rgba(108,92,231,.2)}
+.ji{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.ji.java{background:linear-gradient(135deg,rgba(248,152,32,.2),rgba(248,152,32,.1));border:1px solid rgba(248,152,32,.4)}
+.ji.bedrock{background:linear-gradient(135deg,rgba(0,183,194,.2),rgba(0,183,194,.1));border:1px solid rgba(0,183,194,.4)}
+.jh h3{font-size:22px;font-weight:700}
+.jh span{font-size:12px;color:var(--td);text-transform:uppercase;letter-spacing:1px}
+.steps{list-style:none}
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px dashed rgba(108,92,231,.15);align-items:flex-start}
+.step:last-child{border-bottom:none}
+.sn2{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;box-shadow:0 3px 15px rgba(108,92,231,.5)}
+.sco h4{margin-bottom:4px;font-size:15px;font-weight:600}
+.sco p{color:var(--td);font-size:13px;line-height:1.6}
+.sco code{background:rgba(0,217,255,.15);color:var(--a);padding:2px 8px;border-radius:6px;font-family:Consolas,monospace;font-size:12px}
+
+.wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
+.wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
+.wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
+.wpanel{display:none}
+.wpanel.active{display:block;animation:fi .4s ease}
+#w-races:checked~.wtabs label[for=w-races],
+#w-claim:checked~.wtabs label[for=w-claim],
+#w-season:checked~.wtabs label[for=w-season],
+#w-marry:checked~.wtabs label[for=w-marry],
+#w-spawner:checked~.wtabs label[for=w-spawner]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
+#w-races:checked~.wpanels #w-races,
+#w-claim:checked~.wpanels #w-claim,
+#w-season:checked~.wpanels #w-season,
+#w-marry:checked~.wpanels #w-marry,
+#w-spawner:checked~.wpanels #w-spawner{display:block;animation:fi .4s ease}
+.wradio{display:none}
+.wc{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.7),rgba(19,19,43,.5));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px;backdrop-filter:blur(10px)}
+.wc h3{font-size:22px;font-weight:700;color:var(--a);margin-top:30px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(108,92,231,.3);display:flex;align-items:center;gap:10px}
+.wc h3:first-child{margin-top:0}
+.wc p{color:var(--td);font-size:14px;line-height:1.8;margin-bottom:12px}
+.wc ul{list-style:none;margin-bottom:15px}
+.wc ul li{color:var(--td);font-size:14px;line-height:1.8;padding-left:24px;position:relative;margin-bottom:6px}
+.wc ul li::before{content:'▸';position:absolute;left:0;color:var(--a);font-weight:bold}
+.wc code{background:rgba(0,217,255,.15);color:var(--a);padding:3px 9px;border-radius:6px;font-family:Consolas,monospace;font-size:13px;border:1px solid rgba(0,217,255,.2)}
+.wc strong{color:var(--t);font-weight:700}
+.hl{background:rgba(0,217,255,.08);border-left:3px solid var(--a);padding:15px 20px;border-radius:8px;margin:15px 0}
+.warn{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:15px 20px;border-radius:8px;margin:15px 0}
+.warn p{color:#ffda6b;margin-bottom:0}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:15px 0}
+.wcard{background:rgba(10,10,26,.6);border:1px solid rgba(108,92,231,.25);border-radius:12px;padding:18px;transition:.3s}
+.wcard:hover{border-color:var(--a);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,217,255,.15)}
+.wcard h5{color:var(--a);font-size:15px;margin-bottom:8px;font-weight:700}
+.wcard p{font-size:13px;margin-bottom:0;color:var(--td)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;background:rgba(0,217,255,.15);color:var(--a);margin-right:5px;margin-top:5px}
+.tag.bad{background:rgba(255,107,107,.15);color:#ff6b6b}
+footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,231,.2);background:rgba(10,10,26,.8)}
+.flogo{font-family:'Press Start 2P',cursive;font-size:18px;color:var(--a);margin-bottom:15px;text-shadow:0 0 15px var(--a)}
+footer p{color:var(--td);font-size:13px;margin-bottom:20px}
+.socs{display:flex;gap:15px;justify-content:center;margin-bottom:25px;flex-wrap:wrap}
+.socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;transition:.3s}
+.socs a.dc:hover{background:var(--dc);border-color:var(--dc);transform:translateY(-3px);box-shadow:0 10px 30px rgba(88,101,242,.5)}
+.socs a.ms:hover{background:var(--ms);border-color:var(--ms);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,132,255,.5)}
+@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="glow g1"></div><div class="glow g2"></div>
+
+<nav>
+  <div class="logo">ZAYMC</div>
+  <ul class="nl">
+    <li><a href="#home" class="smooth">Trang chủ</a></li>
+    <li><a href="#features" class="smooth">Tính năng</a></li>
+    <li><a href="#howto" class="smooth">Hướng dẫn</a></li>
+    <li><a href="#wiki" class="smooth">Wiki</a></li>
+    <li><a href="#join" class="smooth">Tham gia</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="badge"><span class="dot"></span>SERVER ĐANG ONLINE</div>
+  <h1>ZAYMC<br>NETWORK</h1>
+  <p>Chào mừng đến với ZAYMC Network — nơi hội tụ của những nhà xây dựng tài ba, những chiến binh dũng cảm và những cuộc phiêu lưu bất tận. Hỗ trợ cả <strong>Java</strong> và <strong>Bedrock</strong>!</p>
+  <div class="tabs">
+    <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java Edition</button>
+    <button class="tab" data-type="bedrock" onclick="switchTab('bedrock')">📱 Bedrock Edition</button>
+  </div>
+  <div class="panel active" id="panel-java">
+    <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun:25126')">
+      <div><span class="iplabel">IP Server Java</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
+      <div class="cicon">📋</div>
+    </div>
+    <p class="iphint">Dán vào ô "Server Address" trong Minecraft Java Edition</p>
+  </div>
+  <div class="panel" id="panel-bedrock">
+    <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
+      <div><span class="iplabel">IP Server Bedrock</span><span class="ipval">zaymc.dnipo.fun</span></div>
+      <div class="cicon">📋</div>
+    </div>
+    <p class="iphint">Port: <strong style="color:var(--a)">25371</strong> (dán vào ô Port khi thêm server)</p>
+  </div>
+  <div class="btns">
+    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Discord</a>
+    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Messenger</a>
+  </div>
+</section>
+
+<section id="features">
+  <h2 class="st">TẠI SAO CHỌN ZAYMC?</h2>
+  <p class="ss">Trải nghiệm Minecraft tuyệt vời với những tính năng độc đáo</p>
+  <div class="stats">
+    <div class="sc"><div class="sv" id="onlinePlayers">--</div><div class="sl">Người chơi online</div><div class="sn">Cập nhật mỗi 5 phút</div></div>
+    <div class="sc"><div class="sv">24/7</div><div class="sl">Hoạt động</div></div>
+    <div class="sc"><div class="sv">Java+BE</div><div class="sl">Cross-play</div></div>
+    <div class="sc"><div class="sv">100</div><div class="sl">Slot tối đa</div></div>
+  </div>
+
+  <div class="feats">
+    <a href="#wiki" class="fc" data-wiki="" onclick="openWiki(event,'')">
+      <div class="fi">⚔️</div>
+      <h3>Survival & PvP</h3>
+      <p>Chế độ sinh tồn cổ điển kết hợp với hệ thống PvP cân bằng. Chiến đấu, xây dựng và khám phá cùng bạn bè.</p>
+    </a>
+    <a href="#wiki" class="fc" data-wiki="w-races" onclick="openWiki(event,'w-races')">
+      <div class="fi">🧬</div>
+      <h3>Hệ thống chủng tộc</h3>
+      <p>8 chủng tộc độc đáo (Dwarf, Angel, Demon, Orc, Elf...) kết hợp 5 nghề nghiệp riêng biệt.</p>
+    </a>
+    <a href="#wiki" class="fc" data-wiki="w-season" onclick="openWiki(event,'w-season')">
+      <div class="fi">🌍</div>
+      <h3>Hệ thống mùa</h3>
+      <p>4 mùa Xuân - Hạ - Thu - Đông ảnh hưởng đến nhiệt độ, cây trồng, mob và thời tiết.</p>
+    </a>
+    <a href="#wiki" class="fc" data-wiki="w-claim" onclick="openWiki(event,'w-claim')">
+      <div class="fi">🏠</div>
+      <h3>Bảo vệ đất</h3>
+      <p>Bảo vệ căn cứ của bạn khỏi grief. Trust bạn bè dễ dàng để cùng xây dựng.</p>
+    </a>
+    <a href="#wiki" class="fc" data-wiki="w-marry" onclick="openWiki(event,'w-marry')">
+      <div class="fi">💕</div>
+      <h3>Kết hôn</h3>
+      <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
+    </a>
+    <a href="#wiki" class="fc" data-wiki="w-spawner" onclick="openWiki(event,'w-spawner')">
+      <div class="fi">⚙️</div>
+      <h3>Spawner farm</h3>
+      <p>Hệ thống spawner ảo không lag, stack nhiều spawner để farm nhanh hơn.</p>
+    </a>
+  </div>
+</section>
+
+<section id="howto">
+  <h2 class="st">HƯỚNG DẪN THAM GIA</h2>
+  <p class="ss">Chọn phiên bản bạn đang chơi để xem hướng dẫn</p>
+  <div class="jcols">
+    <div class="jc">
+      <div class="jh"><div class="ji java">☕</div><div><h3>Java Edition</h3><span>PC / Mac / Linux</span></div></div>
+      <ul class="steps">
+        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Mở Minecraft Java Edition</h4><p>Khởi động Minecraft phiên bản 1.12 - 1.21+ trên máy tính của bạn.</p></div></li>
+        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Vào Multiplayer → Add Server</h4><p>Nhấn "Multiplayer", sau đó chọn "Add Server" để thêm server mới.</p></div></li>
+        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Nhập địa chỉ server</h4><p>Điền <code>zaymc.dnipo.fun:25126</code> vào ô "Server Address" rồi nhấn Done.</p></div></li>
+        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Join Server và chơi thôi!</h4><p>Double-click vào server vừa thêm để kết nối. Chúc bạn chơi vui!</p></div></li>
+      </ul>
+    </div>
+    <div class="jc">
+      <div class="jh"><div class="ji bedrock">📱</div><div><h3>Bedrock Edition</h3><span>Mobile / Windows / Console</span></div></div>
+      <ul class="steps">
+        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Mở Minecraft Bedrock</h4><p>Khởi động Minecraft Bedrock Edition trên thiết bị của bạn.</p></div></li>
+        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Vào Play → Servers → Add Server</h4><p>Nhấn "Play", chọn tab "Servers", sau đó nhấn "Add Server".</p></div></li>
+        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Nhập IP và Port</h4><p>Server Address: <code>zaymc.dnipo.fun</code><br>Port: <code>25371</code></p></div></li>
+        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Save & Join</h4><p>Nhấn "Save" rồi "Play" để vào server. Chúc bạn chơi vui!</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wiki">
+  <h2 class="st">WIKI SERVER</h2>
+  <p class="ss">Tổng hợp các hướng dẫn và tính năng quan trọng trong server</p>
+
+  <input type="radio" name="w" id="w-races" class="wradio" checked>
+  <input type="radio" name="w" id="w-claim" class="wradio">
+  <input type="radio" name="w" id="w-season" class="wradio">
+  <input type="radio" name="w" id="w-marry" class="wradio">
+  <input type="radio" name="w" id="w-spawner" class="wradio">
+
+  <div class="wtabs">
+    <label for="w-races" class="wtab">🧬 Chủng tộc & Nghề</label>
+    <label for="w-claim" class="wtab">🏠 Bảo vệ đất</label>
+    <label for="w-season" class="wtab">🌍 Mùa</label>
+    <label for="w-marry" class="wtab">💕 Kết hôn</label>
+    <label for="w-spawner" class="wtab">⚙️ Spawner</label>
+  </div>
+
+  <div class="wpanels">
+    <div class="wpanel active" id="w-races">
+      <div class="wc">
+        <h3>🧬 Tổng quan</h3>
+        <p>Mỗi người chơi có <strong>1 chủng tộc</strong> và <strong>1 nghề nghiệp</strong>. Mỗi lựa chọn đều có chỉ số, kỹ năng và hạn chế riêng.</p>
+        <h3>🎯 Chọn lần đầu</h3>
+        <ul>
+          <li><strong>Miễn phí 1 lần duy nhất</strong></li>
+          <li>Dùng lệnh: <code>/races</code></li>
+          <li>Chọn tộc → menu nghề tự mở → chọn nghề</li>
+          <li>Chưa chọn xong sẽ bị khóa di chuyển và nhắc mỗi 15 giây</li>
+        </ul>
+        <div class="warn"><p>⚠️ <strong>KHÔNG</strong> đổi được miễn phí. Muốn đổi tộc cần <strong>Đá Đổi Tộc</strong> (do staff hoặc sự kiện cấp). Muốn reset nghề cần Admin hỗ trợ.</p></div>
+        <h3>⚒️ Nghề nghiệp (5 nghề)</h3>
+        <div class="wgrid">
+          <div class="wcard"><h5>ALCHEMIST (Nhà Giả Kim)</h5><p>+15s hiệu ứng thuốc, 2% +1 cấp hiệu ứng.</p></div>
+          <div class="wcard"><h5>FARMER (Nông Dân)</h5><p>5% thêm nông sản, đồ ăn hồi no +5%.</p></div>
+          <div class="wcard"><h5>ENCHANTER (Pháp Sư)</h5><p>2% +1 cấp phép, +5% XP.</p></div>
+          <div class="wcard"><h5>SMITH (Thợ Rèn)</h5><p>Giáp bền +7%, sửa đe rẻ 5%, 2% không tốn NL.</p></div>
+          <div class="wcard"><h5>ARCHER (Cung Thủ)</h5><p>5% không tốn tên, 5% bắn tên phát sáng.</p></div>
+        </div>
+        <h3>👥 Chủng tộc (8 tộc)</h3>
+        <div class="wgrid">
+          <div class="wcard"><h5>DWARF (Người Lùn) — 7❤</h5><p><span class="tag">+ Kháng Cự I</span><span class="tag">+ Đào Nhanh I</span><span class="tag">+ 3% x2 quặng</span></p><p style="margin-top:10px"><span class="tag bad">− Khóa 4 ô túi</span><span class="tag bad">− Sát thương 90%</span></p></div>
+          <div class="wcard"><h5>ANGEL (Thiên Thần)</h5><p><span class="tag">+ Rơi Chậm</span><span class="tag">+ Hồi Máu I</span></p><p style="margin-top:10px"><span class="tag bad">− Ở Nether: yếu, không hồi máu</span></p></div>
+          <div class="wcard"><h5>DEMON (Ác Quỷ)</h5><p><span class="tag">+ Kháng Lửa</span><span class="tag">+ Nether 11❤</span></p><p style="margin-top:10px"><span class="tag bad">− Ngoài Nether 7❤, yếu trước nước</span></p></div>
+          <div class="wcard"><h5>WATER (Người Nước)</h5><p><span class="tag">+ Cá Heo I</span><span class="tag">+ Đào Nhanh I</span></p><p style="margin-top:10px"><span class="tag bad">− Ra nước 30s ngạt thở, Slowness I</span></p></div>
+          <div class="wcard"><h5>ORC — 12❤</h5><p><span class="tag">+ Sức Mạnh I</span><span class="tag">+ Kháng Cự I</span></p><p style="margin-top:10px"><span class="tag bad">− Chậm Chạp I, Đói nhanh I</span></p></div>
+          <div class="wcard"><h5>ELF (Tinh Linh) — 5❤</h5><p><span class="tag">+ Speed I</span><span class="tag">+ Nhảy Cao I</span><span class="tag">+ Cung: Sức Mạnh I</span></p><p style="margin-top:10px"><span class="tag bad">− Máu thấp, nhận sát thương +10%</span></p></div>
+          <div class="wcard"><h5>HUMAN (Con Người)</h5><p><span class="tag">+ +15% XP</span></p><p style="margin-top:10px"><span class="tag bad">− Không buff chiến đấu đặc biệt</span></p></div>
+          <div class="wcard"><h5>ZOMBIE (Thây Ma)</h5><p><span class="tag">+ Không mất độ đói</span><span class="tag">+ Nhìn Đêm</span></p><p style="margin-top:10px"><span class="tag bad">− Yếu Mềm I, trong nước Slowness I</span></p></div>
+        </div>
+        <h3>📜 Lệnh người chơi</h3>
+        <ul>
+          <li><code>/races</code> — Mở menu chọn tộc</li>
+          <li><code>/races list</code> — Danh sách tộc</li>
+          <li><code>/races info &lt;tộc&gt;</code> — Thông tin 1 tộc</li>
+          <li><code>/language &lt;en|ru&gt;</code> — Đổi ngôn ngữ</li>
+        </ul>
+        <div class="hl"><p>💡 Một số item đặc biệt yêu cầu đúng tộc mới dùng được skill. Sai tộc vẫn cầm được nhưng không kích hoạt ability, có thể bị tháo khỏi ô đồ.</p></div>
+      </div>
+    </div>
+
+    <div class="wpanel" id="w-claim">
+      <div class="wc">
+        <h3>🏠 Tổng quan</h3>
+        <p>Server có hệ thống bảo vệ đất giúp chống grief. Chỉ claim được ở <strong>Overworld</strong>. Nether và End <strong>KHÔNG</strong> claim được.</p>
+        <h3>🎒 Chuẩn bị</h3>
+        <ul>
+          <li>Lấy xẻng vàng: <code>/kit claim</code> (hoặc craft: 1 gậy + 2 vàng)</li>
+          <li><strong>Xẻng vàng</strong> = công cụ claim</li>
+          <li><strong>Gậy</strong> = công cụ kiểm tra claim</li>
+        </ul>
+        <h3>📐 Cách claim</h3>
+        <ul>
+          <li><strong>Bước 1:</strong> Cầm xẻng vàng</li>
+          <li><strong>Bước 2:</strong> Chuột phải vào 2 góc đối diện của khu đất muốn claim</li>
+          <li><strong>Bước 3:</strong> Xong! Đất thuộc về bạn</li>
+        </ul>
+        <p>Mỗi block claim tốn 1 claim block. Xem số block còn lại: <code>/claimblocks</code></p>
+        <p>Muốn claim hình chữ nhật: chuột phải góc 1, chuột trái góc 2.</p>
+        <h3>📜 Lệnh cơ bản</h3>
+        <ul>
+          <li><code>/claimblocks</code> — Xem số block còn lại</li>
+          <li><code>/trust &lt;tên&gt;</code> — Cho người khác xây/dùng</li>
+          <li><code>/containertrust &lt;tên&gt;</code> — Cho mở rương, cửa</li>
+          <li><code>/accesstrust &lt;tên&gt;</code> — Cho vào khu vực</li>
+          <li><code>/untrust &lt;tên&gt;</code> — Hủy quyền</li>
+          <li><code>/trustlist</code> — Danh sách người được trust</li>
+          <li><code>/abandonclaim</code> — Bỏ claim đang đứng</li>
+          <li><code>/abandonallclaims</code> — Bỏ tất cả claim</li>
+          <li><code>/claimslist</code> — Danh sách claim của bạn</li>
+        </ul>
+        <h3>💰 Cách lấy claim blocks</h3>
+        <ul>
+          <li>Chơi lâu sẽ tự tăng theo giờ</li>
+          <li>Mua trong shop server</li>
+          <li>Admin tặng (sự kiện)</li>
+        </ul>
+        <div class="hl"><p>💡 Claim tự động chống grief, phá block. Người khác KHÔNG vào được nếu chưa trust. Có thể bán/mua đất với người chơi khác. Đất bỏ hoang lâu có thể bị xóa. Không claim được gần spawn / khu admin.</p></div>
+      </div>
+    </div>
+
+    <div class="wpanel" id="w-season">
+      <div class="wc">
+        <h3>🌍 Tổng quan</h3>
+        <p>Server có 4 mùa: <strong>Xuân — Hạ — Thu — Đông</strong>. Mùa ảnh hưởng nhiệt độ, cây trồng, mob, thời tiết, màu sắc biome.</p>
+        <h3>⏰ Thời gian</h3>
+        <ul>
+          <li>1 mùa = <strong>60 phút</strong></li>
+          <li>1 năm = <strong>4 giờ</strong></li>
+          <li>Xuân: tháng 3-5 | Hạ: 6-8 | Thu: 9-11 | Đông: 12-2</li>
+        </ul>
+        <p>Ngày/đêm theo mùa: Hạ ngày 13p/đêm 7p, Đông ngày 7p/đêm 13p, Xuân/Thu 10/10.</p>
+        <h3>🌡️ Nhiệt độ</h3>
+        <p>Nhiệt độ = 18°C + mùa + môi trường</p>
+        <ul>
+          <li>Xuân: 20°C | Hạ: 25°C | Thu: 16°C | Đông: -7°C</li>
+          <li>Mưa: -4°C | Ban đêm: -5°C</li>
+          <li>Giáp da (mỗi mảnh): +5°C</li>
+          <li>Trong nước: -4 đến -10°C</li>
+          <li>Nether: 40°C</li>
+        </ul>
+        <div class="warn"><p>⚠️ Ngưỡng nguy hiểm: Dưới <strong>-20°C</strong> → Đóng băng, mất máu. Trên <strong>65°C</strong> → Bốc cháy.</p></div>
+        <h3>🌱 Cây trồng</h3>
+        <ul>
+          <li>Xuân ×1.4 | Hạ ×2.0 (nhanh nhất) | Thu ×1.2 | Đông ×0.5 (chậm)</li>
+          <li>Mùa Đông cây chỉ mọc khi: Trong nhà kính, nhiệt độ ≥10°C, đủ ánh sáng</li>
+        </ul>
+        <p>→ Xây nhà kính để trồng mùa Đông.</p>
+        <h3>🐺 Mob theo mùa</h3>
+        <div class="wgrid">
+          <div class="wcard"><h5>🌸 Xuân</h5><p>Cừu, Thỏ, Ong, Gà, Bò, Heo</p></div>
+          <div class="wcard"><h5>☀️ Hạ</h5><p>Ngựa, Bò, Gà, Heo, Mèo rừng, Vẹt</p></div>
+          <div class="wcard"><h5>🍂 Thu</h5><p>Sói, Phù thủy, Nhện, Slime, Phantom</p></div>
+          <div class="wcard"><h5>❄️ Đông</h5><p>Gấu bắc cực, Xương, Zombie, Sói</p></div>
+        </div>
+        <h3>🌦️ Thời tiết</h3>
+        <ul>
+          <li>Tỉ lệ mưa/tuyết: Xuân 60%, Hạ 10%, Thu 50%, Đông 80%</li>
+          <li>Hiệu ứng: Bão tuyết (Đông), Cực quang (Đông ban đêm), Lá rơi (Thu), Sấm sét (Hạ)</li>
+        </ul>
+        <h3>🎉 Sự kiện</h3>
+        <ul>
+          <li>Năm Mới: 1/1 | Lễ Hội Xuân: 1/3 | Hạ Chí: 1/6 | Thu Hoạch: 1/9 | Đông Chí: 1/12</li>
+        </ul>
+        <h3>📜 Lệnh người chơi</h3>
+        <ul>
+          <li><code>/season</code> — Xem mùa hiện tại</li>
+          <li><code>/stats</code> — Thống kê cá nhân</li>
+          <li><code>/toggletemperature</code> — Tắt/bật nhiệt độ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wpanel" id="w-marry">
+      <div class="wc">
+        <h3>💕 Kết hôn</h3>
+        <ul>
+          <li>Cả 2 online, đứng gần nhau (25 block)</li>
+          <li>Tốn 500$ (mỗi người 250$)</li>
+          <li><strong>Bước 1:</strong> <code>/marry marry &lt;tên&gt;</code></li>
+          <li><strong>Bước 2:</strong> Người kia <code>/marry accept</code></li>
+          <li><strong>Bước 3:</strong> Xong! Thông báo toàn server</li>
+        </ul>
+        <p>Từ chối: <code>/marry deny</code> | Hủy: <code>/marry cancel</code></p>
+        <h3>📜 Lệnh cơ bản</h3>
+        <ul>
+          <li><code>/marry kiss</code> — Hôn</li>
+          <li><code>/marry hug</code> — Ôm</li>
+          <li><code>/marry gift</code> — Tặng đồ đang cầm</li>
+          <li><code>/marry chat</code> — Chat riêng</li>
+          <li><code>/marry tp</code> — Dịch chuyển đến vợ/chồng</li>
+          <li><code>/marry sethome</code> — Đặt nhà chung</li>
+          <li><code>/marry home</code> — Về nhà chung</li>
+          <li><code>/marry info</code> — Xem thông tin</li>
+          <li><code>/marry pvp on|off</code> — Bật/tắt PvP</li>
+          <li><code>/marry surname &lt;họ&gt;</code> — Đổi họ chung</li>
+          <li><code>/marry setcolor</code> — Đổi màu tim</li>
+        </ul>
+        <h3>💰 Chi phí</h3>
+        <ul>
+          <li>Kết hôn / Ly hôn: <strong>500$</strong> (mỗi người 250$)</li>
+          <li>Đặt nhà: 200$ | Dịch chuyển: 50$ | Tặng quà: 20$</li>
+          <li>Đổi họ: <strong>Miễn phí</strong></li>
+        </ul>
+        <h3>✨ Buff khi ở gần (10 block)</h3>
+        <ul>
+          <li>XP ×2 khi đánh mob</li>
+          <li>Hồi máu ×2</li>
+        </ul>
+        <h3>💔 Ly hôn</h3>
+        <ul>
+          <li>Dùng lệnh: <code>/marry divorce</code></li>
+          <li>Phải ở gần nhau (25 block)</li>
+          <li>Tốn 500$</li>
+          <li>Xóa họ chung, nhà chung, ba lô chung</li>
+        </ul>
+        <div class="warn"><p>⚠️ <strong>1 vợ/chồng duy nhất.</strong> Không kết hôn với chính mình. Không kết hôn nếu đã có vợ/chồng. Không dùng được khi đang Creative.</p></div>
+      </div>
+    </div>
+
+    <div class="wpanel" id="w-spawner">
+      <div class="wc">
+        <h3>⚙️ Tổng quan</h3>
+        <p>Spawner farm ảo — <strong>không lag, tự động tích đồ</strong>. Stack được cùng loại để farm nhanh hơn.</p>
+        <h3>🎁 Lấy spawner</h3>
+        <ul>
+          <li>Mua từ <code>/shop</code></li>
+          <li>Nhận từ vote, kit, event</li>
+          <li>Drop khi đào spawner</li>
+          <li>Spawner có thể stack cùng loại</li>
+        </ul>
+        <h3>📍 Đặt spawner</h3>
+        <ul>
+          <li>Đặt như khối bình thường</li>
+          <li><strong>Stack:</strong> cầm spawner → chuột phải vào spawner cùng loại đã đặt → tự cộng dồn</li>
+          <li>Chỉ stack được cùng loại mob</li>
+          <li>Phải đặt trong claim của bạn</li>
+        </ul>
+        <h3>🖱️ Cách dùng</h3>
+        <p>Spawner <strong>KHÔNG sinh quái thật</strong> → dùng farm ảo để chống lag.</p>
+        <ul>
+          <li>Chuột phải vào spawner → mở GUI</li>
+          <li><strong>Storage:</strong> xem và lấy item đã farm</li>
+          <li><strong>Claim Items:</strong> lấy đồ ra túi</li>
+          <li><strong>Claim XP:</strong> nhận kinh nghiệm</li>
+          <li>Spawner tự farm khi có người chơi ở gần (16-20 block)</li>
+        </ul>
+        <div class="hl"><p>💡 <strong>Mẹo farm:</strong> Stack càng nhiều → farm càng nhanh. Bán đồ farm được để kiếm tiền nhanh. Thỉnh thoảng mở GUI lấy đồ + XP.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <h2 class="st">SẴN SÀNG CHƯA?</h2>
+  <p class="ss">Copy IP và tham gia ZAYMC Network ngay hôm nay</p>
+  <div style="text-align:center">
+    <div class="tabs">
+      <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java</button>
+      <button class="tab" data-type="bedrock" onclick="switchTab('bedrock')">📱 Bedrock</button>
+    </div>
+    <div class="panel active" id="panel-2-java">
+      <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun:25126')">
+        <div><span class="iplabel">Java IP</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
+        <div class="cicon">📋</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-2-bedrock">
+      <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
+        <div><span class="iplabel">Bedrock IP (Port 25371)</span><span class="ipval">zaymc.dnipo.fun</span></div>
+        <div class="cicon">📋</div>
+      </div>
+    </div>
+    <div class="btns">
+      <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Tham gia Discord</a>
+      <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Tham gia Messenger</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">ZAYMC</div>
+  <p>© 2026 ZAYMC Network. Made with ❤️ by the community.</p>
+  <div class="socs">
+    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="dc" title="Discord">💬</a>
+    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="ms" title="Messenger">📨</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✅ Đã copy!</div>
+
+<script>
+function copyIP(ip){
+  var show=function(){var t=document.getElementById('toast');t.textContent='✅ Đã copy: '+ip;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)};
+  var fb=function(x){var a=document.createElement('textarea');a.value=x;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ip).then(show).catch(function(){fb(ip);show()})}else{fb(ip);show()}
+}
+function switchTab(type){
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.dataset.type===type)});
+  ['panel-java','panel-bedrock','panel-2-java','panel-2-bedrock'].forEach(function(id){
+    var el=document.getElementById(id);if(!el)return;
+    var t=id.indexOf('java')>-1?'java':'bedrock';
+    el.classList.toggle('active',t===type);
+  });
+}
+function openWiki(e,tabId){
+  e.preventDefault();
+  if(tabId){var radio=document.getElementById(tabId);if(radio){radio.checked=true}}
+  var wiki=document.getElementById('wiki');
+  if(wiki){wiki.scrollIntoView({behavior:'smooth',block:'start'})}
+}
+async function fetchStatus(){
+  try{
+    var r=await fetch('https://api.mcsrvstat.us/3/zaymc.dnipo.fun:25126');
+    var d=await r.json();
+    document.getElementById('onlinePlayers').textContent=d.online?((d.players&&d.players.online)||0):'0';
+  }catch(e){document.getElementById('onlinePlayers').textContent='N/A'}
+}
+fetchStatus();setInterval(fetchStatus,60000);
+document.querySelectorAll('.smooth').forEach(function(a){
+  a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
+});
+</script>
+
+<!-- Crisp Chat -->
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7dc42c54-2d47-4399-832a-e8c1b722f488";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+</body>
+</html>
