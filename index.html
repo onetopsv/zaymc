@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ZAYMC Network - Server Minecraft</title>
+<link rel="icon" type="image/png" href="https://files.catbox.moe/sme09o.png">
+<link rel="apple-touch-icon" href="https://files.catbox.moe/sme09o.png">
 <meta name="description" content="ZAYMC Network - Server Minecraft Việt Nam hỗ trợ Java & Bedrock. IP: zaymc.dnipo.fun:25126">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -18,6 +20,8 @@ body{font-family:Poppins,sans-serif;background:var(--d);color:var(--t);overflow-
 .g2{bottom:-100px;right:-100px;width:500px;height:500px;background:var(--a);animation-delay:4s}
 @keyframes fl{50%{transform:translateY(-30px)}}
 nav{position:fixed;top:0;left:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(10px);background:rgba(10,10,26,.7);border-bottom:1px solid rgba(108,92,231,.2)}
+.logo-link{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-img{height:44px;width:44px;border-radius:10px;box-shadow:0 0 20px rgba(0,217,255,.4);object-fit:cover}
 .logo{font-family:'Press Start 2P',cursive;font-size:20px;color:var(--a);text-shadow:0 0 20px var(--a);letter-spacing:2px}
 .nl{display:flex;gap:30px;list-style:none}
 .nl a{color:var(--t);text-decoration:none;font-weight:500;font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:.3s}
@@ -137,14 +141,17 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;transition:.3s}
 .socs a.dc:hover{background:var(--dc);border-color:var(--dc);transform:translateY(-3px);box-shadow:0 10px 30px rgba(88,101,242,.5)}
 .socs a.ms:hover{background:var(--ms);border-color:var(--ms);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,132,255,.5)}
-@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}}
+@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:36px;width:36px}.logo{font-size:16px}}
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="glow g1"></div><div class="glow g2"></div>
 
 <nav>
-  <div class="logo">ZAYMC</div>
+  <a href="#home" class="logo-link">
+    <img src="https://files.catbox.moe/sme09o.png" alt="ZAYMC Network" class="logo-img">
+    <span class="logo">ZAYMC</span>
+  </a>
   <ul class="nl">
     <li><a href="#home" class="smooth">Trang chủ</a></li>
     <li><a href="#features" class="smooth">Tính năng</a></li>
