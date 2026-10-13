@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ZAYMC Network - Server Minecraft</title>
-<link rel="icon" type="image/png" href="https://files.catbox.moe/sme09o.png">
-<link rel="apple-touch-icon" href="https://files.catbox.moe/sme09o.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="ZAYMC Network - Server Minecraft Việt Nam hỗ trợ Java & Bedrock. IP: zaymc.dnipo.fun:25126">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -100,6 +101,19 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .sco h4{margin-bottom:4px;font-size:15px;font-weight:600}
 .sco p{color:var(--td);font-size:13px;line-height:1.6}
 .sco code{background:rgba(0,217,255,.15);color:var(--a);padding:2px 8px;border-radius:6px;font-family:Consolas,monospace;font-size:12px}
+
+/* CHAT WIDGET SECTION */
+.chat-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;max-width:1100px;margin:0 auto;align-items:start}
+.chat-info-side{background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:35px 30px;backdrop-filter:blur(10px)}
+.chat-icon{font-size:50px;margin-bottom:15px}
+.chat-info-side h3{font-size:22px;color:var(--a);margin-bottom:12px;font-weight:700}
+.chat-info-side p{color:var(--td);font-size:14px;line-height:1.8;margin-bottom:20px}
+.chat-feats{list-style:none;margin-bottom:15px}
+.chat-feats li{color:var(--td);font-size:14px;padding:8px 0;border-bottom:1px dashed rgba(108,92,231,.15)}
+.chat-feats li:last-child{border:none}
+.chat-frame-side iframe{background:rgba(26,26,58,.6);min-height:500px;display:block;width:100%}
+
+/* WIKI */
 .wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
 .wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
 .wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
@@ -141,7 +155,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;transition:.3s}
 .socs a.dc:hover{background:var(--dc);border-color:var(--dc);transform:translateY(-3px);box-shadow:0 10px 30px rgba(88,101,242,.5)}
 .socs a.ms:hover{background:var(--ms);border-color:var(--ms);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,132,255,.5)}
-@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:36px;width:36px}.logo{font-size:16px}}
+@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:36px;width:36px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side iframe{height:400px}}
 </style>
 </head>
 <body>
@@ -157,6 +171,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
     <li><a href="#features" class="smooth">Tính năng</a></li>
     <li><a href="#howto" class="smooth">Hướng dẫn</a></li>
     <li><a href="#wiki" class="smooth">Wiki</a></li>
+    <li><a href="#chat" class="smooth">Chat</a></li>
     <li><a href="#join" class="smooth">Tham gia</a></li>
   </ul>
 </nav>
@@ -488,6 +503,32 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
         </ul>
         <div class="hl"><p>💡 <strong>Mẹo farm:</strong> Stack càng nhiều → farm càng nhanh. Bán đồ farm được để kiếm tiền nhanh. Thỉnh thoảng mở GUI lấy đồ + XP.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAT CỘNG ĐỒNG -->
+<section id="chat">
+  <h2 class="st">CHAT CỘNG ĐỒNG</h2>
+  <p class="ss">Nhắn tin trực tiếp với người chơi trong server qua Discord</p>
+  <div class="chat-wrap">
+    <div class="chat-info-side">
+      <div class="chat-icon">💬</div>
+      <h3>Kênh #chat-in-game</h3>
+      <p>Mọi tin nhắn bạn gửi ở đây sẽ hiện trực tiếp trong game Minecraft. Chat với người chơi online ngay trên web!</p>
+      <ul class="chat-feats">
+        <li>▸ Không cần đăng nhập</li>
+        <li>▸ Tin nhắn hiện real-time trong game</li>
+        <li>▸ Kết nối cộng đồng ZAYMC</li>
+      </ul>
+      <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd" style="margin-top:15px;width:100%;justify-content:center">💬 Mở Discord đầy đủ</a>
+    </div>
+    <div class="chat-frame-side">
+      <iframe src="https://discord.com/widget?id=1481261555570966591&theme=dark" 
+              width="100%" height="500" allowtransparency="true" frameborder="0" 
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+              style="border-radius:16px;border:1px solid rgba(108,92,231,.3)">
+      </iframe>
     </div>
   </div>
 </section>
