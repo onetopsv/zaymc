@@ -118,6 +118,26 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .chat-feats li:last-child{border:none}
 .chat-frame-side widgetbot{display:block;width:100%;min-height:520px;border-radius:16px;border:1px solid rgba(108,92,231,.3)}
 
+/* ==== REGISTER FORM ==== */
+.reg-wrap{max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px 35px;backdrop-filter:blur(10px)}
+.reg-wrap h3{font-size:22px;color:var(--a);margin-bottom:10px;text-align:center;font-weight:700}
+.reg-wrap>p{color:var(--td);font-size:14px;text-align:center;margin-bottom:30px;line-height:1.7}
+.reg-group{margin-bottom:20px}
+.reg-group label{display:block;color:var(--t);font-size:13px;font-weight:600;margin-bottom:8px;letter-spacing:.5px}
+.reg-group input{width:100%;padding:14px 18px;border-radius:12px;background:rgba(10,10,26,.7);border:1px solid rgba(108,92,231,.3);color:var(--t);font-family:inherit;font-size:14px;transition:.3s;outline:none}
+.reg-group input:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(0,217,255,.15)}
+.reg-group input::placeholder{color:var(--td);opacity:.5}
+.reg-btn{width:100%;padding:16px;border-radius:12px;background:linear-gradient(135deg,var(--p),var(--a));color:#fff;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;transition:.3s;font-family:inherit;margin-top:10px}
+.reg-btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 15px 40px rgba(108,92,231,.5)}
+.reg-btn:disabled{opacity:.6;cursor:not-allowed}
+.reg-msg{margin-top:20px;padding:14px 18px;border-radius:12px;font-size:14px;line-height:1.6;display:none}
+.reg-msg.show{display:block;animation:fi .3s ease}
+.reg-msg.ok{background:rgba(0,255,157,.1);border:1px solid rgba(0,255,157,.4);color:var(--ag)}
+.reg-msg.err{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.4);color:var(--red)}
+.reg-note{margin-top:25px;padding:14px 18px;background:rgba(0,217,255,.08);border-left:3px solid var(--a);border-radius:8px;font-size:13px;color:var(--td);line-height:1.7}
+.reg-note strong{color:var(--a)}
+
+/* ==== WIKI ==== */
 .wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
 .wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
 .wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
@@ -126,12 +146,14 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 #w-claim:checked~.wtabs label[for=w-claim],
 #w-season:checked~.wtabs label[for=w-season],
 #w-marry:checked~.wtabs label[for=w-marry],
-#w-spawner:checked~.wtabs label[for=w-spawner]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
+#w-spawner:checked~.wtabs label[for=w-spawner],
+#w-rank:checked~.wtabs label[for=w-rank]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
 #w-races:checked~.wpanels #w-races,
 #w-claim:checked~.wpanels #w-claim,
 #w-season:checked~.wpanels #w-season,
 #w-marry:checked~.wpanels #w-marry,
-#w-spawner:checked~.wpanels #w-spawner{display:block;animation:fi .4s ease}
+#w-spawner:checked~.wpanels #w-spawner,
+#w-rank:checked~.wpanels #w-rank{display:block;animation:fi .4s ease}
 .wradio{display:none}
 .wc{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.7),rgba(19,19,43,.5));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px;backdrop-filter:blur(10px)}
 .wc h3{font-size:22px;font-weight:700;color:var(--a);margin-top:30px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(108,92,231,.3);display:flex;align-items:center;gap:10px}
@@ -162,7 +184,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs a.tt:hover{background:var(--tt);border-color:var(--tt);transform:translateY(-3px);box-shadow:0 10px 30px rgba(254,44,85,.5)}
 .socs a.fb:hover{background:var(--fb);border-color:var(--fb);transform:translateY(-3px);box-shadow:0 10px 30px rgba(24,119,242,.5)}
 .socs a.ig:hover{background:var(--ig);border-color:transparent;transform:translateY(-3px);box-shadow:0 10px 30px rgba(220,39,67,.5)}
-@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side widgetbot{min-height:400px}}
+@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side widgetbot{min-height:400px}.reg-wrap{padding:25px 20px}}
 </style>
 </head>
 <body>
@@ -178,6 +200,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
     <li><a href="#chat" class="smooth">Chat</a></li>
     <li><a href="#features" class="smooth">Tính năng</a></li>
     <li><a href="#howto" class="smooth">Hướng dẫn</a></li>
+    <li><a href="#register" class="smooth">Đăng ký</a></li>
     <li><a href="#wiki" class="smooth">Wiki</a></li>
     <li><a href="#join" class="smooth">Tham gia</a></li>
   </ul>
@@ -282,10 +305,10 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       <h3>Kết hôn</h3>
       <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'w-spawner')">
-      <div class="fi">⚙️</div>
-      <h3>Spawner farm</h3>
-      <p>Hệ thống spawner ảo không lag, stack nhiều spawner để farm nhanh hơn.</p>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-rank')">
+      <div class="fi">👑</div>
+      <h3>Hệ thống Rank</h3>
+      <p>Mua rank VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích.</p>
     </a>
   </div>
 </section>
@@ -315,6 +338,46 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
   </div>
 </section>
 
+<!-- ĐĂNG KÝ TÀI KHOẢN -->
+<section id="register">
+  <h2 class="st">ĐĂNG KÝ TÀI KHOẢN</h2>
+  <p class="ss">Tạo tài khoản trước khi vào game — đăng nhập 1 lần là chơi được luôn</p>
+
+  <div class="reg-wrap">
+    <h3>🎮 Tạo tài khoản Minecraft</h3>
+    <p>Nhập tên nhân vật + mật khẩu bên dưới. Sau đó vào game, gõ <code>/login &lt;mật_khẩu&gt;</code> là vào được.</p>
+
+    <form id="regForm" onsubmit="submitRegister(event)">
+      <div class="reg-group">
+        <label>Tên nhân vật (Minecraft Username)</label>
+        <input type="text" id="regUsername" placeholder="Ví dụ: OneTopSV" required minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}">
+      </div>
+
+      <div class="reg-group">
+        <label>Mật khẩu (6-30 ký tự)</label>
+        <input type="password" id="regPassword" placeholder="Nhập mật khẩu..." required minlength="6" maxlength="30">
+      </div>
+
+      <div class="reg-group">
+        <label>Nhập lại mật khẩu</label>
+        <input type="password" id="regPassword2" placeholder="Nhập lại mật khẩu..." required minlength="6" maxlength="30">
+      </div>
+
+      <button type="submit" class="reg-btn" id="regBtn">📝 ĐĂNG KÝ NGAY</button>
+    </form>
+
+    <div class="reg-msg" id="regMsg"></div>
+
+    <div class="reg-note">
+      💡 <strong>Hướng dẫn:</strong>
+      <br>1. Đăng ký xong → vào Minecraft → kết nối server
+      <br>2. Khi vào game, chat sẽ hiện yêu cầu đăng nhập
+      <br>3. Gõ <code>/login &lt;mật_khẩu_bạn_vừa_tạo&gt;</code> để vào chơi
+      <br>4. Lần sau vào lại cũng gõ <code>/login</code> với mật khẩu đó
+    </div>
+  </div>
+</section>
+
 <section id="wiki">
   <h2 class="st">WIKI SERVER</h2>
   <p class="ss">Tổng hợp các hướng dẫn và tính năng quan trọng trong server</p>
@@ -324,6 +387,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
   <input type="radio" name="w" id="w-season" class="wradio">
   <input type="radio" name="w" id="w-marry" class="wradio">
   <input type="radio" name="w" id="w-spawner" class="wradio">
+  <input type="radio" name="w" id="w-rank" class="wradio">
 
   <div class="wtabs">
     <label for="w-races" class="wtab">🧬 Chủng tộc & Nghề</label>
@@ -331,9 +395,11 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
     <label for="w-season" class="wtab">🌍 Mùa</label>
     <label for="w-marry" class="wtab">💕 Kết hôn</label>
     <label for="w-spawner" class="wtab">⚙️ Spawner</label>
+    <label for="w-rank" class="wtab">👑 Rank</label>
   </div>
 
   <div class="wpanels">
+    <!-- PANEL CHỦNG TỘC -->
     <div class="wpanel" id="w-races">
       <div class="wc">
         <h3>🧬 Tổng quan</h3>
@@ -374,6 +440,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       </div>
     </div>
 
+    <!-- PANEL BẢO VỆ ĐẤT -->
     <div class="wpanel" id="w-claim">
       <div class="wc">
         <h3>🏠 Tổng quan</h3>
@@ -413,6 +480,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       </div>
     </div>
 
+    <!-- PANEL MÙA -->
     <div class="wpanel" id="w-season">
       <div class="wc">
         <h3>🌍 Tổng quan</h3>
@@ -465,6 +533,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       </div>
     </div>
 
+    <!-- PANEL KẾT HÔN -->
     <div class="wpanel" id="w-marry">
       <div class="wc">
         <h3>💕 Kết hôn</h3>
@@ -512,6 +581,7 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
       </div>
     </div>
 
+    <!-- PANEL SPAWNER -->
     <div class="wpanel" id="w-spawner">
       <div class="wc">
         <h3>⚙️ Tổng quan</h3>
@@ -542,6 +612,146 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
         <div class="hl"><p>💡 <strong>Mẹo farm:</strong> Stack càng nhiều → farm càng nhanh. Bán đồ farm được để kiếm tiền nhanh. Thỉnh thoảng mở GUI lấy đồ + XP.</p></div>
       </div>
     </div>
+
+    <!-- PANEL RANK -->
+    <div class="wpanel" id="w-rank">
+      <div class="wc">
+        <h3>👑 Tổng quan hệ thống Rank</h3>
+        <p>Server ZAYMC có nhiều cấp bậc (rank) với quyền lợi khác nhau. Bạn có thể mua rank bằng <strong>Xu</strong> tại GUI <code>/shoprank</code> (hoặc <code>/muarank</code>).</p>
+        <p>Rank càng cao → càng nhiều quyền lợi: nhiều home, nhiều baloo, giới hạn bán trên chợ đen cao hơn, và các lệnh tiện ích như <code>/fly</code>, <code>/feed</code>, <code>/heal</code>...</p>
+
+        <h3>🛒 Các Rank có thể mua</h3>
+        <div class="wgrid">
+          <div class="wcard">
+            <h5>⚡ VIP — 10 Xu</h5>
+            <p>
+              <span class="tag">+5.000$</span>
+              <span class="tag">+15.000 B.claims</span>
+              <span class="tag">3 baloo</span>
+              <span class="tag">7 homes</span>
+              <span class="tag">Bán 10 món chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: <code>/nickname</code>, <code>/hat</code>, <code>/trash</code>, <code>/suachua</code></p>
+          </div>
+
+          <div class="wcard">
+            <h5>⚡ VIP+ — 25 Xu</h5>
+            <p>
+              <span class="tag">+150.000$</span>
+              <span class="tag">+35.000 B.claims</span>
+              <span class="tag">4 baloo</span>
+              <span class="tag">10 homes</span>
+              <span class="tag">Bán 15 món chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/ecraft</code>, <code>/eanvil</code></p>
+          </div>
+
+          <div class="wcard">
+            <h5>💎 MVP — 50 Xu</h5>
+            <p>
+              <span class="tag">+200.000$</span>
+              <span class="tag">+50.000 B.claims</span>
+              <span class="tag">6 baloo</span>
+              <span class="tag">15 homes</span>
+              <span class="tag">Bán 25 món chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/echest</code></p>
+          </div>
+
+          <div class="wcard">
+            <h5>💎 MVP+ — 75 Xu</h5>
+            <p>
+              <span class="tag">+500.000$</span>
+              <span class="tag">+150.000 B.claims</span>
+              <span class="tag">8 baloo</span>
+              <span class="tag">20 homes</span>
+              <span class="tag">Bán 35 món chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/feed</code> (5 phút hồi chiêu)</p>
+          </div>
+
+          <div class="wcard">
+            <h5>💎 MVP++ — 100 Xu</h5>
+            <p>
+              <span class="tag">+1.000.000$</span>
+              <span class="tag">+200.000 B.claims</span>
+              <span class="tag">10 baloo</span>
+              <span class="tag">25 homes</span>
+              <span class="tag">Bán 45 món chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/heal</code> (10 phút hồi chiêu)</p>
+          </div>
+
+          <div class="wcard">
+            <h5>🌟 ELITE — 150 Xu</h5>
+            <p>
+              <span class="tag">+2.500.000$</span>
+              <span class="tag">+500.000 B.claims</span>
+              <span class="tag">15 baloo</span>
+              <span class="tag">35 homes</span>
+              <span class="tag">Bán 50 món chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/invsee</code></p>
+          </div>
+
+          <div class="wcard">
+            <h5>🌟 ELITE+ — 200 Xu</h5>
+            <p>
+              <span class="tag">+3.500.000$</span>
+              <span class="tag">+1.500.000 B.claims</span>
+              <span class="tag">25 baloo</span>
+              <span class="tag">45 homes</span>
+              <span class="tag">Bán vô hạn chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/top</code></p>
+          </div>
+
+          <div class="wcard">
+            <h5>👑 GOD — 300 Xu</h5>
+            <p>
+              <span class="tag">+10.000.000$</span>
+              <span class="tag">+3.000.000 B.claims</span>
+              <span class="tag">50 baloo</span>
+              <span class="tag">100 homes</span>
+              <span class="tag">Bán vô hạn chợ đen</span>
+            </p>
+            <p style="margin-top:10px">Lệnh: thêm <code>/fly</code> — bay khắp mọi nơi!</p>
+          </div>
+        </div>
+
+        <h3>🎁 Rank Staff (không bán)</h3>
+        <ul>
+          <li><strong>HELPER</strong> — Hỗ trợ viên: kick, mute, tp, vanish, invsee...</li>
+          <li><strong>ADMIN</strong> — Quản trị viên: gần như toàn quyền server</li>
+          <li><strong>OWNER</strong> — Chủ server: toàn quyền tuyệt đối</li>
+        </ul>
+
+        <h3>💰 Kiếm Xu ở đâu?</h3>
+        <ul>
+          <li>Nạp tiền / donate ủng hộ server</li>
+          <li>Tham gia sự kiện — event nhận Xu</li>
+          <li>Vote cho server hàng ngày</li>
+          <li>Một số nhiệm vụ đặc biệt có thưởng Xu</li>
+        </ul>
+
+        <h3>📜 Hướng dẫn mua Rank</h3>
+        <ul>
+          <li><strong>Bước 1:</strong> Gõ lệnh <code>/shoprank</code> hoặc <code>/muarank</code> trong game</li>
+          <li><strong>Bước 2:</strong> Click vào rank bạn muốn mua</li>
+          <li><strong>Bước 3:</strong> Xác nhận → hệ thống tự trừ Xu và cấp rank</li>
+          <li><strong>Bước 4:</strong> Xong! Gõ <code>/lp user &lt;tên_bạn&gt; info</code> để kiểm tra</li>
+        </ul>
+
+        <div class="hl">
+          <p>💡 <strong>Mẹo:</strong> Nếu bạn mua rank thấp rồi muốn lên rank cao, chỉ cần mua rank cao — hệ thống tự thay thế. Không cần hoàn tiền rank cũ.</p>
+        </div>
+
+        <div class="warn">
+          <p>⚠️ <strong>Lưu ý:</strong> Xu đã dùng mua rank <strong>KHÔNG hoàn lại</strong> kể cả khi bị ban hoặc tự nguyện rời server. Cân nhắc kỹ trước khi mua. Rank staff (Helper/Admin/Owner) không thể mua — chỉ do Admin cấp.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -642,6 +852,58 @@ fetchStatus();setInterval(fetchStatus,60000);
 document.querySelectorAll('.smooth').forEach(function(a){
   a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
 });
+
+// ==== ĐĂNG KÝ TÀI KHOẢN ====
+async function submitRegister(e){
+  e.preventDefault();
+  var username = document.getElementById('regUsername').value.trim();
+  var pass1 = document.getElementById('regPassword').value;
+  var pass2 = document.getElementById('regPassword2').value;
+  var btn = document.getElementById('regBtn');
+  var msg = document.getElementById('regMsg');
+
+  msg.className = 'reg-msg';
+
+  if(pass1 !== pass2){
+    msg.textContent = '❌ Mật khẩu nhập lại không khớp!';
+    msg.className = 'reg-msg err show';
+    return;
+  }
+  if(!/^[A-Za-z0-9_]{3,16}$/.test(username)){
+    msg.textContent = '❌ Tên chỉ được chứa chữ, số, dấu gạch dưới (3-16 ký tự).';
+    msg.className = 'reg-msg err show';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ ĐANG XỬ LÝ...';
+  msg.textContent = 'Đang gửi yêu cầu đăng ký lên server...';
+  msg.className = 'reg-msg ok show';
+
+  try {
+    var res = await fetch('/api/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: username, password: pass1})
+    });
+    var data = await res.json();
+
+    if(res.ok && data.success){
+      msg.innerHTML = '✅ <strong>Đăng ký thành công!</strong><br>Tên: <code>' + username + '</code><br>Bây giờ vào game và gõ: <code>/login ' + pass1 + '</code>';
+      msg.className = 'reg-msg ok show';
+      document.getElementById('regForm').reset();
+    } else {
+      msg.textContent = '❌ ' + (data.message || 'Đăng ký thất bại, thử lại sau.');
+      msg.className = 'reg-msg err show';
+    }
+  } catch(err) {
+    msg.textContent = '❌ Không kết nối được server. Vui lòng thử lại sau.';
+    msg.className = 'reg-msg err show';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📝 ĐĂNG KÝ NGAY';
+  }
+}
 </script>
 
 <!-- WidgetBot Script -->
