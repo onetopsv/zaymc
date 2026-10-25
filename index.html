@@ -141,6 +141,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
 .wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
 .wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
+.wtab.active{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
 .wpanel{display:none}
 #w-races:checked~.wtabs label[for=w-races],
 #w-claim:checked~.wtabs label[for=w-claim],
@@ -343,30 +344,30 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
   <div class="feats">
     <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">⚔️</div>
-      <h3>Survival & PvP</h3>
-      <p>Chế độ sinh tồn cổ điển kết hợp với hệ thống PvP cân bằng. Chiến đấu, xây dựng và khám phá cùng bạn bè.</p>
+      <h3>Tu luyện & Đột phá</h3>
+      <p>Tích lũy linh khí, nâng cao cảnh giới và thử sức với những lần đột phá.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'w-races')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">🧬</div>
-      <h3>Hệ thống chủng tộc</h3>
-      <p>8 chủng tộc độc đáo (Dwarf, Angel, Demon, Orc, Elf...) kết hợp 5 nghề nghiệp riêng biệt.</p>
+      <h3>Nhập môn tu tiên</h3>
+      <p>Bắt đầu hành trình, xem thông tin nhân vật và làm quen với các lệnh cơ bản.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'w-season')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">🌍</div>
-      <h3>Hệ thống mùa</h3>
-      <p>4 mùa Xuân - Hạ - Thu - Đông ảnh hưởng đến nhiệt độ, cây trồng, mob và thời tiết.</p>
+      <h3>Cảnh giới & Phi thăng</h3>
+      <p>Khám phá các giới, chuẩn bị thiên kiếp và tiến lên cảnh giới cao hơn.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'w-claim')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">🏠</div>
-      <h3>Bảo vệ đất</h3>
-      <p>Bảo vệ căn cứ của bạn khỏi grief. Trust bạn bè dễ dàng để cùng xây dựng.</p>
+      <h3>Công pháp & Chiêu pháp</h3>
+      <p>Lĩnh ngộ sách, vận hành công pháp và sử dụng chiêu pháp trong chiến đấu.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'w-marry')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">💕</div>
       <h3>Kết hôn</h3>
       <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'w-rank')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
       <div class="fi">👑</div>
       <h3>Hệ thống Rank</h3>
       <p>Mua rank VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích.</p>
@@ -440,379 +441,113 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 </section>
 
 <section id="wiki">
-  <h2 class="st">WIKI SERVER</h2>
-  <p class="ss">Tổng hợp các hướng dẫn và tính năng quan trọng trong server</p>
-
-  <input type="radio" name="w" id="w-races" class="wradio" checked>
-  <input type="radio" name="w" id="w-claim" class="wradio">
-  <input type="radio" name="w" id="w-season" class="wradio">
-  <input type="radio" name="w" id="w-marry" class="wradio">
-  <input type="radio" name="w" id="w-spawner" class="wradio">
-  <input type="radio" name="w" id="w-rank" class="wradio">
+  <h2 class="st">WIKI TU TIÊN</h2>
+  <p class="ss">Cẩm nang dành cho đạo hữu: từ nhập môn, tu luyện đến phi thăng thượng giới</p>
 
   <div class="wtabs">
-    <label for="w-races" class="wtab">🧬 Chủng tộc & Nghề</label>
-    <label for="w-claim" class="wtab">🏠 Bảo vệ đất</label>
-    <label for="w-season" class="wtab">🌍 Mùa</label>
-    <label for="w-marry" class="wtab">💕 Kết hôn</label>
-    <label for="w-spawner" class="wtab">⚙️ Spawner</label>
-    <label for="w-rank" class="wtab">👑 Rank</label>
+    <div class="wtab active">✨ Tu Tiên</div>
   </div>
 
   <div class="wpanels">
-    <!-- PANEL CHỦNG TỘC -->
-    <div class="wpanel" id="w-races">
+    <div class="wpanel" id="w-tu-tien" style="display:block;animation:fi .4s ease">
       <div class="wc">
-        <h3>🧬 Tổng quan</h3>
-        <p>Mỗi người chơi có <strong>1 chủng tộc</strong> và <strong>1 nghề nghiệp</strong>. Mỗi lựa chọn đều có chỉ số, kỹ năng và hạn chế riêng.</p>
-        <h3>🎯 Chọn lần đầu</h3>
-        <ul>
-          <li><strong>Miễn phí 1 lần duy nhất</strong></li>
-          <li>Dùng lệnh: <code>/race</code></li>
-          <li>Chọn tộc → menu nghề tự mở → chọn nghề</li>
-          <li>Chưa chọn xong sẽ bị khóa di chuyển và nhắc mỗi 15 giây</li>
-        </ul>
-        <div class="warn"><p>⚠️ <strong>KHÔNG</strong> đổi được miễn phí. Muốn đổi tộc cần <strong>Đá Đổi Tộc</strong> (do staff hoặc sự kiện cấp). Muốn reset nghề cần Admin hỗ trợ.</p></div>
-        <h3>⚒️ Nghề nghiệp (5 nghề)</h3>
-        <div class="wgrid">
-          <div class="wcard"><h5>ALCHEMIST (Nhà Giả Kim)</h5><p>+15s hiệu ứng thuốc, 2% +1 cấp hiệu ứng.</p></div>
-          <div class="wcard"><h5>FARMER (Nông Dân)</h5><p>5% thêm nông sản, đồ ăn hồi no +5%.</p></div>
-          <div class="wcard"><h5>ENCHANTER (Pháp Sư)</h5><p>2% +1 cấp phép, +5% XP.</p></div>
-          <div class="wcard"><h5>SMITH (Thợ Rèn)</h5><p>Giáp bền +7%, sửa đe rẻ 5%, 2% không tốn NL.</p></div>
-          <div class="wcard"><h5>ARCHER (Cung Thủ)</h5><p>5% không tốn tên, 5% bắn tên phát sáng.</p></div>
-        </div>
-        <h3>👥 Chủng tộc (8 tộc)</h3>
-        <div class="wgrid">
-          <div class="wcard"><h5>DWARF (Người Lùn) — 7❤</h5><p><span class="tag">+ Kháng Cự I</span><span class="tag">+ Đào Nhanh I</span><span class="tag">+ 3% x2 quặng</span></p><p style="margin-top:10px"><span class="tag bad">− Khóa 4 ô túi</span><span class="tag bad">− Sát thương 90%</span></p></div>
-          <div class="wcard"><h5>ANGEL (Thiên Thần)</h5><p><span class="tag">+ Rơi Chậm</span><span class="tag">+ Hồi Máu I</span></p><p style="margin-top:10px"><span class="tag bad">− Ở Nether: yếu, không hồi máu</span></p></div>
-          <div class="wcard"><h5>DEMON (Ác Quỷ)</h5><p><span class="tag">+ Kháng Lửa</span><span class="tag">+ Nether 11❤</span></p><p style="margin-top:10px"><span class="tag bad">− Ngoài Nether 7❤, yếu trước nước</span></p></div>
-          <div class="wcard"><h5>WATER (Người Nước)</h5><p><span class="tag">+ Cá Heo I</span><span class="tag">+ Đào Nhanh I</span></p><p style="margin-top:10px"><span class="tag bad">− Ra nước 30s ngạt thở, Slowness I</span></p></div>
-          <div class="wcard"><h5>ORC — 12❤</h5><p><span class="tag">+ Sức Mạnh I</span><span class="tag">+ Kháng Cự I</span></p><p style="margin-top:10px"><span class="tag bad">− Chậm Chạp I, Đói nhanh I</span></p></div>
-          <div class="wcard"><h5>ELF (Tinh Linh) — 5❤</h5><p><span class="tag">+ Speed I</span><span class="tag">+ Nhảy Cao I</span><span class="tag">+ Cung: Sức Mạnh I</span></p><p style="margin-top:10px"><span class="tag bad">− Máu thấp, nhận sát thương +10%</span></p></div>
-          <div class="wcard"><h5>HUMAN (Con Người)</h5><p><span class="tag">+ +15% XP</span></p><p style="margin-top:10px"><span class="tag bad">− Không buff chiến đấu đặc biệt</span></p></div>
-          <div class="wcard"><h5>ZOMBIE (Thây Ma)</h5><p><span class="tag">+ Không mất độ đói</span><span class="tag">+ Nhìn Đêm</span></p><p style="margin-top:10px"><span class="tag bad">− Yếu Mềm I, trong nước Slowness I</span></p></div>
-        </div>
-        <h3>📜 Lệnh người chơi</h3>
-        <ul>
-          <li><code>/race</code> — Mở menu chọn tộc</li>
-          <li><code>/race info</code> — Danh sách tộc</li>
-        </ul>
-        <div class="hl"><p>💡 Một số item đặc biệt yêu cầu đúng tộc mới dùng được skill. Sai tộc vẫn cầm được nhưng không kích hoạt ability, có thể bị tháo khỏi ô đồ.</p></div>
+
+<h3>🌱 Bắt đầu con đường tu tiên</h3>
+<p>Chào mừng đạo hữu đến với thế giới tu tiên. Hãy bắt đầu bằng việc nhập môn, sau đó tu luyện để tích lũy linh khí và nâng cao cảnh giới.</p>
+<h3>📜 Lệnh cần biết</h3>
+<ul>
+<li><code>/nhapmon</code> — Bắt đầu con đường tu luyện.</li>
+<li><code>/tutien</code> — Mở menu lệnh tu tiên.</li>
+<li><code>/tutien thongtin</code> — Xem cảnh giới, tầng, linh khí, máu và giới hiện tại.</li>
+<li><code>/hud</code> — Bật hoặc tắt hiển thị máu và linh khí trên hotbar.</li>
+</ul>
+<h3>🧭 Lộ trình cơ bản</h3>
+<div class="wgrid">
+<div class="wcard"><h5>1. Nhập môn</h5><p>Dùng <code>/nhapmon</code> để bắt đầu hành trình.</p></div>
+<div class="wcard"><h5>2. Ngồi thiền</h5><p>Dùng <code>/tuluyen</code> để hấp thu linh khí.</p></div>
+<div class="wcard"><h5>3. Đột phá</h5><p>Khi đủ điều kiện, dùng <code>/dotpha</code> để thử đột phá.</p></div>
+<div class="wcard"><h5>4. Khám phá</h5><p>Thu thập vật phẩm, học công pháp và chuẩn bị cho những thử thách mạnh hơn.</p></div>
+</div>
+<div class="hl"><p>💡 Hãy dùng <code>/tutien help</code> trong game để xem danh sách lệnh người chơi hiện có.</p></div>
+
+
+<h3>🧘 Tu luyện và tích lũy linh khí</h3>
+<ul>
+<li>Dùng <code>/tuluyen</code> để bắt đầu hoặc dừng ngồi thiền hấp thu linh khí.</li>
+<li>Dùng <code>/tutien thongtin</code> để kiểm tra linh khí và tiến trình hiện tại.</li>
+<li>Tu luyện liên tục quá lâu có nguy cơ tẩu hỏa nhập ma, gây vỡ đan điền và tụt một cảnh giới.</li>
+</ul>
+<h3>⚡ Đột phá</h3>
+<ul>
+<li>Dùng <code>/dotpha</code> để đột phá tầng hoặc cảnh giới khi đã đủ điều kiện.</li>
+<li>Từ Trúc Cơ trở đi, đột phá có thể yêu cầu độ lôi kiếp.</li>
+<li>Đột phá có rủi ro; hãy đọc thông báo trong game và chuẩn bị trước khi thực hiện.</li>
+</ul>
+<h3>☯️ Tẩu hỏa nhập ma</h3>
+<p>Nếu gặp tình trạng đan điền bị vỡ, hãy tìm vật phẩm Đan Điền để phục hồi theo hướng dẫn trong game. Tránh ngồi thiền liên tục quá lâu.</p>
+
+
+<h3>☁️ Cảnh giới và các giới</h3>
+<p>Đạo hữu tiến bộ qua các tầng và cảnh giới bằng cách tích lũy linh khí rồi đột phá. Hãy kiểm tra tiến trình bằng <code>/tutien thongtin</code>.</p>
+<h3>🌌 Phi thăng</h3>
+<ul>
+<li><code>/phithang</code> — Thử phi thăng lên giới trên khi đủ điều kiện.</li>
+<li><code>/hagioi</code> — Đi xuống giới dưới.</li>
+<li>Lần đầu phi thăng có thể phải trải qua thiên kiếp; thiên kiếp có thể gây tử vong.</li>
+<li>Server có Hạ Giới, Tiên Giới và Thần Giới; hãy theo dõi thông báo trong game để biết điều kiện cụ thể.</li>
+</ul>
+<div class="warn"><p>⚠️ Đừng dùng lệnh phi thăng hoặc hạ giới tùy tiện khi chưa chuẩn bị. Nếu chưa rõ điều kiện, hãy hỏi đội ngũ hỗ trợ của server.</p></div>
+<h3>🧭 Dịch chuyển ngẫu nhiên</h3>
+<p>Ở Tiên Giới hoặc Thần Giới, lệnh <code>/rtp</code> mở menu chọn thế giới thường, Nether hoặc End thuộc giới đó.</p>
+
+
+<h3>⚔️ Công pháp và chiêu pháp</h3>
+<p>Công pháp và chiêu thức giúp đạo hữu tăng khả năng chiến đấu. Một số sách cần được lĩnh ngộ trước khi sử dụng.</p>
+<h3>📖 Học kỹ năng</h3>
+<ul>
+<li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để bắt đầu lĩnh ngộ.</li>
+<li><code>/tutien chieuthuc</code> — Xem danh sách chiêu thức đã học.</li>
+<li><code>/chieuphap</code> — Xem các chiêu pháp đã học.</li>
+<li><code>/chieuphap &lt;tên&gt; bat</code> hoặc <code>/chieuphap &lt;tên&gt; tat</code> — Bật hoặc tắt một chiêu pháp.</li>
+<li><code>/congphap</code> — Xem công pháp bị động đã học.</li>
+<li><code>/congphap &lt;tên&gt;</code> — Vận hành công pháp; <code>/congphap tat</code> để dừng.</li>
+</ul>
+<h3>🗡️ Xuất chiêu</h3>
+<p>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Chiêu mạnh hơn có thể cần giữ lâu hơn. Dùng <strong>Shift + F</strong> để đổi chiêu theo hướng dẫn trong game.</p>
+
+
+<h3>🌿 Linh thảo và hạt giống</h3>
+<ul>
+<li><code>/tutien hatgiong</code> — Nhận các loại hạt giống linh thảo được hỗ trợ trong server.</li>
+<li>Trồng và thu hoạch linh thảo để phục vụ hệ thống chế tạo.</li>
+<li>Vật phẩm và công thức cụ thể có thể xem trong menu hoặc hỏi người chơi có kinh nghiệm.</li>
+</ul>
+<h3>⚗️ Luyện đan</h3>
+<ul>
+<li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li>
+<li>Chuẩn bị nguyên liệu theo công thức hiển thị trong game trước khi luyện.</li>
+<li>Đan dược có thể hỗ trợ hành trình tu luyện; hãy đọc mô tả vật phẩm để biết công dụng và cách dùng.</li>
+</ul>
+<div class="hl"><p>💡 Giữ lại linh thảo và vật phẩm đặc biệt cho đến khi biết công thức cần dùng; không phải vật phẩm nào cũng có thể thay thế cho nhau.</p></div>
+
+
+<h3>🏯 Bí cảnh</h3>
+<ul>
+<li><code>/tutien biccanh</code> — Xem thông tin lối vào, số tầng và trạng thái bí cảnh.</li>
+<li><code>/tutien vao-bicanh</code> — Vào bí cảnh khi đủ điều kiện.</li>
+<li>Chuẩn bị trang bị, vật phẩm hồi phục và kiểm tra thông tin trước khi tiến vào.</li>
+</ul>
+<h3>🐉 Boss và khám phá</h3>
+<p>Boss và các khu vực đặc biệt là cơ hội thử sức, phối hợp cùng người chơi khác và tìm kiếm phần thưởng. Quan sát thông báo trong game để biết sự kiện hoặc hướng dẫn liên quan.</p>
+<h3>🆘 Khi cần hỗ trợ</h3>
+<ul>
+<li>Dùng <code>/tutien help</code> để xem lệnh người chơi.</li>
+<li>Dùng <code>/tutien thongtin</code> để kiểm tra trạng thái nhân vật.</li>
+<li>Nếu gặp lỗi hoặc không rõ điều kiện, hãy liên hệ staff và gửi kèm thông báo trong game.</li>
+</ul>
+
       </div>
     </div>
-
-    <!-- PANEL BẢO VỆ ĐẤT -->
-    <div class="wpanel" id="w-claim">
-      <div class="wc">
-        <h3>🏠 Tổng quan</h3>
-        <p>Server có hệ thống bảo vệ đất giúp chống grief. Chỉ claim được ở <strong>Overworld</strong>. Nether và End <strong>KHÔNG</strong> claim được.</p>
-        <h3>🎒 Chuẩn bị</h3>
-        <ul>
-          <li>Lấy xẻng vàng: <code>/kit</code> (hoặc craft: 1 gậy + 2 vàng)</li>
-          <li><strong>Xẻng vàng</strong> = công cụ claim</li>
-          <li><strong>Gậy</strong> = công cụ kiểm tra claim</li>
-        </ul>
-        <h3>📐 Cách claim</h3>
-        <ul>
-          <li><strong>Bước 1:</strong> Cầm xẻng vàng</li>
-          <li><strong>Bước 2:</strong> Chuột phải vào 2 góc đối diện của khu đất muốn claim</li>
-          <li><strong>Bước 3:</strong> Xong! Đất thuộc về bạn</li>
-        </ul>
-        <p>Mỗi block claim tốn 1 claim block. Số block còn lại hiển thị trực tiếp trên <strong>scoreboard</strong> góc phải màn hình.</p>
-        <p>Muốn claim hình chữ nhật: chuột phải góc 1, chuột trái góc 2.</p>
-        <h3>📜 Lệnh cơ bản</h3>
-        <ul>
-          <li><code>/trust &lt;tên&gt;</code> — Cho người khác xây/dùng</li>
-          <li><code>/containertrust &lt;tên&gt;</code> — Cho mở rương, cửa</li>
-          <li><code>/accesstrust &lt;tên&gt;</code> — Cho vào khu vực</li>
-          <li><code>/untrust &lt;tên&gt;</code> — Hủy quyền</li>
-          <li><code>/trustlist</code> — Danh sách người được trust</li>
-          <li><code>/abandonclaim</code> — Bỏ claim đang đứng</li>
-          <li><code>/abandonallclaims</code> — Bỏ tất cả claim</li>
-          <li><code>/claimslist</code> — Danh sách claim của bạn</li>
-        </ul>
-        <h3>💰 Cách lấy claim blocks</h3>
-        <ul>
-          <li>Chơi lâu sẽ tự tăng theo giờ</li>
-          <li>Mua trong shop server</li>
-          <li>Admin tặng (sự kiện)</li>
-        </ul>
-        <div class="hl"><p>💡 Claim tự động chống grief, phá block. Người khác KHÔNG vào được nếu chưa trust. Có thể bán/mua đất với người chơi khác. Đất bỏ hoang lâu có thể bị xóa. Không claim được gần spawn / khu admin.</p></div>
-      </div>
-    </div>
-
-    <!-- PANEL MÙA -->
-    <div class="wpanel" id="w-season">
-      <div class="wc">
-        <h3>🌍 Tổng quan</h3>
-        <p>Server có 4 mùa: <strong>Xuân — Hạ — Thu — Đông</strong>. Mùa ảnh hưởng nhiệt độ, cây trồng, mob, thời tiết, màu sắc biome.</p>
-        <h3>⏰ Thời gian</h3>
-        <ul>
-          <li>1 mùa = <strong>60 phút</strong></li>
-          <li>1 năm = <strong>4 giờ</strong></li>
-          <li>Xuân: tháng 3-5 | Hạ: 6-8 | Thu: 9-11 | Đông: 12-2</li>
-        </ul>
-        <p>Ngày/đêm theo mùa: Hạ ngày 13p/đêm 7p, Đông ngày 7p/đêm 13p, Xuân/Thu 10/10.</p>
-        <h3>🌡️ Nhiệt độ</h3>
-        <p>Nhiệt độ = 18°C + mùa + môi trường</p>
-        <ul>
-          <li>Xuân: 20°C | Hạ: 25°C | Thu: 16°C | Đông: -7°C</li>
-          <li>Mưa: -4°C | Ban đêm: -5°C</li>
-          <li>Giáp da (mỗi mảnh): +5°C</li>
-          <li>Trong nước: -4 đến -10°C</li>
-          <li>Nether: 40°C</li>
-        </ul>
-        <div class="warn"><p>⚠️ Ngưỡng nguy hiểm: Dưới <strong>-20°C</strong> → Đóng băng, mất máu. Trên <strong>65°C</strong> → Bốc cháy.</p></div>
-        <h3>🌱 Cây trồng</h3>
-        <ul>
-          <li>Xuân ×1.4 | Hạ ×2.0 (nhanh nhất) | Thu ×1.2 | Đông ×0.5 (chậm)</li>
-          <li>Mùa Đông cây chỉ mọc khi: Trong nhà kính, nhiệt độ ≥10°C, đủ ánh sáng</li>
-        </ul>
-        <p>→ Xây nhà kính để trồng mùa Đông.</p>
-        <h3>🐺 Mob theo mùa</h3>
-        <div class="wgrid">
-          <div class="wcard"><h5>🌸 Xuân</h5><p>Cừu, Thỏ, Ong, Gà, Bò, Heo</p></div>
-          <div class="wcard"><h5>☀️ Hạ</h5><p>Ngựa, Bò, Gà, Heo, Mèo rừng, Vẹt</p></div>
-          <div class="wcard"><h5>🍂 Thu</h5><p>Sói, Phù thủy, Nhện, Slime, Phantom</p></div>
-          <div class="wcard"><h5>❄️ Đông</h5><p>Gấu bắc cực, Xương, Zombie, Sói</p></div>
-        </div>
-        <h3>🌦️ Thời tiết</h3>
-        <ul>
-          <li>Tỉ lệ mưa/tuyết: Xuân 60%, Hạ 10%, Thu 50%, Đông 80%</li>
-          <li>Hiệu ứng: Bão tuyết (Đông), Cực quang (Đông ban đêm), Lá rơi (Thu), Sấm sét (Hạ)</li>
-        </ul>
-        <h3>🎉 Sự kiện</h3>
-        <ul>
-          <li>Năm Mới: 1/1 | Lễ Hội Xuân: 1/3 | Hạ Chí: 1/6 | Thu Hoạch: 1/9 | Đông Chí: 1/12</li>
-        </ul>
-        <h3>📜 Lệnh người chơi</h3>
-        <ul>
-          <li><code>/season</code> — Xem mùa hiện tại</li>
-          <li><code>/stats</code> — Thống kê cá nhân</li>
-          <li><code>/toggletemperature</code> — Tắt/bật nhiệt độ</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- PANEL KẾT HÔN -->
-    <div class="wpanel" id="w-marry">
-      <div class="wc">
-        <h3>💕 Kết hôn</h3>
-        <ul>
-          <li>Cả 2 online, đứng gần nhau (25 block)</li>
-          <li>Tốn 500$ (mỗi người 250$)</li>
-          <li><strong>Bước 1:</strong> <code>/marry marry &lt;tên&gt;</code></li>
-          <li><strong>Bước 2:</strong> Người kia <code>/marry accept</code></li>
-          <li><strong>Bước 3:</strong> Xong! Thông báo toàn server</li>
-        </ul>
-        <p>Từ chối: <code>/marry deny</code> | Hủy: <code>/marry cancel</code></p>
-        <h3>📜 Lệnh cơ bản</h3>
-        <ul>
-          <li><code>/marry kiss</code> — Hôn</li>
-          <li><code>/marry hug</code> — Ôm</li>
-          <li><code>/marry gift</code> — Tặng đồ đang cầm</li>
-          <li><code>/marry chat</code> — Chat riêng</li>
-          <li><code>/marry tp</code> — Dịch chuyển đến vợ/chồng</li>
-          <li><code>/marry sethome</code> — Đặt nhà chung</li>
-          <li><code>/marry home</code> — Về nhà chung</li>
-          <li><code>/marry info</code> — Xem thông tin</li>
-          <li><code>/marry pvp on|off</code> — Bật/tắt PvP</li>
-          <li><code>/marry surname &lt;họ&gt;</code> — Đổi họ chung</li>
-          <li><code>/marry setcolor</code> — Đổi màu tim</li>
-        </ul>
-        <h3>💰 Chi phí</h3>
-        <ul>
-          <li>Kết hôn / Ly hôn: <strong>500$</strong> (mỗi người 250$)</li>
-          <li>Đặt nhà: 200$ | Dịch chuyển: 50$ | Tặng quà: 20$</li>
-          <li>Đổi họ: <strong>Miễn phí</strong></li>
-        </ul>
-        <h3>✨ Buff khi ở gần (10 block)</h3>
-        <ul>
-          <li>XP ×2 khi đánh mob</li>
-          <li>Hồi máu ×2</li>
-        </ul>
-        <h3>💔 Ly hôn</h3>
-        <ul>
-          <li>Dùng lệnh: <code>/marry divorce</code></li>
-          <li>Phải ở gần nhau (25 block)</li>
-          <li>Tốn 500$</li>
-          <li>Xóa họ chung, nhà chung, ba lô chung</li>
-        </ul>
-        <div class="warn"><p>⚠️ <strong>1 vợ/chồng duy nhất.</strong> Không kết hôn với chính mình. Không kết hôn nếu đã có vợ/chồng. Không dùng được khi đang Creative.</p></div>
-      </div>
-    </div>
-
-    <!-- PANEL SPAWNER -->
-    <div class="wpanel" id="w-spawner">
-      <div class="wc">
-        <h3>⚙️ Tổng quan</h3>
-        <p>Spawner farm ảo — <strong>không lag, tự động tích đồ</strong>. Stack được cùng loại để farm nhanh hơn.</p>
-        <h3>🎁 Lấy spawner</h3>
-        <ul>
-          <li>Mua từ <code>/shop</code></li>
-          <li>Nhận từ vote, kit, event</li>
-          <li>Drop khi đào spawner</li>
-          <li>Spawner có thể stack cùng loại</li>
-        </ul>
-        <h3>📍 Đặt spawner</h3>
-        <ul>
-          <li>Đặt như khối bình thường</li>
-          <li><strong>Stack:</strong> cầm spawner → chuột phải vào spawner cùng loại đã đặt → tự cộng dồn</li>
-          <li>Chỉ stack được cùng loại mob</li>
-          <li>Phải đặt trong claim của bạn</li>
-        </ul>
-        <h3>🖱️ Cách dùng</h3>
-        <p>Spawner <strong>KHÔNG sinh quái thật</strong> → dùng farm ảo để chống lag.</p>
-        <ul>
-          <li>Chuột phải vào spawner → mở GUI</li>
-          <li><strong>Storage:</strong> xem và lấy item đã farm</li>
-          <li><strong>Claim Items:</strong> lấy đồ ra túi</li>
-          <li><strong>Claim XP:</strong> nhận kinh nghiệm</li>
-          <li>Spawner tự farm khi có người chơi ở gần (16-20 block)</li>
-        </ul>
-        <div class="hl"><p>💡 <strong>Mẹo farm:</strong> Stack càng nhiều → farm càng nhanh. Bán đồ farm được để kiếm tiền nhanh. Thỉnh thoảng mở GUI lấy đồ + XP.</p></div>
-      </div>
-    </div>
-
-    <!-- PANEL RANK -->
-    <div class="wpanel" id="w-rank">
-      <div class="wc">
-        <h3>👑 Tổng quan hệ thống Rank</h3>
-        <p>Server ZAYMC có nhiều cấp bậc (rank) với quyền lợi khác nhau. Bạn có thể mua rank bằng <strong>Xu</strong> tại GUI <code>/shoprank</code> (hoặc <code>/muarank</code>).</p>
-        <p>Rank càng cao → càng nhiều quyền lợi: nhiều home, nhiều baloo, giới hạn bán trên chợ đen cao hơn, và các lệnh tiện ích như <code>/fly</code>, <code>/feed</code>, <code>/heal</code>...</p>
-
-        <h3>🛒 Các Rank có thể mua</h3>
-        <div class="wgrid">
-          <div class="wcard">
-            <h5>⚡ VIP — 10 Xu</h5>
-            <p>
-              <span class="tag">+5.000$</span>
-              <span class="tag">+15.000 B.claims</span>
-              <span class="tag">3 baloo</span>
-              <span class="tag">7 homes</span>
-              <span class="tag">Bán 10 món chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: <code>/nickname</code>, <code>/hat</code>, <code>/trash</code>, <code>/suachua</code></p>
-          </div>
-
-          <div class="wcard">
-            <h5>⚡ VIP+ — 25 Xu</h5>
-            <p>
-              <span class="tag">+150.000$</span>
-              <span class="tag">+35.000 B.claims</span>
-              <span class="tag">4 baloo</span>
-              <span class="tag">10 homes</span>
-              <span class="tag">Bán 15 món chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/ecraft</code>, <code>/eanvil</code></p>
-          </div>
-
-          <div class="wcard">
-            <h5>💎 MVP — 50 Xu</h5>
-            <p>
-              <span class="tag">+200.000$</span>
-              <span class="tag">+50.000 B.claims</span>
-              <span class="tag">6 baloo</span>
-              <span class="tag">15 homes</span>
-              <span class="tag">Bán 25 món chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/echest</code></p>
-          </div>
-
-          <div class="wcard">
-            <h5>💎 MVP+ — 75 Xu</h5>
-            <p>
-              <span class="tag">+500.000$</span>
-              <span class="tag">+150.000 B.claims</span>
-              <span class="tag">8 baloo</span>
-              <span class="tag">20 homes</span>
-              <span class="tag">Bán 35 món chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/feed</code> (5 phút hồi chiêu)</p>
-          </div>
-
-          <div class="wcard">
-            <h5>💎 MVP++ — 100 Xu</h5>
-            <p>
-              <span class="tag">+1.000.000$</span>
-              <span class="tag">+200.000 B.claims</span>
-              <span class="tag">10 baloo</span>
-              <span class="tag">25 homes</span>
-              <span class="tag">Bán 45 món chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/heal</code> (10 phút hồi chiêu)</p>
-          </div>
-
-          <div class="wcard">
-            <h5>🌟 ELITE — 150 Xu</h5>
-            <p>
-              <span class="tag">+2.500.000$</span>
-              <span class="tag">+500.000 B.claims</span>
-              <span class="tag">15 baloo</span>
-              <span class="tag">35 homes</span>
-              <span class="tag">Bán 50 món chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/invsee</code></p>
-          </div>
-
-          <div class="wcard">
-            <h5>🌟 ELITE+ — 200 Xu</h5>
-            <p>
-              <span class="tag">+3.500.000$</span>
-              <span class="tag">+1.500.000 B.claims</span>
-              <span class="tag">25 baloo</span>
-              <span class="tag">45 homes</span>
-              <span class="tag">Bán vô hạn chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/top</code></p>
-          </div>
-
-          <div class="wcard">
-            <h5>👑 GOD — 300 Xu</h5>
-            <p>
-              <span class="tag">+10.000.000$</span>
-              <span class="tag">+3.000.000 B.claims</span>
-              <span class="tag">50 baloo</span>
-              <span class="tag">100 homes</span>
-              <span class="tag">Bán vô hạn chợ đen</span>
-            </p>
-            <p style="margin-top:10px">Lệnh: thêm <code>/fly</code> — bay khắp mọi nơi!</p>
-          </div>
-        </div>
-
-        <h3>🎁 Rank Staff (không bán)</h3>
-        <ul>
-          <li><strong>HELPER</strong> — Hỗ trợ viên: kick, mute, tp, vanish, invsee...</li>
-          <li><strong>ADMIN</strong> — Quản trị viên: gần như toàn quyền server</li>
-          <li><strong>OWNER</strong> — Chủ server: toàn quyền tuyệt đối</li>
-        </ul>
-
-        <h3>💰 Kiếm Xu ở đâu?</h3>
-        <ul>
-          <li>Nạp tiền / donate ủng hộ server</li>
-          <li>Tham gia sự kiện — event nhận Xu</li>
-          <li>Vote cho server hàng ngày</li>
-          <li>Một số nhiệm vụ đặc biệt có thưởng Xu</li>
-        </ul>
-
-        <h3>📜 Hướng dẫn mua Rank</h3>
-        <ul>
-          <li><strong>Bước 1:</strong> Gõ lệnh <code>/shoprank</code> hoặc <code>/muarank</code> trong game</li>
-          <li><strong>Bước 2:</strong> Click vào rank bạn muốn mua</li>
-          <li><strong>Bước 3:</strong> Xác nhận → hệ thống tự trừ Xu và cấp rank</li>
-          <li><strong>Bước 4:</strong> Xong! Gõ <code>/lp user &lt;tên_bạn&gt; info</code> để kiểm tra</li>
-        </ul>
-
-        <div class="hl">
-          <p>💡 <strong>Mẹo:</strong> Nếu bạn mua rank thấp rồi muốn lên rank cao, chỉ cần mua rank cao — hệ thống tự thay thế. Không cần hoàn tiền rank cũ.</p>
-        </div>
-
-        <div class="warn">
-          <p>⚠️ <strong>Lưu ý:</strong> Xu đã dùng mua rank <strong>KHÔNG hoàn lại</strong> kể cả khi bị ban hoặc tự nguyện rời server. Cân nhắc kỹ trước khi mua. Rank staff (Helper/Admin/Owner) không thể mua — chỉ do Admin cấp.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
