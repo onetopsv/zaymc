@@ -185,6 +185,67 @@ footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs a.fb:hover{background:var(--fb);border-color:var(--fb);transform:translateY(-3px);box-shadow:0 10px 30px rgba(24,119,242,.5)}
 .socs a.ig:hover{background:var(--ig);border-color:transparent;transform:translateY(-3px);box-shadow:0 10px 30px rgba(220,39,67,.5)}
 @media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side widgetbot{min-height:400px}.reg-wrap{padding:25px 20px}}
+
+:root{--p:#7c5cff;--pd:#6045d8;--a:#69e7ff;--ag:#62f5b0;--d:#070b13;--t:#f4f7ff;--td:#aab5ca}
+body{background:radial-gradient(ellipse at 50% -10%,#17264b 0,transparent 45%),#070b13;color:#f4f7ff}
+.bg{opacity:.42;background-size:32px 32px}
+.glow{opacity:.22;filter:blur(145px)}
+nav{padding:14px clamp(18px,5vw,72px);background:rgba(7,11,19,.82);border-bottom:1px solid rgba(160,180,255,.13);box-shadow:0 12px 40px #0002}
+.logo-img{border-radius:15px;border:1px solid #ffffff20}
+.logo{font-size:clamp(13px,1.5vw,19px);letter-spacing:1px}
+.nl{gap:clamp(10px,1.7vw,25px)}
+.nl a{font-size:12px;letter-spacing:.4px}
+section{padding:clamp(70px,9vw,110px) clamp(18px,5vw,72px)}
+.hero{min-height:94vh;padding-top:135px}
+.hero h1{letter-spacing:-1px;text-shadow:0 12px 50px #00d9ff18}
+.hero p{line-height:1.85}
+.badge{border-radius:10px;letter-spacing:.5px;background:#ffffff08;border-color:#ffffff25;color:#d2d9eb}
+.tabs{padding:6px;border-radius:14px;background:#111a2b;border-color:#ffffff15}
+.tab{border-radius:10px;letter-spacing:.3px}
+.ipbox{border:1px solid #69e7ff75;border-radius:18px;background:linear-gradient(135deg,#7c5cff20,#69e7ff12);box-shadow:0 18px 55px #0003}
+.ipval{font-size:clamp(11px,1.5vw,16px)}
+.portbox{border-radius:14px}
+.btn{border-radius:12px;letter-spacing:.4px}
+.st{letter-spacing:-.6px}
+.ss{max-width:760px;margin-left:auto;margin-right:auto;line-height:1.8}
+.stats{gap:16px}
+.sc,.fc,.wc,.reg-wrap,.chat-frame-side,.chat-main{background:rgba(15,23,39,.82);border:1px solid rgba(180,195,255,.13);box-shadow:0 18px 55px #0002;backdrop-filter:blur(16px)}
+.sc{border-radius:20px;padding:28px 22px}
+.sc:hover{transform:translateY(-4px);border-color:#69e7ff88;box-shadow:0 20px 55px #00d9ff12}
+.fc{border-radius:18px;transition:transform .25s,border-color .25s,background .25s}
+.fc:hover{transform:translateY(-4px);border-color:#69e7ff70;background:rgba(20,31,52,.94)}
+.wtabs{gap:9px}
+.wtab{border:1px solid #ffffff18!important;border-radius:12px!important;background:#111a2b!important;color:#c8d3e8!important;transition:.2s}
+.wtab:hover{border-color:#69e7ff80!important;color:#fff!important}
+.wpanel{animation:fi .25s ease}
+.wc{border-radius:20px!important;padding:clamp(20px,3vw,34px)!important}
+.wc h3{letter-spacing:.1px}
+.wc p,.wc li{line-height:1.85}
+.wc code{overflow-wrap:anywhere}
+.reg-wrap{border-radius:22px}
+input,button,select,textarea{font:inherit}
+footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
+.toast{border-radius:14px}
+:focus-visible{outline:2px solid #69e7ff;outline-offset:3px}
+@media(max-width:768px){
+  nav{padding:12px 16px}
+  .nl{display:flex;gap:7px;max-width:68vw;overflow-x:auto;scrollbar-width:none}
+  .nl::-webkit-scrollbar{display:none}
+  .nl a{white-space:nowrap;font-size:10px;padding:7px 8px;border-radius:8px;background:#ffffff08}
+  .logo-link{gap:8px}.logo-img{height:34px;width:34px}.logo{font-size:12px}
+  .hero{min-height:auto;padding-top:125px;padding-bottom:80px}
+  .hero p{margin-bottom:28px}
+  .tabs{max-width:100%;width:100%;justify-content:center}
+  .tab{padding:10px 12px;font-size:11px}
+  .ipbox{max-width:94vw;padding:15px 16px;gap:10px}
+  .ipval{font-size:11px;letter-spacing:0}
+  .st{line-height:1.25}
+  .ss{margin-bottom:34px}
+  .wtab{padding:10px 12px!important;font-size:12px!important}
+  .socs a{width:44px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
@@ -889,7 +950,7 @@ async function submitRegister(e){
     var data = await res.json();
 
     if(res.ok && data.success){
-      msg.innerHTML = '✅ <strong>Đăng ký thành công!</strong><br>Tên: <code>' + username + '</code><br>Bây giờ vào game và gõ: <code>/login ' + pass1 + '</code>';
+      msg.textContent = '✅ Đăng ký thành công! Tên: ' + username + '. Bây giờ vào game và gõ /login với mật khẩu vừa tạo.';
       msg.className = 'reg-msg ok show';
       document.getElementById('regForm').reset();
     } else {
