@@ -340,32 +340,27 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
   </div>
 
   <div class="feats">
-    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
-      <div class="fi">⚔️</div>
-      <h3>Tu luyện & Đột phá</h3>
-      <p>Tích lũy linh khí, nâng cao cảnh giới và thử sức với những lần đột phá.</p>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-tu-tien')">
+      <div class="fi">✨</div>
+      <h3>Tu Tiên</h3>
+      <p>Nhập môn, tu luyện, đột phá, phi thăng, công pháp và chiêu pháp — trọn bộ hành trình tu tiên.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
-      <div class="fi">🧬</div>
-      <h3>Nhập môn tu tiên</h3>
-      <p>Bắt đầu hành trình, xem thông tin nhân vật và làm quen với các lệnh cơ bản.</p>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-claim')">
+      <div class="fi">🏡</div>
+      <h3>Bảo vệ đất</h3>
+      <p>Giữ an toàn khu vực xây dựng, kiểm tra ranh giới và quản lý quyền thành viên.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
-      <div class="fi">🌍</div>
-      <h3>Cảnh giới & Phi thăng</h3>
-      <p>Khám phá các giới, chuẩn bị thiên kiếp và tiến lên cảnh giới cao hơn.</p>
-    </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
-      <div class="fi">🏠</div>
-      <h3>Công pháp & Chiêu pháp</h3>
-      <p>Lĩnh ngộ sách, vận hành công pháp và sử dụng chiêu pháp trong chiến đấu.</p>
-    </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-marry')">
       <div class="fi">💕</div>
       <h3>Kết hôn</h3>
       <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
     </a>
-    <a href="#wiki" class="fc" onclick="openWiki(event,'')">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-spawner')">
+      <div class="fi">⚙️</div>
+      <h3>Spawner</h3>
+      <p>Dựng khu farm quái và vật phẩm, mẹo dùng hiệu quả và cách xử lý khi spawner lỗi.</p>
+    </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-rank')">
       <div class="fi">👑</div>
       <h3>Hệ thống Rank</h3>
       <p>Mua rank VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích.</p>
@@ -458,15 +453,15 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 
   <div class="wpanels">
     <div class="wpanel" id="panel-tu-tien"><div class="wc">
-      <h3>🌱 Bắt đầu con đường tu tiên</h3>
+      <h3 id="wk-nhapmon">🌱 Bắt đầu con đường tu tiên</h3>
       <p>Chào mừng đạo hữu đến với thế giới tu tiên. Hãy nhập môn, tích lũy linh khí và nâng cao cảnh giới để khám phá những thử thách mới.</p>
       <h3>📜 Lệnh cần biết</h3>
       <ul><li><code>/nhapmon</code> — Bắt đầu con đường tu luyện.</li><li><code>/tutien</code> — Mở menu lệnh tu tiên.</li><li><code>/tutien thongtin</code> — Xem cảnh giới, tầng, linh khí, máu và giới hiện tại.</li><li><code>/hud</code> — Bật hoặc tắt hiển thị máu và linh khí trên hotbar.</li></ul>
       <h3>🧭 Lộ trình tu luyện</h3>
       <div class="wgrid"><div class="wcard"><h5>1. Nhập môn</h5><p>Dùng <code>/nhapmon</code> để bắt đầu hành trình.</p></div><div class="wcard"><h5>2. Ngồi thiền</h5><p>Dùng <code>/tuluyen</code> để hấp thu linh khí.</p></div><div class="wcard"><h5>3. Đột phá</h5><p>Dùng <code>/dotpha</code> khi đã đủ điều kiện.</p></div><div class="wcard"><h5>4. Khám phá</h5><p>Thu thập vật phẩm, học công pháp và chuẩn bị cho thử thách mạnh hơn.</p></div></div>
-      <h3>🧘 Tu luyện và đột phá</h3><ul><li>Dùng <code>/tuluyen</code> để bắt đầu hoặc dừng ngồi thiền.</li><li>Tu luyện liên tục quá lâu có nguy cơ tẩu hỏa nhập ma.</li><li>Từ Trúc Cơ trở đi, đột phá có thể yêu cầu độ lôi kiếp. Hãy chuẩn bị trước khi thử.</li></ul>
-      <h3>☁️ Cảnh giới, phi thăng và hạ giới</h3><ul><li><code>/phithang</code> — Thử phi thăng lên giới trên khi đủ điều kiện.</li><li><code>/hagioi</code> — Đi xuống giới dưới.</li><li>Server có Hạ Giới, Tiên Giới và Thần Giới. Thiên kiếp có thể gây tử vong.</li><li>Ở Tiên Giới hoặc Thần Giới, <code>/rtp</code> mở menu dịch chuyển ngẫu nhiên.</li></ul>
-      <h3>⚔️ Công pháp và chiêu pháp</h3><ul><li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để lĩnh ngộ.</li><li><code>/chieuphap</code> — Xem chiêu pháp đã học.</li><li><code>/congphap</code> — Xem hoặc vận hành công pháp bị động.</li><li>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong game để biết thao tác cụ thể.</li></ul>
+      <h3 id="wk-tuluyen">🧘 Tu luyện và đột phá</h3><ul><li>Dùng <code>/tuluyen</code> để bắt đầu hoặc dừng ngồi thiền.</li><li>Tu luyện liên tục quá lâu có nguy cơ tẩu hỏa nhập ma.</li><li>Từ Trúc Cơ trở đi, đột phá có thể yêu cầu độ lôi kiếp. Hãy chuẩn bị trước khi thử.</li></ul>
+      <h3 id="wk-canhgioi">☁️ Cảnh giới, phi thăng và hạ giới</h3><ul><li><code>/phithang</code> — Thử phi thăng lên giới trên khi đủ điều kiện.</li><li><code>/hagioi</code> — Đi xuống giới dưới.</li><li>Server có Hạ Giới, Tiên Giới và Thần Giới. Thiên kiếp có thể gây tử vong.</li><li>Ở Tiên Giới hoặc Thần Giới, <code>/rtp</code> mở menu dịch chuyển ngẫu nhiên.</li></ul>
+      <h3 id="wk-congphap">⚔️ Công pháp và chiêu pháp</h3><ul><li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để lĩnh ngộ.</li><li><code>/chieuphap</code> — Xem chiêu pháp đã học.</li><li><code>/congphap</code> — Xem hoặc vận hành công pháp bị động.</li><li>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong game để biết thao tác cụ thể.</li></ul>
       <h3>🌿 Linh thảo, đan dược và luyện đan</h3><ul><li><code>/tutien hatgiong</code> — Nhận các loại hạt giống linh thảo được hỗ trợ.</li><li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li><li>Đọc mô tả vật phẩm và công thức trong game trước khi chế tạo.</li></ul>
       <h3>🏯 Bí cảnh và boss</h3><ul><li><code>/tutien biccanh</code> — Xem thông tin bí cảnh.</li><li><code>/tutien vao-bicanh</code> — Vào bí cảnh khi đủ điều kiện.</li><li>Chuẩn bị trang bị và vật phẩm hồi phục trước khi chiến đấu với boss hoặc khám phá khu vực nguy hiểm.</li></ul>
       <div class="hl"><p>💡 Dùng <code>/tutien help</code> trong game để xem danh sách lệnh người chơi. Nếu điều kiện trong game khác với hướng dẫn này, hãy ưu tiên thông báo trong game hoặc hỏi staff.</p></div>
@@ -568,11 +563,15 @@ function switchTab(type){
     el.classList.toggle('active',t===type);
   });
 }
-function openWiki(e,tabId){
+// Mở Wiki: chọn đúng tab (radio) rồi cuộn tới mục con (nếu có) hoặc tới thanh tab
+function openWiki(e,tabId,anchorId){
   e.preventDefault();
   if(tabId){var radio=document.getElementById(tabId);if(radio){radio.checked=true}}
-  var wiki=document.getElementById('wiki');
-  if(wiki){wiki.scrollIntoView({behavior:'smooth',block:'start'})}
+  // Đợi trình duyệt hiển thị panel mới rồi mới cuộn
+  requestAnimationFrame(function(){
+    var target=(anchorId&&document.getElementById(anchorId))||document.querySelector('#wiki .wtabs')||document.getElementById('wiki');
+    if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
 }
 function setStatus(online){
   var b=document.getElementById('statusBadge');
