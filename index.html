@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ZAYMC Network - Server Minecraft</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="ZAYMC Network - Server Minecraft Việt Nam hỗ trợ Java & Bedrock. IP: zaymc.dnipo.fun:25126">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#6c5ce7;--pd:#4834d4;--a:#00d9ff;--ag:#00ff9d;--d:#0a0a1a;--t:#fff;--td:#a0a0c0;--j:#f89820;--b:#00b7c2;--dc:#5865F2;--ms:#0084FF;--red:#ff4757;--tt:#FE2C55;--fb:#1877F2;--ig:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Poppins,sans-serif;background:var(--d);color:var(--t);overflow-x:hidden;line-height:1.6}
+.bg{position:fixed;inset:0;background-image:linear-gradient(rgba(108,92,231,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,92,231,.05) 1px,transparent 1px);background-size:40px 40px;z-index:-2;animation:gm 20s linear infinite}
+@keyframes gm{to{transform:translate(40px,40px)}}
+.glow{position:fixed;border-radius:50%;filter:blur(120px);z-index:-1;opacity:.4;animation:fl 8s ease-in-out infinite}
+.g1{top:-100px;left:-100px;width:500px;height:500px;background:var(--p)}
+.g2{bottom:-100px;right:-100px;width:500px;height:500px;background:var(--a);animation-delay:4s}
+@keyframes fl{50%{transform:translateY(-30px)}}
+nav{position:fixed;top:0;left:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(10px);background:rgba(10,10,26,.7);border-bottom:1px solid rgba(108,92,231,.2)}
+.logo-link{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-img{height:48px;width:48px;border-radius:12px;box-shadow:0 0 20px rgba(0,217,255,.4);object-fit:cover}
+.logo{font-family:'Press Start 2P',cursive;font-size:20px;color:var(--a);text-shadow:0 0 20px var(--a);letter-spacing:2px}
+.nl{display:flex;gap:25px;list-style:none}
+.nl a{color:var(--t);text-decoration:none;font-weight:500;font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:.3s}
+.nl a:hover{color:var(--a);text-shadow:0 0 10px var(--a)}
+section{padding:100px 5%;position:relative;z-index:1}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 5% 60px}
+.badge{display:inline-block;padding:8px 20px;border-radius:50px;background:rgba(160,160,192,.1);border:1px solid var(--td);color:var(--td);font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:25px;transition:.3s}
+.badge.online{background:rgba(0,255,157,.1);border-color:var(--ag);color:var(--ag);animation:pl 2s infinite}
+.badge.offline{background:rgba(255,71,87,.1);border-color:var(--red);color:var(--red)}
+@keyframes pl{50%{box-shadow:0 0 0 12px rgba(0,255,157,0)}}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--td);margin-right:8px;animation:bk 1.5s infinite;transition:.3s}
+.badge.online .dot{background:var(--ag)}
+.badge.offline .dot{background:var(--red);animation:none}
+@keyframes bk{50%{opacity:.3}}
+h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#fff,var(--a) 50%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-2px}
+.hero p{font-size:clamp(15px,2vw,19px);color:var(--td);max-width:700px;margin-bottom:40px}
+.tabs{display:inline-flex;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);border-radius:50px;padding:5px;margin-bottom:25px;gap:5px}
+.tab{padding:10px 24px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.3s;color:var(--td);border:none;background:transparent;display:flex;align-items:center;gap:8px;font-family:inherit}
+.tab.active{color:#fff}
+.tab[data-type=java].active{background:linear-gradient(135deg,var(--j),#d97a10);box-shadow:0 5px 20px rgba(248,152,32,.4)}
+.tab[data-type=bedrock].active{background:linear-gradient(135deg,var(--b),#008891);box-shadow:0 5px 20px rgba(0,183,194,.4)}
+.panel{display:none}
+.panel.active{display:block;animation:fi .4s ease}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.ipbox{display:inline-flex;align-items:center;gap:15px;padding:20px 30px;background:linear-gradient(135deg,rgba(108,92,231,.15),rgba(0,217,255,.1));border:2px solid rgba(108,92,231,.4);border-radius:16px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.ipbox:hover{transform:translateY(-3px);border-color:var(--a);box-shadow:0 10px 40px rgba(0,217,255,.3)}
+.ipbox::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:.5s}
+.ipbox:hover::before{left:100%}
+.iplabel{font-size:11px;color:var(--td);text-transform:uppercase;letter-spacing:2px;display:block;margin-bottom:4px;text-align:left}
+.ipval{font-family:'Press Start 2P',cursive;font-size:16px;color:var(--a);text-shadow:0 0 15px rgba(0,217,255,.5);word-break:break-all}
+.cicon{font-size:22px;color:var(--a);flex-shrink:0}
+.iphint{font-size:12px;color:var(--td);margin-top:15px;font-style:italic}
+.portbox{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;background:rgba(0,183,194,.08);border:1px solid rgba(0,183,194,.3);border-radius:12px;cursor:pointer;transition:.3s;margin-top:12px;position:relative;overflow:hidden}
+.portbox:hover{transform:translateY(-2px);border-color:var(--b);box-shadow:0 8px 25px rgba(0,183,194,.25)}
+.portlabel{font-size:10px;color:var(--td);text-transform:uppercase;letter-spacing:2px;display:block;margin-bottom:2px;text-align:left}
+.portval{font-family:'Press Start 2P',cursive;font-size:14px;color:var(--b);text-shadow:0 0 12px rgba(0,183,194,.5)}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--ag);color:var(--d);padding:14px 28px;border-radius:12px;font-weight:700;transition:.3s;z-index:1000;box-shadow:0 10px 40px rgba(0,255,157,.4)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.btns{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.btn{padding:15px 32px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:1px;transition:.3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;font-family:inherit}
+.bd{background:rgba(88,101,242,.15);color:#fff;border:2px solid var(--dc)}
+.bd:hover{background:var(--dc);transform:translateY(-3px);box-shadow:0 10px 35px rgba(88,101,242,.6)}
+.bm{background:rgba(0,132,255,.15);color:#fff;border:2px solid var(--ms)}
+.bm:hover{background:var(--ms);transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,132,255,.6)}
+.bt{background:rgba(254,44,85,.15);color:#fff;border:2px solid var(--tt)}
+.bt:hover{background:var(--tt);transform:translateY(-3px);box-shadow:0 10px 35px rgba(254,44,85,.6)}
+.bf{background:rgba(24,119,242,.15);color:#fff;border:2px solid var(--fb)}
+.bf:hover{background:var(--fb);transform:translateY(-3px);box-shadow:0 10px 35px rgba(24,119,242,.6)}
+.bi{background:rgba(255,0,105,.1);color:#fff;border:2px solid transparent;background-image:linear-gradient(rgba(10,10,26,.9),rgba(10,10,26,.9)),var(--ig);background-origin:border-box;background-clip:padding-box,border-box;transition:.3s}
+.bi:hover{background-image:var(--ig);background-clip:padding-box;transform:translateY(-3px);box-shadow:0 10px 35px rgba(220,39,67,.6)}
+.st{text-align:center;font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#fff,var(--a));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ss{text-align:center;color:var(--td);margin-bottom:60px;font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:0 auto 80px}
+.sc{background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);padding:30px 20px;border-radius:16px;text-align:center;transition:.3s;backdrop-filter:blur(10px)}
+.sc:hover{transform:translateY(-5px);border-color:var(--a);box-shadow:0 15px 40px rgba(0,217,255,.2)}
+.sv{font-size:36px;font-weight:800;color:var(--a);margin-bottom:5px}
+.sl{color:var(--td);font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
+.sn{font-size:10px;color:var(--td);opacity:.7;margin-top:5px;font-style:italic}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;max-width:1200px;margin:0 auto}
+.fc{display:block;text-decoration:none;color:inherit;background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.2);padding:35px 25px;border-radius:18px;transition:.4s;position:relative;overflow:hidden;cursor:pointer}
+.fc::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:linear-gradient(180deg,var(--a),var(--p));transition:.4s}
+.fc:hover::before{height:100%}
+.fc:hover{transform:translateY(-8px);border-color:rgba(0,217,255,.4);box-shadow:0 20px 50px rgba(108,92,231,.3)}
+.fc::after{content:'→ Xem wiki';position:absolute;bottom:15px;right:20px;font-size:11px;color:var(--a);opacity:0;transition:.3s;font-weight:600;letter-spacing:.5px}
+.fc:hover::after{opacity:1}
+.fi{font-size:40px;margin-bottom:20px;display:inline-block}
+.fc h3{font-size:20px;margin-bottom:12px;font-weight:700;color:var(--t)}
+.fc p{color:var(--td);font-size:14px;line-height:1.7}
+.jcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:40px;max-width:1200px;margin:0 auto}
+.jc{background:rgba(26,26,58,.4);border:1px solid rgba(108,92,231,.2);border-radius:20px;padding:35px 30px;transition:.3s}
+.jc:hover{border-color:rgba(0,217,255,.4);box-shadow:0 15px 40px rgba(108,92,231,.2)}
+.jh{display:flex;align-items:center;gap:15px;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid rgba(108,92,231,.2)}
+.ji{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.ji.java{background:linear-gradient(135deg,rgba(248,152,32,.2),rgba(248,152,32,.1));border:1px solid rgba(248,152,32,.4)}
+.ji.bedrock{background:linear-gradient(135deg,rgba(0,183,194,.2),rgba(0,183,194,.1));border:1px solid rgba(0,183,194,.4)}
+.jh h3{font-size:22px;font-weight:700}
+.jh span{font-size:12px;color:var(--td);text-transform:uppercase;letter-spacing:1px}
+.steps{list-style:none}
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px dashed rgba(108,92,231,.15);align-items:flex-start}
+.step:last-child{border-bottom:none}
+.sn2{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;box-shadow:0 3px 15px rgba(108,92,231,.5)}
+.sco h4{margin-bottom:4px;font-size:15px;font-weight:600}
+.sco p{color:var(--td);font-size:13px;line-height:1.6}
+.sco code{background:rgba(0,217,255,.15);color:var(--a);padding:2px 8px;border-radius:6px;font-family:Consolas,monospace;font-size:12px}
+
+.chat-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:30px;max-width:1200px;margin:0 auto;align-items:stretch}
+.chat-info-side{background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:35px 30px;backdrop-filter:blur(10px);display:flex;flex-direction:column}
+.chat-icon{font-size:50px;margin-bottom:15px}
+.chat-info-side h3{font-size:22px;color:var(--a);margin-bottom:12px;font-weight:700}
+.chat-info-side p{color:var(--td);font-size:14px;line-height:1.8;margin-bottom:20px}
+.chat-feats{list-style:none;margin-bottom:20px}
+.chat-feats li{color:var(--td);font-size:14px;padding:8px 0;border-bottom:1px dashed rgba(108,92,231,.15)}
+.chat-feats li:last-child{border:none}
+.chat-frame-side widgetbot{display:block;width:100%;min-height:520px;border-radius:16px;border:1px solid rgba(108,92,231,.3)}
+
+/* ==== REGISTER FORM ==== */
+.reg-wrap{max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px 35px;backdrop-filter:blur(10px)}
+.reg-wrap h3{font-size:22px;color:var(--a);margin-bottom:10px;text-align:center;font-weight:700}
+.reg-wrap>p{color:var(--td);font-size:14px;text-align:center;margin-bottom:30px;line-height:1.7}
+.reg-group{margin-bottom:20px}
+.reg-group label{display:block;color:var(--t);font-size:13px;font-weight:600;margin-bottom:8px;letter-spacing:.5px}
+.reg-group input{width:100%;padding:14px 18px;border-radius:12px;background:rgba(10,10,26,.7);border:1px solid rgba(108,92,231,.3);color:var(--t);font-family:inherit;font-size:14px;transition:.3s;outline:none}
+.reg-group input:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(0,217,255,.15)}
+.reg-group input::placeholder{color:var(--td);opacity:.5}
+.reg-btn{width:100%;padding:16px;border-radius:12px;background:linear-gradient(135deg,var(--p),var(--a));color:#fff;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;transition:.3s;font-family:inherit;margin-top:10px}
+.reg-btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 15px 40px rgba(108,92,231,.5)}
+.reg-btn:disabled{opacity:.6;cursor:not-allowed}
+.reg-msg{margin-top:20px;padding:14px 18px;border-radius:12px;font-size:14px;line-height:1.6;display:none}
+.reg-msg.show{display:block;animation:fi .3s ease}
+.reg-msg.ok{background:rgba(0,255,157,.1);border:1px solid rgba(0,255,157,.4);color:var(--ag)}
+.reg-msg.err{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.4);color:var(--red)}
+.reg-note{margin-top:25px;padding:14px 18px;background:rgba(0,217,255,.08);border-left:3px solid var(--a);border-radius:8px;font-size:13px;color:var(--td);line-height:1.7}
+.reg-note strong{color:var(--a)}
+
+/* ==== WIKI ==== */
+.wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
+.wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
+.wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
+.wtab.active{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
+.wpanel{display:none}
+#w-tu-tien:checked~.wtabs label[for=w-tu-tien],
+#w-claim:checked~.wtabs label[for=w-claim],
+#w-marry:checked~.wtabs label[for=w-marry],
+#w-spawner:checked~.wtabs label[for=w-spawner],
+#w-rank:checked~.wtabs label[for=w-rank],
+#w-napthe:checked~.wtabs label[for=w-napthe]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
+#w-tu-tien:checked~.wpanels #panel-tu-tien,
+#w-claim:checked~.wpanels #panel-claim,
+#w-marry:checked~.wpanels #panel-marry,
+#w-spawner:checked~.wpanels #panel-spawner,
+#w-rank:checked~.wpanels #panel-rank,
+#w-napthe:checked~.wpanels #panel-napthe{display:block;animation:fi .4s ease}
+.wradio{display:none}
+.wc{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.7),rgba(19,19,43,.5));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px;backdrop-filter:blur(10px)}
+.wc h3{font-size:22px;font-weight:700;color:var(--a);margin-top:30px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(108,92,231,.3);display:flex;align-items:center;gap:10px}
+.wc h3:first-child{margin-top:0}
+.wc p{color:var(--td);font-size:14px;line-height:1.8;margin-bottom:12px}
+.wc ul{list-style:none;margin-bottom:15px}
+.wc ul li{color:var(--td);font-size:14px;line-height:1.8;padding-left:24px;position:relative;margin-bottom:6px}
+.wc ul li::before{content:'▸';position:absolute;left:0;color:var(--a);font-weight:bold}
+.wc code{background:rgba(0,217,255,.15);color:var(--a);padding:3px 9px;border-radius:6px;font-family:Consolas,monospace;font-size:13px;border:1px solid rgba(0,217,255,.2)}
+.wc strong{color:var(--t);font-weight:700}
+.hl{background:rgba(0,217,255,.08);border-left:3px solid var(--a);padding:15px 20px;border-radius:8px;margin:15px 0}
+.warn{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:15px 20px;border-radius:8px;margin:15px 0}
+.warn p{color:#ffda6b;margin-bottom:0}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:15px 0}
+.wcard{background:rgba(10,10,26,.6);border:1px solid rgba(108,92,231,.25);border-radius:12px;padding:18px;transition:.3s}
+.wcard:hover{border-color:var(--a);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,217,255,.15)}
+.wcard h5{color:var(--a);font-size:15px;margin-bottom:8px;font-weight:700}
+.wcard p{font-size:13px;margin-bottom:0;color:var(--td)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;background:rgba(0,217,255,.15);color:var(--a);margin-right:5px;margin-top:5px}
+.tag.bad{background:rgba(255,107,107,.15);color:#ff6b6b}
+footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,231,.2);background:rgba(10,10,26,.8)}
+.flogo{font-family:'Press Start 2P',cursive;font-size:18px;color:var(--a);margin-bottom:15px;text-shadow:0 0 15px var(--a)}
+footer p{color:var(--td);font-size:13px;margin-bottom:20px}
+.socs{display:flex;gap:15px;justify-content:center;margin-bottom:25px;flex-wrap:wrap}
+.socs a{width:50px;height:50px;border-radius:12px;background:rgba(108,92,231,.15);border:1px solid rgba(108,92,231,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.3s}
+.socs a.dc:hover{background:var(--dc);border-color:var(--dc);transform:translateY(-3px);box-shadow:0 10px 30px rgba(88,101,242,.5)}
+.socs a.ms:hover{background:var(--ms);border-color:var(--ms);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,132,255,.5)}
+.socs a.tt:hover{background:var(--tt);border-color:var(--tt);transform:translateY(-3px);box-shadow:0 10px 30px rgba(254,44,85,.5)}
+.socs a.fb:hover{background:var(--fb);border-color:var(--fb);transform:translateY(-3px);box-shadow:0 10px 30px rgba(24,119,242,.5)}
+.socs a.ig:hover{background:var(--ig);border-color:transparent;transform:translateY(-3px);box-shadow:0 10px 30px rgba(220,39,67,.5)}
+@media(max-width:768px){.nl{display:none}.ipval{font-size:12px}.ipbox{padding:16px 20px}.jcols{grid-template-columns:1fr}.wc{padding:25px 20px}.wtab{padding:10px 16px;font-size:13px}.fc::after{display:none}.logo-img{height:38px;width:38px}.logo{font-size:16px}.chat-wrap{grid-template-columns:1fr}.chat-frame-side widgetbot{min-height:400px}.reg-wrap{padding:25px 20px}}
+
+:root{--p:#7c5cff;--pd:#6045d8;--a:#69e7ff;--ag:#62f5b0;--d:#070b13;--t:#f4f7ff;--td:#aab5ca}
+body{background:radial-gradient(ellipse at 50% -10%,#17264b 0,transparent 45%),#070b13;color:#f4f7ff}
+.bg{opacity:.42;background-size:32px 32px}
+.glow{opacity:.22;filter:blur(145px)}
+nav{padding:14px clamp(18px,5vw,72px);background:rgba(7,11,19,.82);border-bottom:1px solid rgba(160,180,255,.13);box-shadow:0 12px 40px #0002}
+.logo-img{border-radius:15px;border:1px solid #ffffff20}
+.logo{font-size:clamp(13px,1.5vw,19px);letter-spacing:1px}
+.nl{gap:clamp(10px,1.7vw,25px)}
+.nl a{font-size:12px;letter-spacing:.4px}
+section{padding:clamp(70px,9vw,110px) clamp(18px,5vw,72px)}
+.hero{min-height:94vh;padding-top:135px}
+.hero h1{letter-spacing:-1px;text-shadow:0 12px 50px #00d9ff18}
+.hero p{line-height:1.85}
+.badge{border-radius:10px;letter-spacing:.5px;background:#ffffff08;border-color:#ffffff25;color:#d2d9eb}
+.tabs{padding:6px;border-radius:14px;background:#111a2b;border-color:#ffffff15}
+.tab{border-radius:10px;letter-spacing:.3px}
+.ipbox{border:1px solid #69e7ff75;border-radius:18px;background:linear-gradient(135deg,#7c5cff20,#69e7ff12);box-shadow:0 18px 55px #0003}
+.ipval{font-size:clamp(11px,1.5vw,16px)}
+.portbox{border-radius:14px}
+.btn{border-radius:12px;letter-spacing:.4px}
+.st{letter-spacing:-.6px}
+.ss{max-width:760px;margin-left:auto;margin-right:auto;line-height:1.8}
+.stats{gap:16px}
+.sc,.fc,.wc,.reg-wrap,.chat-frame-side,.chat-main{background:rgba(15,23,39,.82);border:1px solid rgba(180,195,255,.13);box-shadow:0 18px 55px #0002;backdrop-filter:blur(16px)}
+.sc{border-radius:20px;padding:28px 22px}
+.sc:hover{transform:translateY(-4px);border-color:#69e7ff88;box-shadow:0 20px 55px #00d9ff12}
+.fc{border-radius:18px;transition:transform .25s,border-color .25s,background .25s}
+.fc:hover{transform:translateY(-4px);border-color:#69e7ff70;background:rgba(20,31,52,.94)}
+.wtabs{gap:9px}
+.wtab{border:1px solid #ffffff18!important;border-radius:12px!important;background:#111a2b!important;color:#c8d3e8!important;transition:.2s}
+.wtab:hover{border-color:#69e7ff80!important;color:#fff!important}
+.wpanel{animation:fi .25s ease}
+.wc{border-radius:20px!important;padding:clamp(20px,3vw,34px)!important}
+.wc h3{letter-spacing:.1px}
+.wc p,.wc li{line-height:1.85}
+.wc code{overflow-wrap:anywhere}
+.reg-wrap{border-radius:22px}
+input,button,select,textarea{font:inherit}
+footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
+.toast{border-radius:14px}
+:focus-visible{outline:2px solid #69e7ff;outline-offset:3px}
+@media(max-width:768px){
+  nav{padding:12px 16px}
+  .nl{display:flex;gap:7px;max-width:68vw;overflow-x:auto;scrollbar-width:none}
+  .nl::-webkit-scrollbar{display:none}
+  .nl a{white-space:nowrap;font-size:10px;padding:7px 8px;border-radius:8px;background:#ffffff08}
+  .logo-link{gap:8px}.logo-img{height:34px;width:34px}.logo{font-size:12px}
+  .hero{min-height:auto;padding-top:125px;padding-bottom:80px}
+  .hero p{margin-bottom:28px}
+  .tabs{max-width:100%;width:100%;justify-content:center}
+  .tab{padding:10px 12px;font-size:11px}
+  .ipbox{max-width:94vw;padding:15px 16px;gap:10px}
+  .ipval{font-size:11px;letter-spacing:0}
+  .st{line-height:1.25}
+  .ss{margin-bottom:34px}
+  .wtab{padding:10px 12px!important;font-size:12px!important}
+  .socs a{width:44px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* ==== WIKI TU TIEN THEME ==== */
+#wiki{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(184,145,76,.16),transparent 42%),radial-gradient(ellipse at 12% 45%,rgba(40,115,91,.18),transparent 38%),radial-gradient(ellipse at 90% 75%,rgba(81,65,145,.18),transparent 40%),linear-gradient(180deg,#080e13 0%,#101b1b 48%,#0a1018 100%)}
+#wiki:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.32;background-image:linear-gradient(115deg,transparent 0 48%,rgba(210,180,112,.08) 49%,transparent 50%),radial-gradient(ellipse at 20% 20%,rgba(203,174,111,.13),transparent 35%),radial-gradient(ellipse at 80% 60%,rgba(111,179,147,.12),transparent 38%);background-size:100% 100%,700px 420px,800px 520px}
+#wiki .st{background:linear-gradient(120deg,#f3e4b8 0%,#c9a96b 38%,#9ed9bd 72%,#e9d7a5 100%);-webkit-background-clip:text;background-clip:text;text-shadow:0 8px 35px rgba(201,169,107,.14)}
+#wiki .ss{color:#c4c9b9}
+#wiki .wtabs{margin-bottom:38px}
+#wiki .wtab{background:linear-gradient(145deg,rgba(25,43,39,.92),rgba(19,27,34,.94))!important;border:1px solid rgba(191,160,99,.28)!important;color:#c8c5b5!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 8px 24px #0003}
+#wiki .wtab:hover{border-color:#c5a66a!important;color:#f4e5bf!important;box-shadow:0 0 22px rgba(197,166,106,.12)}
+#wiki .wtab.active,#wiki #w-tu-tien:checked~.wtabs label[for=w-tu-tien],#wiki #w-claim:checked~.wtabs label[for=w-claim],#wiki #w-marry:checked~.wtabs label[for=w-marry],#wiki #w-spawner:checked~.wtabs label[for=w-spawner],#wiki #w-rank:checked~.wtabs label[for=w-rank],#wiki #w-napthe:checked~.wtabs label[for=w-napthe]{background:linear-gradient(135deg,#80683f,#354f43)!important;border-color:#c6a96c!important;color:#fff3d2!important;box-shadow:0 8px 28px rgba(126,104,63,.25)}
+#wiki .wc{background:linear-gradient(145deg,rgba(20,35,32,.94),rgba(14,23,29,.96));border:1px solid rgba(193,163,105,.28);box-shadow:0 24px 70px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.035)}
+#wiki .wc h3{color:#d9bd80;border-bottom-color:rgba(193,163,105,.24)}
+#wiki .wc p,#wiki .wc ul li{color:#c1c9c0}
+#wiki .wc ul li:before{color:#b7d5b7}
+#wiki .wc code{background:rgba(171,143,84,.13);border-color:rgba(193,163,105,.28);color:#e8d39f}
+#wiki .wcard{background:linear-gradient(145deg,rgba(29,49,43,.78),rgba(17,27,32,.85));border-color:rgba(193,163,105,.2)}
+#wiki .wcard:hover{border-color:#bca16a;box-shadow:0 10px 25px rgba(164,137,82,.12)}
+#wiki .wcard h5{color:#b9d4b6}
+#wiki .hl{background:rgba(90,132,103,.13);border-left-color:#9dbb91}
+#wiki .warn{background:rgba(157,121,58,.12);border-left-color:#c6a96c}
+#wiki .warn p{color:#e0c98f}
+#wiki .tag{background:rgba(125,161,125,.15);color:#c5dfbb}
+@media(max-width:768px){#wiki{background-attachment:scroll}#wiki .wc{background:rgba(18,31,30,.96)}}
+
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="glow g1"></div><div class="glow g2"></div>
+
+<nav>
+  <a href="#home" class="logo-link">
+    <img src="apple-touch-icon.png" alt="ZAYMC Network" class="logo-img">
+    <span class="logo">ZAYMC</span>
+  </a>
+  <ul class="nl">
+    <li><a href="#home" class="smooth">Trang chủ</a></li>
+    <li><a href="#chat" class="smooth">Chat</a></li>
+    <li><a href="#features" class="smooth">Tính năng</a></li>
+    <li><a href="#howto" class="smooth">Hướng dẫn</a></li>
+    <li><a href="#register" class="smooth">Đăng ký</a></li>
+    <li><a href="#wiki" class="smooth">Wiki</a></li>
+    <li><a href="#join" class="smooth">Tham gia</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="badge" id="statusBadge"><span class="dot"></span>ĐANG KIỂM TRA...</div>
+  <h1>ZAYMC<br>NETWORK</h1>
+  <p>Chào mừng đến với ZAYMC Network — nơi hội tụ của những nhà xây dựng tài ba, những chiến binh dũng cảm và những cuộc phiêu lưu bất tận. Hỗ trợ cả <strong>Java</strong> và <strong>Bedrock</strong>!</p>
+  <div class="tabs">
+    <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java Edition</button>
+    <button class="tab" data-type="bedrock" onclick="switchTab('bedrock')">📱 Bedrock Edition</button>
+  </div>
+  <div class="panel active" id="panel-java">
+    <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun:25126')">
+      <div><span class="iplabel">IP Server Java</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
+      <div class="cicon">📋</div>
+    </div>
+    <p class="iphint">Dán vào ô "Server Address" trong Minecraft Java Edition</p>
+  </div>
+  <div class="panel" id="panel-bedrock">
+    <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
+      <div><span class="iplabel">IP Server Bedrock</span><span class="ipval">zaymc.dnipo.fun</span></div>
+      <div class="cicon">📋</div>
+    </div>
+    <div class="portbox" onclick="copyIP('25126')">
+      <div><span class="portlabel">Port</span><span class="portval">25126</span></div>
+      <div class="cicon" style="font-size:18px">📋</div>
+    </div>
+    <p class="iphint">Dán IP vào ô "Server Address", Port vào ô "Port" khi thêm server</p>
+  </div>
+  <div class="btns">
+    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Discord</a>
+    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Messenger</a>
+    <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bt">🎵 TikTok</a>
+    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="btn bf">📘 Facebook</a>
+    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bi">📷 Instagram</a>
+  </div>
+</section>
+
+<!-- CHAT CỘNG ĐỒNG -->
+<section id="chat">
+  <h2 class="st">CHAT CỘNG ĐỒNG</h2>
+  <p class="ss">Nhắn tin trực tiếp với người chơi trong server qua Discord</p>
+  <div class="chat-wrap">
+    <div class="chat-info-side">
+      <div class="chat-icon">💬</div>
+      <h3>Kênh #chat-in-game</h3>
+      <p>Mọi tin nhắn bạn gửi ở đây sẽ hiện trực tiếp trong game Minecraft. Chat với người chơi online ngay trên web!</p>
+      <ul class="chat-feats">
+        <li>▸ Không cần đăng nhập</li>
+        <li>▸ Tin nhắn hiện real-time trong game</li>
+        <li>▸ Kết nối cộng đồng ZAYMC</li>
+      </ul>
+      <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd" style="margin-top:auto;width:100%;justify-content:center">💬 Mở Discord đầy đủ</a>
+    </div>
+    <div class="chat-frame-side">
+      <widgetbot
+        server="1479076823504650300"
+        channel="1481261555570966591"
+        width="100%"
+        height="520"
+        id="discord-chat"
+      ></widgetbot>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <h2 class="st">TẠI SAO CHỌN ZAYMC?</h2>
+  <p class="ss">Trải nghiệm Minecraft tuyệt vời với những tính năng độc đáo</p>
+  <div class="stats">
+    <div class="sc"><div class="sv" id="onlinePlayers">--</div><div class="sl">Người chơi online</div><div class="sn">Cập nhật mỗi 5 phút</div></div>
+    <div class="sc"><div class="sv">24/7</div><div class="sl">Hoạt động</div></div>
+    <div class="sc"><div class="sv">Java+BE</div><div class="sl">Cross-play</div></div>
+    <div class="sc"><div class="sv">100</div><div class="sl">Slot tối đa</div></div>
+  </div>
+
+  <div class="feats">
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-tu-tien')">
+      <div class="fi">✨</div>
+      <h3>Tu Tiên</h3>
+      <p>Nhập môn, tu luyện, đột phá, phi thăng, công pháp và chiêu pháp — trọn bộ hành trình tu tiên.</p>
+    </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-claim')">
+      <div class="fi">🏡</div>
+      <h3>Bảo vệ đất</h3>
+      <p>Giữ an toàn khu vực xây dựng, kiểm tra ranh giới và quản lý quyền thành viên.</p>
+    </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-marry')">
+      <div class="fi">💕</div>
+      <h3>Kết hôn</h3>
+      <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
+    </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-spawner')">
+      <div class="fi">⚙️</div>
+      <h3>Spawner</h3>
+      <p>Dựng khu farm quái và vật phẩm, mẹo dùng hiệu quả và cách xử lý khi spawner lỗi.</p>
+    </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-rank')">
+      <div class="fi">👑</div>
+      <h3>Hệ thống Rank</h3>
+      <p>Mua rank VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích.</p>
+    </a>
+  </div>
+</section>
+
+<section id="howto">
+  <h2 class="st">HƯỚNG DẪN THAM GIA</h2>
+  <p class="ss">Chọn phiên bản bạn đang chơi để xem hướng dẫn</p>
+  <div class="jcols">
+    <div class="jc">
+      <div class="jh"><div class="ji java">☕</div><div><h3>Java Edition</h3><span>PC / Mac / Linux</span></div></div>
+      <ul class="steps">
+        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Mở Minecraft Java Edition</h4><p>Khởi động Minecraft phiên bản 1.12 - 1.21+ trên máy tính của bạn.</p></div></li>
+        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Vào Multiplayer → Add Server</h4><p>Nhấn "Multiplayer", sau đó chọn "Add Server" để thêm server mới.</p></div></li>
+        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Nhập địa chỉ server</h4><p>Điền <code>zaymc.dnipo.fun:25126</code> vào ô "Server Address" rồi nhấn Done.</p></div></li>
+        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Join Server và chơi thôi!</h4><p>Double-click vào server vừa thêm để kết nối. Chúc bạn chơi vui!</p></div></li>
+      </ul>
+    </div>
+    <div class="jc">
+      <div class="jh"><div class="ji bedrock">📱</div><div><h3>Bedrock Edition</h3><span>Mobile / Windows / Console</span></div></div>
+      <ul class="steps">
+        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Mở Minecraft Bedrock</h4><p>Khởi động Minecraft Bedrock Edition trên thiết bị của bạn.</p></div></li>
+        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Vào Play → Servers → Add Server</h4><p>Nhấn "Play", chọn tab "Servers", sau đó nhấn "Add Server".</p></div></li>
+        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Nhập IP và Port</h4><p>Server Address: <code>zaymc.dnipo.fun</code><br>Port: <code>25126</code></p></div></li>
+        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Save & Join</h4><p>Nhấn "Save" rồi "Play" để vào server. Chúc bạn chơi vui!</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ĐĂNG KÝ TÀI KHOẢN -->
+<section id="register">
+  <h2 class="st">ĐĂNG KÝ TÀI KHOẢN</h2>
+  <p class="ss">Tạo tài khoản trước khi vào game — đăng nhập 1 lần là chơi được luôn</p>
+
+  <div class="reg-wrap">
+    <h3>🎮 Tạo tài khoản Minecraft</h3>
+    <p>Nhập tên nhân vật + mật khẩu bên dưới. Sau đó vào game, gõ <code>/login &lt;mật_khẩu&gt;</code> là vào được.</p>
+
+    <form id="regForm" onsubmit="submitRegister(event)">
+      <div class="reg-group">
+        <label>Tên nhân vật (Minecraft Username)</label>
+        <input type="text" id="regUsername" placeholder="Ví dụ: OneTopSV" required minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}">
+      </div>
+
+      <div class="reg-group">
+        <label>Mật khẩu (6-30 ký tự)</label>
+        <input type="password" id="regPassword" placeholder="Nhập mật khẩu..." required minlength="6" maxlength="30">
+      </div>
+
+      <div class="reg-group">
+        <label>Nhập lại mật khẩu</label>
+        <input type="password" id="regPassword2" placeholder="Nhập lại mật khẩu..." required minlength="6" maxlength="30">
+      </div>
+
+      <button type="submit" class="reg-btn" id="regBtn">📝 ĐĂNG KÝ NGAY</button>
+    </form>
+
+    <div class="reg-msg" id="regMsg"></div>
+
+    <div class="reg-note">
+      💡 <strong>Hướng dẫn:</strong>
+      <br>1. Đăng ký xong → vào Minecraft → kết nối server
+      <br>2. Khi vào game, chat sẽ hiện yêu cầu đăng nhập
+      <br>3. Gõ <code>/login &lt;mật_khẩu_bạn_vừa_tạo&gt;</code> để vào chơi
+      <br>4. Lần sau vào lại cũng gõ <code>/login</code> với mật khẩu đó
+    </div>
+  </div>
+</section>
+
+<section id="wiki">
+  <h2 class="st">TU TIÊN BÍ ĐIỂN</h2>
+  <p class="ss">Bí điển ZAYMC — đạo hữu chọn một mục để tra cứu công pháp, quy tắc và các bí thuật trong server.</p>
+
+  <input type="radio" name="wiki-tab" id="w-tu-tien" class="wradio" checked>
+  <input type="radio" name="wiki-tab" id="w-claim" class="wradio">
+  <input type="radio" name="wiki-tab" id="w-marry" class="wradio">
+  <input type="radio" name="wiki-tab" id="w-spawner" class="wradio">
+  <input type="radio" name="wiki-tab" id="w-rank" class="wradio">
+  <input type="radio" name="wiki-tab" id="w-napthe" class="wradio">
+
+  <div class="wtabs">
+    <label class="wtab" for="w-tu-tien">✨ Tu Tiên</label>
+    <label class="wtab" for="w-claim">🏡 Bảo vệ đất</label>
+    <label class="wtab" for="w-marry">💕 Kết hôn</label>
+    <label class="wtab" for="w-spawner">⚙️ Spawner</label>
+    <label class="wtab" for="w-rank">👑 Rank</label>
+    <label class="wtab" for="w-napthe">💳 Nạp thẻ</label>
+  </div>
+
+  <div class="wpanels">
+    <div class="wpanel" id="panel-tu-tien"><div class="wc">
+      <h3 id="wk-nhapmon">🌱 Bắt đầu con đường tu tiên</h3>
+      <p>Hoan nghênh đạo hữu bước vào tiên lộ ZAYMC. Từ hôm nay, hãy nhập môn, hấp thu linh khí, tôi luyện đạo tâm và từng bước vấn đỉnh cảnh giới cao hơn.</p>
+      <h3>📜 Khẩu quyết nhập môn</h3>
+      <ul><li><code>/nhapmon</code> — Chính thức nhập môn, khai mở tiên duyên.</li><li><code>/tutien</code> — Mở bí lục tu tiên, tra cứu các mục có thể sử dụng.</li><li><code>/tutien thongtin</code> — Quan sát cảnh giới, tu vi, linh khí, sinh mệnh và giới vực hiện tại.</li><li><code>/hud</code> — Bật hoặc ẩn bảng hiển thị sinh mệnh và linh khí trên thanh hotbar.</li></ul>
+      <h3>🧭 Con đường tu hành</h3>
+      <div class="wgrid"><div class="wcard"><h5>1. Nhập môn</h5><p>Dùng <code>/nhapmon</code> để bắt đầu hành trình.</p></div><div class="wcard"><h5>2. Ngồi thiền</h5><p>Vận hành <code>/tuluyen</code> để tĩnh tọa, hấp thu thiên địa linh khí.</p></div><div class="wcard"><h5>3. Đột phá</h5><p>Khi tu vi viên mãn và đủ điều kiện, vận dụng <code>/dotpha</code> để phá cảnh.</p></div><div class="wcard"><h5>4. Khám phá</h5><p>Tầm bảo, lĩnh ngộ công pháp và chuẩn bị pháp bảo trước khi bước vào hiểm địa.</p></div></div>
+      <h3 id="wk-tuluyen">🧘 Tu luyện và đột phá</h3><ul><li>Dùng <code>/tuluyen</code> để bắt đầu hoặc dừng ngồi thiền.</li><li>Tĩnh tọa quá lâu có thể dẫn đến tẩu hỏa nhập ma; đạo hữu chớ nóng vội.</li><li>Từ Trúc Cơ trở đi, đột phá có thể dẫn tới lôi kiếp. Hãy chuẩn bị đầy đủ trước khi nghịch thiên phá cảnh.</li></ul>
+      <h3 id="wk-canhgioi">☁️ Cảnh giới, phi thăng và hạ giới</h3><ul><li><code>/phithang</code> — Thử phi thăng lên giới trên khi đủ điều kiện.</li><li><code>/hagioi</code> — Đi xuống giới dưới.</li><li>Server có Hạ Giới, Tiên Giới và Thần Giới. Thiên kiếp có thể gây tử vong.</li><li>Ở Tiên Giới hoặc Thần Giới, <code>/rtp</code> mở menu dịch chuyển ngẫu nhiên.</li></ul>
+      <h3 id="wk-congphap">⚔️ Công pháp và chiêu pháp</h3><ul><li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để lĩnh ngộ.</li><li><code>/chieuphap</code> — Xem chiêu pháp đã học.</li><li><code>/congphap</code> — Xem hoặc vận hành công pháp bị động.</li><li>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong game để biết thao tác cụ thể.</li></ul>
+      <h3>🌿 Linh thảo, linh đan và luyện đan</h3><ul><li>Thu thập hạt giống linh thảo trong quá trình chơi và làm theo hướng dẫn trên vật phẩm.</li><li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li><li>Đọc mô tả vật phẩm và công thức trong game trước khi chế tạo.</li></ul>
+      <h3>🏯 Bí cảnh và yêu thú trấn thủ</h3><ul><li><code>/tutien biccanh</code> — Xem thông tin bí cảnh.</li><li><code>/tutien vao-bicanh</code> — Vào bí cảnh khi đủ điều kiện.</li><li>Chuẩn bị pháp bảo và linh đan hồi phục trước khi khiêu chiến yêu thú hoặc tiến vào hiểm địa.</li></ul>
+      <div class="hl"><p>💡 Đạo hữu có thể dùng <code>/tutien help</code> để xem các khẩu lệnh được phép sử dụng. Nếu bí điển có điểm khác với thông báo trong game, hãy lấy chỉ dẫn trong game làm chuẩn hoặc thỉnh giáo Staff.</p></div>
+    </div></div>
+
+    <div class="wpanel" id="panel-claim"><div class="wc">
+      <h3>🏡 Bảo vệ đất của bạn</h3>
+      <p>Hệ thống bảo vệ đất giúp bạn giữ an toàn khu vực xây dựng và hạn chế người khác phá hoại. Hãy kiểm tra hướng dẫn/lệnh bảo vệ đất đang được bật trên server trước khi xây căn cứ lớn.</p>
+      <h3>🧱 Cách sử dụng an toàn</h3><ul><li>Chọn khu vực phù hợp để xây nhà, kho đồ và công trình cá nhân.</li><li>Kiểm tra ranh giới khu đất sau khi tạo claim; đừng mặc định rằng toàn bộ khu vực xung quanh đã được bảo vệ.</li><li>Không chia sẻ quyền thành viên cho người lạ nếu bạn không tin tưởng họ.</li><li>Trước khi mở quyền xây/sửa cho bạn bè, hãy kiểm tra đúng tên người chơi và phạm vi quyền.</li></ul>
+      <h3>🛡️ Mẹo tránh mất đồ</h3><div class="wgrid"><div class="wcard"><h5>Kiểm tra ranh giới</h5><p>Đảm bảo rương, lò và các công trình quan trọng nằm trong vùng được bảo vệ.</p></div><div class="wcard"><h5>Quản lý quyền</h5><p>Chỉ thêm người bạn tin tưởng và gỡ quyền khi không còn cần thiết.</p></div><div class="wcard"><h5>Gặp lỗi?</h5><p>Chụp ảnh khu vực và thông báo cho staff để được kiểm tra.</p></div></div>
+      <div class="warn"><p>⚠️ Lệnh tạo claim và giới hạn đất có thể phụ thuộc cấu hình server. Hãy dùng lệnh trợ giúp của hệ thống bảo vệ đất trong game hoặc hỏi staff để biết cú pháp chính xác.</p></div>
+    </div></div>
+
+    <div class="wpanel" id="panel-marry"><div class="wc">
+      <h3>💕 Hệ thống kết hôn</h3><p>Kết hôn là tính năng dành cho hai người chơi muốn ghép đôi trong server. Theo thông tin hiển thị trên website, vợ/chồng có thể nhận buff XP và hiệu ứng hồi máu ×2 khi ở gần nhau.</p>
+      <h3>💌 Trước khi kết hôn</h3><ul><li>Thống nhất với người chơi kia trước khi gửi lời mời.</li><li>Đảm bảo cả hai đang online và làm theo thông báo của hệ thống.</li><li>Đọc kỹ nội dung xác nhận trước khi đồng ý.</li></ul>
+      <h3>✨ Quyền lợi</h3><div class="wgrid"><div class="wcard"><h5>Buff XP</h5><p>Có thể nhận hiệu ứng tăng XP theo cơ chế kết hôn của server.</p></div><div class="wcard"><h5>Ở gần nhau</h5><p>Hiệu ứng hồi máu được mô tả là tăng ×2 khi ở gần người ấy.</p></div></div>
+      <div class="hl"><p>💡 Cú pháp lệnh kết hôn và cách ly hôn chưa được xác nhận trong nội dung hiện có. Hãy kiểm tra menu/lệnh trợ giúp trong game hoặc hỏi staff để tránh dùng sai lệnh.</p></div>
+    </div></div>
+
+    <div class="wpanel" id="panel-spawner"><div class="wc">
+      <h3>⚙️ Spawner và khu farm</h3><p>Spawner hỗ trợ tạo khu farm quái/vật phẩm theo thiết lập của server. Hiệu quả có thể phụ thuộc khoảng cách người chơi, giới hạn khu vực và quy định chống lag.</p>
+      <h3>🔧 Cách dùng hiệu quả</h3><ul><li>Xây khu farm gọn gàng, có đường đi và khu vực thu gom đồ an toàn.</li><li>Đứng trong phạm vi hoạt động mà server yêu cầu nếu spawner cần người chơi ở gần.</li><li>Không đặt quá nhiều máy farm hoặc tạo cơ chế gây lag.</li><li>Kiểm tra quy định server trước khi xây farm tự động.</li></ul>
+      <h3>🧰 Khi spawner không hoạt động</h3><ul><li>Kiểm tra khu vực có bị giới hạn hoặc bảo vệ hay không.</li><li>Thử đứng gần spawner và chờ một lúc.</li><li>Kiểm tra giới hạn mob hoặc thông báo hiển thị trong game.</li><li>Nếu vẫn lỗi, gửi tọa độ và ảnh spawner cho staff.</li></ul>
+      <div class="warn"><p>⚠️ Cách đặt, nâng cấp, giá và giới hạn spawner cụ thể cần theo cấu hình thực tế của ZAYMC. Không nên dựa vào hướng dẫn của server khác.</p></div>
+    </div></div>
+
+    <div class="wpanel" id="panel-rank"><div class="wc">
+      <h3>👑 Hệ thống Rank</h3><p>Rank là các bậc quyền lợi dành cho người chơi. Website hiện giới thiệu các bậc VIP, MVP, ELITE và GOD, có thể mở khóa home, kit và lệnh tiện ích theo từng cấp.</p>
+      <h3>🏆 Các bậc rank</h3><div class="wgrid"><div class="wcard"><h5>VIP</h5><p>Bậc rank hỗ trợ người chơi với các quyền lợi theo gói.</p></div><div class="wcard"><h5>MVP</h5><p>Bậc rank cao hơn với quyền lợi tùy gói.</p></div><div class="wcard"><h5>ELITE</h5><p>Gói rank với các tiện ích được quy định trên server.</p></div><div class="wcard"><h5>GOD</h5><p>Bậc rank cao trong danh sách gói được giới thiệu.</p></div></div>
+      <h3>🎁 Quyền lợi và mua rank</h3><ul><li>Quyền lợi có thể gồm lệnh home, kit và lệnh tiện ích.</li><li>Kiểm tra bảng giá và danh sách quyền lợi chính thức trước khi mua.</li><li>Giữ lại hóa đơn hoặc ảnh giao dịch nếu cần hỗ trợ.</li><li>Không gửi mật khẩu tài khoản cho bất kỳ ai để nhận rank.</li></ul>
+      <div class="hl"><p>💡 Giá, phương thức thanh toán và quyền lợi chi tiết có thể thay đổi. Hãy xem mục đăng ký/mua rank chính thức trên website hoặc liên hệ staff trước khi thanh toán.</p></div>
+    </div></div>
+
+    <div class="wpanel" id="panel-napthe"><div class="wc">
+      <h3>💳 Nạp linh thạch qua thẻ</h3>
+      <p>Đạo hữu có thể dùng lệnh <code>/napthe</code> ngay trong game để nạp thẻ và nhận linh thạch theo hệ thống.</p>
+      <h3>🧾 Khẩu quyết nạp thẻ</h3>
+      <div class="hl"><p><code>/napthe &lt;nhà mạng&gt; &lt;mệnh giá&gt; &lt;serial&gt; &lt;mã thẻ&gt;</code></p></div>
+      <h3>📌 Trình tự hiến nạp</h3>
+      <ul>
+        <li>Kiểm tra đúng nhà mạng và mệnh giá của thẻ.</li>
+        <li>Nhập chính xác số serial và mã thẻ theo thứ tự trong cú pháp.</li>
+        <li>Gửi lệnh một lần và chờ hệ thống xử lý kết quả.</li>
+        <li>Kiểm tra thông báo trong game để biết giao dịch thành công hay thất bại.</li>
+      </ul>
+      <div class="warn"><p>⚠️ Kiểm tra kỹ thông tin trước khi gửi. Không chia sẻ mã thẻ hoặc serial công khai trong chat, Discord hay với người khác.</p></div>
+      <h3>🛟 Giao dịch gặp trục trặc?</h3>
+      <p>Nếu quá trình hiến nạp thất bại, linh thạch chưa được ghi nhận hoặc phát sinh vấn đề giao dịch, đạo hữu hãy đến kênh <strong>Discord Ticket</strong> và <strong>tạo một Ticket mới</strong> để thỉnh cầu Staff kiểm tra, hỗ trợ.</p>
+      <p>Khi lập Ticket, hãy cung cấp tên nhân vật cùng thông tin giao dịch cần thiết để Staff tra xét. Tuyệt đối không công khai mã thẻ, serial hoặc mật khẩu tài khoản.</p>
+    </div></div>
+  </div>
+</section>
+
+<section id="join">
+  <h2 class="st">SẴN SÀNG CHƯA?</h2>
+  <p class="ss">Copy IP và tham gia ZAYMC Network ngay hôm nay</p>
+  <div style="text-align:center">
+    <div class="tabs">
+      <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java</button>
+      <button class="tab" data-type="bedrock" onclick="switchTab('bedrock')">📱 Bedrock</button>
+    </div>
+    <div class="panel active" id="panel-2-java">
+      <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun:25126')">
+        <div><span class="iplabel">Java IP</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
+        <div class="cicon">📋</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-2-bedrock">
+      <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
+        <div><span class="iplabel">Bedrock IP</span><span class="ipval">zaymc.dnipo.fun</span></div>
+        <div class="cicon">📋</div>
+      </div>
+      <div class="portbox" onclick="copyIP('25126')">
+        <div><span class="portlabel">Port</span><span class="portval">25126</span></div>
+        <div class="cicon" style="font-size:18px">📋</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">ZAYMC</div>
+  <p>© 2026 ZAYMC Network. Made with ❤️ by the community.</p>
+  <div class="socs">
+    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="dc" title="Discord">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+    </a>
+    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="ms" title="Messenger">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.35.27.57l.05 1.78c.02.57.6.94 1.12.71l1.99-.88c.17-.07.36-.09.53-.05.92.25 1.9.39 2.9.39 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm6 7.46l-2.94 4.66c-.47.74-1.47.93-2.18.4l-2.34-1.75a.6.6 0 00-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.94-4.66c.47-.74 1.47-.93 2.18-.4l2.34 1.75a.6.6 0 00.72 0l3.16-2.4c.42-.32.97.18.69.63z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="tt" title="TikTok">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+    </a>
+    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="fb" title="Facebook">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="ig" title="Instagram">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913a5.885 5.885 0 001.384 2.126A5.868 5.868 0 004.14 23.37c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558a5.898 5.898 0 002.126-1.384 5.86 5.86 0 001.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913a5.89 5.89 0 00-1.384-2.126A5.847 5.847 0 0019.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 01-.899 1.382 3.744 3.744 0 01-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 01-1.379-.899 3.644 3.644 0 01-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✅ Đã copy!</div>
+
+<script>
+function copyIP(ip){
+  var show=function(){var t=document.getElementById('toast');t.textContent='✅ Đã copy: '+ip;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)};
+  var fb=function(x){var a=document.createElement('textarea');a.value=x;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ip).then(show).catch(function(){fb(ip);show()})}else{fb(ip);show()}
+}
+function switchTab(type){
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.dataset.type===type)});
+  ['panel-java','panel-bedrock','panel-2-java','panel-2-bedrock'].forEach(function(id){
+    var el=document.getElementById(id);if(!el)return;
+    var t=id.indexOf('java')>-1?'java':'bedrock';
+    el.classList.toggle('active',t===type);
+  });
+}
+// Mở Wiki: chọn đúng tab (radio) rồi cuộn tới mục con (nếu có) hoặc tới thanh tab
+function openWiki(e,tabId,anchorId){
+  e.preventDefault();
+  if(tabId){var radio=document.getElementById(tabId);if(radio){radio.checked=true}}
+  // Đợi trình duyệt hiển thị panel mới rồi mới cuộn
+  requestAnimationFrame(function(){
+    var target=(anchorId&&document.getElementById(anchorId))||document.querySelector('#wiki .wtabs')||document.getElementById('wiki');
+    if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+}
+function setStatus(online){
+  var b=document.getElementById('statusBadge');
+  if(!b)return;
+  if(online){
+    b.className='badge online';
+    b.innerHTML='<span class="dot"></span>SERVER ĐANG ONLINE';
+  }else{
+    b.className='badge offline';
+    b.innerHTML='<span class="dot"></span>SERVER ĐANG OFFLINE';
+  }
+}
+async function fetchStatus(){
+  try{
+    var r=await fetch('https://api.mcsrvstat.us/3/zaymc.dnipo.fun:25126');
+    var d=await r.json();
+    document.getElementById('onlinePlayers').textContent=d.online?((d.players&&d.players.online)||0):'0';
+    setStatus(d.online);
+  }catch(e){
+    document.getElementById('onlinePlayers').textContent='N/A';
+    setStatus(false);
+  }
+}
+fetchStatus();setInterval(fetchStatus,60000);
+document.querySelectorAll('.smooth').forEach(function(a){
+  a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
+});
+
+// ==== ĐĂNG KÝ TÀI KHOẢN ====
+async function submitRegister(e){
+  e.preventDefault();
+  var username = document.getElementById('regUsername').value.trim();
+  var pass1 = document.getElementById('regPassword').value;
+  var pass2 = document.getElementById('regPassword2').value;
+  var btn = document.getElementById('regBtn');
+  var msg = document.getElementById('regMsg');
+
+  msg.className = 'reg-msg';
+
+  if(pass1 !== pass2){
+    msg.textContent = '❌ Mật khẩu nhập lại không khớp!';
+    msg.className = 'reg-msg err show';
+    return;
+  }
+  if(!/^[A-Za-z0-9_]{3,16}$/.test(username)){
+    msg.textContent = '❌ Tên chỉ được chứa chữ, số, dấu gạch dưới (3-16 ký tự).';
+    msg.className = 'reg-msg err show';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ ĐANG XỬ LÝ...';
+  msg.textContent = 'Đang gửi yêu cầu đăng ký lên server...';
+  msg.className = 'reg-msg ok show';
+
+  try {
+    var res = await fetch('/api/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: username, password: pass1})
+    });
+    var data = await res.json();
+
+    if(res.ok && data.success){
+      msg.textContent = '✅ Đăng ký thành công! Tên: ' + username + '. Bây giờ vào game và gõ /login với mật khẩu vừa tạo.';
+      msg.className = 'reg-msg ok show';
+      document.getElementById('regForm').reset();
+    } else {
+      msg.textContent = '❌ ' + (data.message || 'Đăng ký thất bại, thử lại sau.');
+      msg.className = 'reg-msg err show';
+    }
+  } catch(err) {
+    msg.textContent = '❌ Không kết nối được server. Vui lòng thử lại sau.';
+    msg.className = 'reg-msg err show';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📝 ĐĂNG KÝ NGAY';
+  }
+}
+</script>
+
+<!-- WidgetBot Script -->
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+
+<!-- Crisp Chat -->
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7dc42c54-2d47-4399-832a-e8c1b722f488";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+</body>
+</html>
