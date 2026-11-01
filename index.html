@@ -179,17 +179,17 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .tag.bad{background:rgba(255,107,107,.15);color:#ff6b6b}
 
 /* ==== BÍ ĐIỂN: cảnh giới + bảng ==== */
-.rplane{margin:18px 0 6px;font-size:15px;font-weight:700;color:#e8d39f;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rplane small{font-weight:500;color:#aab5ca;font-size:12px}
+.rplane{margin:18px 0 6px;font-size:15px;font-weight:700;color:var(--a);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rplane small{font-weight:500;color:var(--td);font-size:12px}
 .rlist{list-style:none;counter-reset:r;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin:8px 0 14px!important}
-.rlist li{counter-increment:r;padding:9px 12px 9px 42px!important;margin:0!important;border:1px solid rgba(193,163,105,.22);border-radius:10px;background:rgba(10,16,20,.45);position:relative}
-.rlist li::before{content:counter(r)!important;position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:rgba(193,163,105,.18);color:#e8d39f!important;font-size:11px;display:flex;align-items:center;justify-content:center}
-.rlist li b{color:#f4e5bf}
-.rlist li em{display:block;font-style:normal;font-size:11px;color:#9fb0a4}
-.rlist li.gate{border-color:#c6a96c;background:rgba(157,121,58,.14)}
+.rlist li{counter-increment:r;padding:9px 12px 9px 42px!important;margin:0!important;border:1px solid rgba(108,92,231,.25);border-radius:10px;background:rgba(10,10,26,.45);position:relative}
+.rlist li::before{content:counter(r)!important;position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:rgba(0,217,255,.15);color:var(--a)!important;font-size:11px;display:flex;align-items:center;justify-content:center}
+.rlist li b{color:var(--t)}
+.rlist li em{display:block;font-style:normal;font-size:11px;color:var(--td)}
+.rlist li.gate{border-color:var(--a);background:rgba(0,217,255,.08)}
 .wtable{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:13px}
-.wtable th,.wtable td{padding:9px 12px;text-align:left;border-bottom:1px solid rgba(193,163,105,.18);color:#c1c9c0}
-.wtable th{color:#e8d39f;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+.wtable th,.wtable td{padding:9px 12px;text-align:left;border-bottom:1px solid rgba(108,92,231,.18);color:var(--td)}
+.wtable th{color:var(--a);font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
 .wtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .t-pham{color:#7ee08a!important}.t-dia{color:#69e7ff!important}.t-thien{color:#e49bff!important}
 footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,231,.2);background:rgba(10,10,26,.8);position:relative;z-index:1}
@@ -263,30 +263,6 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
   .socs a{width:44px;height:44px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-
-
-/* ==== BÍ ĐIỂN TU TIÊN THEME ==== */
-#wiki{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(184,145,76,.16),transparent 42%),radial-gradient(ellipse at 12% 45%,rgba(40,115,91,.18),transparent 38%),radial-gradient(ellipse at 90% 75%,rgba(81,65,145,.18),transparent 40%),linear-gradient(180deg,#080e13 0%,#101b1b 48%,#0a1018 100%)}
-#wiki:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.32;background-image:linear-gradient(115deg,transparent 0 48%,rgba(210,180,112,.08) 49%,transparent 50%),radial-gradient(ellipse at 20% 20%,rgba(203,174,111,.13),transparent 35%),radial-gradient(ellipse at 80% 60%,rgba(111,179,147,.12),transparent 38%);background-size:100% 100%,700px 420px,800px 520px}
-#wiki .st{background:linear-gradient(120deg,#f3e4b8 0%,#c9a96b 38%,#9ed9bd 72%,#e9d7a5 100%);-webkit-background-clip:text;background-clip:text;text-shadow:0 8px 35px rgba(201,169,107,.14)}
-#wiki .ss{color:#c4c9b9}
-#wiki .wtabs{margin-bottom:38px}
-#wiki .wtab{background:linear-gradient(145deg,rgba(25,43,39,.92),rgba(19,27,34,.94))!important;border:1px solid rgba(191,160,99,.28)!important;color:#c8c5b5!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 8px 24px #0003}
-#wiki .wtab:hover{border-color:#c5a66a!important;color:#f4e5bf!important;box-shadow:0 0 22px rgba(197,166,106,.12)}
-#wiki .wtab.active,#wiki #w-tu-tien:checked~.wtabs label[for=w-tu-tien],#wiki #w-claim:checked~.wtabs label[for=w-claim],#wiki #w-marry:checked~.wtabs label[for=w-marry],#wiki #w-spawner:checked~.wtabs label[for=w-spawner],#wiki #w-rank:checked~.wtabs label[for=w-rank],#wiki #w-napthe:checked~.wtabs label[for=w-napthe],#wiki #w-trade:checked~.wtabs label[for=w-trade]{background:linear-gradient(135deg,#80683f,#354f43)!important;border-color:#c6a96c!important;color:#fff3d2!important;box-shadow:0 8px 28px rgba(126,104,63,.25)}
-#wiki .wc{background:linear-gradient(145deg,rgba(20,35,32,.94),rgba(14,23,29,.96));border:1px solid rgba(193,163,105,.28);box-shadow:0 24px 70px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.035)}
-#wiki .wc h3{color:#d9bd80;border-bottom-color:rgba(193,163,105,.24)}
-#wiki .wc p,#wiki .wc ul li{color:#c1c9c0}
-#wiki .wc ul li:before{color:#b7d5b7}
-#wiki .wc code{background:rgba(171,143,84,.13);border-color:rgba(193,163,105,.28);color:#e8d39f}
-#wiki .wcard{background:linear-gradient(145deg,rgba(29,49,43,.78),rgba(17,27,32,.85));border-color:rgba(193,163,105,.2)}
-#wiki .wcard:hover{border-color:#bca16a;box-shadow:0 10px 25px rgba(164,137,82,.12)}
-#wiki .wcard h5{color:#b9d4b6}
-#wiki .hl{background:rgba(90,132,103,.13);border-left-color:#9dbb91}
-#wiki .warn{background:rgba(157,121,58,.12);border-left-color:#c6a96c}
-#wiki .warn p{color:#e0c98f}
-#wiki .tag{background:rgba(125,161,125,.15);color:#c5dfbb}
-@media(max-width:768px){#wiki{background-attachment:scroll}#wiki .wc{background:rgba(18,31,30,.96)}}
 
 
 /* ================= CẢNH TRÍ NỀN ================= */
@@ -475,33 +451,19 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 
 <!-- ===== CẢNH TRÍ NỀN (thuần CSS, không ảnh, không blur) ===== -->
 <div class="scenery" aria-hidden="true">
-  <!-- Sao thưa -->
   <i class="stars s1"></i>
   <i class="stars s2"></i>
   <i class="stars s3"></i>
-
-  <!-- Trăng sáng -->
   <div class="moon"></div>
-
-  <!-- Lớp núi xa -->
   <div class="mtn far"></div>
-
-  <!-- Mây trôi -->
   <i class="cloud c1"></i>
   <i class="cloud c2"></i>
   <i class="cloud c3"></i>
-
-  <!-- Lớp núi giữa -->
   <div class="mtn mid"></div>
-
-  <!-- Sương mù -->
   <div class="mist m1"></div>
   <div class="mist m2"></div>
-
-  <!-- Lớp núi gần -->
   <div class="mtn near"></div>
 
-  <!-- Đom đóm -->
   <i class="fly" style="--x:9vw;--y:62vh;--d:0s;--t:9s"></i>
   <i class="fly" style="--x:21vw;--y:70vh;--d:-2s;--t:11s"></i>
   <i class="fly" style="--x:33vw;--y:58vh;--d:-4s;--t:8s"></i>
@@ -515,12 +477,10 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
   <i class="fly" style="--x:71vw;--y:88vh;--d:-12s;--t:12s"></i>
   <i class="fly" style="--x:94vw;--y:82vh;--d:-9s;--t:9s"></i>
 
-  <!-- Hạc bay -->
   <i class="crane" style="--y:22vh;--t:58s;--d:0s"></i>
   <i class="crane small" style="--y:31vh;--t:74s;--d:-26s"></i>
   <i class="crane small" style="--y:15vh;--t:88s;--d:-54s"></i>
 
-  <!-- Cánh hoa rơi -->
   <i class="petal" style="--x:6vw;--t:15s;--d:0s"></i>
   <i class="petal" style="--x:16vw;--t:19s;--d:-4s"></i>
   <i class="petal" style="--x:27vw;--t:13s;--d:-8s"></i>
@@ -902,7 +862,6 @@ function switchTab(type){
     el.classList.toggle('active',t===type);
   });
 }
-// Mở Bí Điển: chọn đúng tab (radio) rồi cuộn tới mục con (nếu có) hoặc tới thanh tab
 function openWiki(e,tabId,anchorId){
   e.preventDefault();
   if(tabId){var radio=document.getElementById(tabId);if(radio){radio.checked=true}}
@@ -938,7 +897,6 @@ document.querySelectorAll('.smooth').forEach(function(a){
   a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
 });
 
-// ==== KHAI MỞ TIÊN DUYÊN ====
 async function submitRegister(e){
   e.preventDefault();
   var username = document.getElementById('regUsername').value.trim();
@@ -991,10 +949,8 @@ async function submitRegister(e){
 }
 </script>
 
-<!-- WidgetBot Script -->
 <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
 
-<!-- Crisp Chat -->
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7dc42c54-2d47-4399-832a-e8c1b722f488";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
 </body>
