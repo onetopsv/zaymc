@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ZAYMC Network - Server Minecraft</title>
+<title>ZAYMC Tiên Môn - Động Thiên Phúc Địa</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="ZAYMC Network - Server Minecraft Việt Nam hỗ trợ Java & Bedrock. IP: zaymc.dnipo.fun:25126">
+<meta name="description" content="ZAYMC Tiên Môn - Động thiên phúc địa dành cho tu sĩ Java & Bedrock. Tiên môn lệnh: zaymc.dnipo.fun:25126">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -86,7 +86,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .fc::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:linear-gradient(180deg,var(--a),var(--p));transition:.4s}
 .fc:hover::before{height:100%}
 .fc:hover{transform:translateY(-8px);border-color:rgba(0,217,255,.4);box-shadow:0 20px 50px rgba(108,92,231,.3)}
-.fc::after{content:'→ Xem wiki';position:absolute;bottom:15px;right:20px;font-size:11px;color:var(--a);opacity:0;transition:.3s;font-weight:600;letter-spacing:.5px}
+.fc::after{content:'→ Xem bí điển';position:absolute;bottom:15px;right:20px;font-size:11px;color:var(--a);opacity:0;transition:.3s;font-weight:600;letter-spacing:.5px}
 .fc:hover::after{opacity:1}
 .fi{font-size:40px;margin-bottom:20px;display:inline-block}
 .fc h3{font-size:20px;margin-bottom:12px;font-weight:700;color:var(--t)}
@@ -118,7 +118,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .chat-feats li:last-child{border:none}
 .chat-frame-side widgetbot{display:block;width:100%;min-height:520px;border-radius:16px;border:1px solid rgba(108,92,231,.3)}
 
-/* ==== REGISTER FORM ==== */
+/* ==== KHAI MỞ TIÊN DUYÊN ==== */
 .reg-wrap{max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.8),rgba(19,19,43,.6));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px 35px;backdrop-filter:blur(10px)}
 .reg-wrap h3{font-size:22px;color:var(--a);margin-bottom:10px;text-align:center;font-weight:700}
 .reg-wrap>p{color:var(--td);font-size:14px;text-align:center;margin-bottom:30px;line-height:1.7}
@@ -137,7 +137,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .reg-note{margin-top:25px;padding:14px 18px;background:rgba(0,217,255,.08);border-left:3px solid var(--a);border-radius:8px;font-size:13px;color:var(--td);line-height:1.7}
 .reg-note strong{color:var(--a)}
 
-/* ==== WIKI ==== */
+/* ==== BÍ ĐIỂN ==== */
 .wtabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto}
 .wtab{padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;background:rgba(26,26,58,.6);border:1px solid rgba(108,92,231,.3);color:var(--td);display:flex;align-items:center;gap:8px;user-select:none}
 .wtab:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
@@ -148,13 +148,15 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 #w-marry:checked~.wtabs label[for=w-marry],
 #w-spawner:checked~.wtabs label[for=w-spawner],
 #w-rank:checked~.wtabs label[for=w-rank],
-#w-napthe:checked~.wtabs label[for=w-napthe]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
+#w-napthe:checked~.wtabs label[for=w-napthe],
+#w-trade:checked~.wtabs label[for=w-trade]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
 #w-tu-tien:checked~.wpanels #panel-tu-tien,
 #w-claim:checked~.wpanels #panel-claim,
 #w-marry:checked~.wpanels #panel-marry,
 #w-spawner:checked~.wpanels #panel-spawner,
 #w-rank:checked~.wpanels #panel-rank,
-#w-napthe:checked~.wpanels #panel-napthe{display:block;animation:fi .4s ease}
+#w-napthe:checked~.wpanels #panel-napthe,
+#w-trade:checked~.wpanels #panel-trade{display:block;animation:fi .4s ease}
 .wradio{display:none}
 .wc{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(26,26,58,.7),rgba(19,19,43,.5));border:1px solid rgba(108,92,231,.3);border-radius:20px;padding:40px;backdrop-filter:blur(10px)}
 .wc h3{font-size:22px;font-weight:700;color:var(--a);margin-top:30px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(108,92,231,.3);display:flex;align-items:center;gap:10px}
@@ -175,6 +177,21 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .wcard p{font-size:13px;margin-bottom:0;color:var(--td)}
 .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:5px;background:rgba(0,217,255,.15);color:var(--a);margin-right:5px;margin-top:5px}
 .tag.bad{background:rgba(255,107,107,.15);color:#ff6b6b}
+
+/* ==== BÍ ĐIỂN: cảnh giới + bảng ==== */
+.rplane{margin:18px 0 6px;font-size:15px;font-weight:700;color:#e8d39f;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rplane small{font-weight:500;color:#aab5ca;font-size:12px}
+.rlist{list-style:none;counter-reset:r;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin:8px 0 14px!important}
+.rlist li{counter-increment:r;padding:9px 12px 9px 42px!important;margin:0!important;border:1px solid rgba(193,163,105,.22);border-radius:10px;background:rgba(10,16,20,.45);position:relative}
+.rlist li::before{content:counter(r)!important;position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:rgba(193,163,105,.18);color:#e8d39f!important;font-size:11px;display:flex;align-items:center;justify-content:center}
+.rlist li b{color:#f4e5bf}
+.rlist li em{display:block;font-style:normal;font-size:11px;color:#9fb0a4}
+.rlist li.gate{border-color:#c6a96c;background:rgba(157,121,58,.14)}
+.wtable{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:13px}
+.wtable th,.wtable td{padding:9px 12px;text-align:left;border-bottom:1px solid rgba(193,163,105,.18);color:#c1c9c0}
+.wtable th{color:#e8d39f;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+.wtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.t-pham{color:#7ee08a!important}.t-dia{color:#69e7ff!important}.t-thien{color:#e49bff!important}
 footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,231,.2);background:rgba(10,10,26,.8)}
 .flogo{font-family:'Press Start 2P',cursive;font-size:18px;color:var(--a);margin-bottom:15px;text-shadow:0 0 15px var(--a)}
 footer p{color:var(--td);font-size:13px;margin-bottom:20px}
@@ -248,7 +265,7 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 
-/* ==== WIKI TU TIEN THEME ==== */
+/* ==== BÍ ĐIỂN TU TIÊN THEME ==== */
 #wiki{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(184,145,76,.16),transparent 42%),radial-gradient(ellipse at 12% 45%,rgba(40,115,91,.18),transparent 38%),radial-gradient(ellipse at 90% 75%,rgba(81,65,145,.18),transparent 40%),linear-gradient(180deg,#080e13 0%,#101b1b 48%,#0a1018 100%)}
 #wiki:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.32;background-image:linear-gradient(115deg,transparent 0 48%,rgba(210,180,112,.08) 49%,transparent 50%),radial-gradient(ellipse at 20% 20%,rgba(203,174,111,.13),transparent 35%),radial-gradient(ellipse at 80% 60%,rgba(111,179,147,.12),transparent 38%);background-size:100% 100%,700px 420px,800px 520px}
 #wiki .st{background:linear-gradient(120deg,#f3e4b8 0%,#c9a96b 38%,#9ed9bd 72%,#e9d7a5 100%);-webkit-background-clip:text;background-clip:text;text-shadow:0 8px 35px rgba(201,169,107,.14)}
@@ -256,7 +273,7 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 #wiki .wtabs{margin-bottom:38px}
 #wiki .wtab{background:linear-gradient(145deg,rgba(25,43,39,.92),rgba(19,27,34,.94))!important;border:1px solid rgba(191,160,99,.28)!important;color:#c8c5b5!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 8px 24px #0003}
 #wiki .wtab:hover{border-color:#c5a66a!important;color:#f4e5bf!important;box-shadow:0 0 22px rgba(197,166,106,.12)}
-#wiki .wtab.active,#wiki #w-tu-tien:checked~.wtabs label[for=w-tu-tien],#wiki #w-claim:checked~.wtabs label[for=w-claim],#wiki #w-marry:checked~.wtabs label[for=w-marry],#wiki #w-spawner:checked~.wtabs label[for=w-spawner],#wiki #w-rank:checked~.wtabs label[for=w-rank],#wiki #w-napthe:checked~.wtabs label[for=w-napthe]{background:linear-gradient(135deg,#80683f,#354f43)!important;border-color:#c6a96c!important;color:#fff3d2!important;box-shadow:0 8px 28px rgba(126,104,63,.25)}
+#wiki .wtab.active,#wiki #w-tu-tien:checked~.wtabs label[for=w-tu-tien],#wiki #w-claim:checked~.wtabs label[for=w-claim],#wiki #w-marry:checked~.wtabs label[for=w-marry],#wiki #w-spawner:checked~.wtabs label[for=w-spawner],#wiki #w-rank:checked~.wtabs label[for=w-rank],#wiki #w-napthe:checked~.wtabs label[for=w-napthe],#wiki #w-trade:checked~.wtabs label[for=w-trade]{background:linear-gradient(135deg,#80683f,#354f43)!important;border-color:#c6a96c!important;color:#fff3d2!important;box-shadow:0 8px 28px rgba(126,104,63,.25)}
 #wiki .wc{background:linear-gradient(145deg,rgba(20,35,32,.94),rgba(14,23,29,.96));border:1px solid rgba(193,163,105,.28);box-shadow:0 24px 70px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.035)}
 #wiki .wc h3{color:#d9bd80;border-bottom-color:rgba(193,163,105,.24)}
 #wiki .wc p,#wiki .wc ul li{color:#c1c9c0}
@@ -278,70 +295,70 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 
 <nav>
   <a href="#home" class="logo-link">
-    <img src="apple-touch-icon.png" alt="ZAYMC Network" class="logo-img">
+    <img src="apple-touch-icon.png" alt="ZAYMC Tiên Môn" class="logo-img">
     <span class="logo">ZAYMC</span>
   </a>
   <ul class="nl">
-    <li><a href="#home" class="smooth">Trang chủ</a></li>
-    <li><a href="#chat" class="smooth">Chat</a></li>
-    <li><a href="#features" class="smooth">Tính năng</a></li>
-    <li><a href="#howto" class="smooth">Hướng dẫn</a></li>
-    <li><a href="#register" class="smooth">Đăng ký</a></li>
-    <li><a href="#wiki" class="smooth">Wiki</a></li>
-    <li><a href="#join" class="smooth">Tham gia</a></li>
+    <li><a href="#home" class="smooth">Sơn Môn</a></li>
+    <li><a href="#chat" class="smooth">Truyền Âm</a></li>
+    <li><a href="#features" class="smooth">Bí Thuật</a></li>
+    <li><a href="#howto" class="smooth">Nhập Môn</a></li>
+    <li><a href="#register" class="smooth">Khai Duyên</a></li>
+    <li><a href="#wiki" class="smooth">Bí Điển</a></li>
+    <li><a href="#join" class="smooth">Nhập Đạo</a></li>
   </ul>
 </nav>
 
 <section class="hero" id="home">
-  <div class="badge" id="statusBadge"><span class="dot"></span>ĐANG KIỂM TRA...</div>
-  <h1>ZAYMC<br>NETWORK</h1>
-  <p>Chào mừng đến với ZAYMC Network — nơi hội tụ của những nhà xây dựng tài ba, những chiến binh dũng cảm và những cuộc phiêu lưu bất tận. Hỗ trợ cả <strong>Java</strong> và <strong>Bedrock</strong>!</p>
+  <div class="badge" id="statusBadge"><span class="dot"></span>ĐANG DÒ XÉT THIÊN CƠ...</div>
+  <h1>ZAYMC<br>TIÊN MÔN</h1>
+  <p>Chào mừng đạo hữu bước chân vào ZAYMC Tiên Môn — động thiên phúc địa hội tụ những bậc kỳ tài, nơi luyện đan, tầm bảo, phi thăng và những cuộc viễn du bất tận. Lưỡng giới <strong>Java</strong> và <strong>Bedrock</strong> đều khai mở!</p>
   <div class="tabs">
-    <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java Edition</button>
-    <button class="tab" data-type="bedrock" onclick="switchTab('bedrock')">📱 Bedrock Edition</button>
+    <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java Đạo</button>
+    <button class="tab" data-type="bedrock" onclick="switchTab('bedrock')">📱 Bedrock Đạo</button>
   </div>
   <div class="panel active" id="panel-java">
     <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun:25126')">
-      <div><span class="iplabel">IP Server Java</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
+      <div><span class="iplabel">Tiên Môn Lệnh (Java)</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
       <div class="cicon">📋</div>
     </div>
-    <p class="iphint">Dán vào ô "Server Address" trong Minecraft Java Edition</p>
+    <p class="iphint">Khắc linh văn này vào ô "Server Address" trong Minecraft Java Edition</p>
   </div>
   <div class="panel" id="panel-bedrock">
     <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
-      <div><span class="iplabel">IP Server Bedrock</span><span class="ipval">zaymc.dnipo.fun</span></div>
+      <div><span class="iplabel">Tiên Môn Lệnh (Bedrock)</span><span class="ipval">zaymc.dnipo.fun</span></div>
       <div class="cicon">📋</div>
     </div>
     <div class="portbox" onclick="copyIP('25126')">
-      <div><span class="portlabel">Port</span><span class="portval">25126</span></div>
+      <div><span class="portlabel">Linh Môn Khẩu</span><span class="portval">25126</span></div>
       <div class="cicon" style="font-size:18px">📋</div>
     </div>
-    <p class="iphint">Dán IP vào ô "Server Address", Port vào ô "Port" khi thêm server</p>
+    <p class="iphint">Khắc IP vào ô "Server Address", Linh Môn Khẩu vào ô "Port" khi lập liên kết</p>
   </div>
   <div class="btns">
-    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Discord</a>
-    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Messenger</a>
-    <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bt">🎵 TikTok</a>
-    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="btn bf">📘 Facebook</a>
-    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bi">📷 Instagram</a>
+    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd">💬 Quần Tiên Hội</a>
+    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="btn bm">📨 Phi Kiếm Truyền Thư</a>
+    <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bt">🎵 Linh Ảnh Các</a>
+    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="btn bf">📘 Thiên Mệnh Các</a>
+    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="btn bi">📷 Huyễn Ảnh Các</a>
   </div>
 </section>
 
-<!-- CHAT CỘNG ĐỒNG -->
+<!-- TRUYỀN ÂM CỘNG ĐỒNG -->
 <section id="chat">
-  <h2 class="st">CHAT CỘNG ĐỒNG</h2>
-  <p class="ss">Nhắn tin trực tiếp với người chơi trong server qua Discord</p>
+  <h2 class="st">TRUYỀN ÂM CỘNG ĐỒNG</h2>
+  <p class="ss">Thi triển thần niệm, truyền âm trực tiếp với đạo hữu trong tiên môn qua Quần Tiên Hội</p>
   <div class="chat-wrap">
     <div class="chat-info-side">
       <div class="chat-icon">💬</div>
-      <h3>Kênh #chat-in-game</h3>
-      <p>Mọi tin nhắn bạn gửi ở đây sẽ hiện trực tiếp trong game Minecraft. Chat với người chơi online ngay trên web!</p>
+      <h3>Linh Đài #truyền-âm-đạo-hữu</h3>
+      <p>Mỗi lời đạo hữu gửi tại đây đều được thiên cơ chuyển thẳng vào tiên môn. Trò chuyện cùng đạo hữu online ngay trên điện thoại!</p>
       <ul class="chat-feats">
-        <li>▸ Không cần đăng nhập</li>
-        <li>▸ Tin nhắn hiện real-time trong game</li>
-        <li>▸ Kết nối cộng đồng ZAYMC</li>
+        <li>▸ Không cần kết ấn đăng nhập</li>
+        <li>▸ Truyền âm tức thời trong tiên môn</li>
+        <li>▸ Kết nối cộng đồng ZAYMC Tiên Môn</li>
       </ul>
-      <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd" style="margin-top:auto;width:100%;justify-content:center">💬 Mở Discord đầy đủ</a>
+      <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="btn bd" style="margin-top:auto;width:100%;justify-content:center">💬 Mở Quần Tiên Hội</a>
     </div>
     <div class="chat-frame-side">
       <widgetbot
@@ -356,112 +373,117 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 </section>
 
 <section id="features">
-  <h2 class="st">TẠI SAO CHỌN ZAYMC?</h2>
-  <p class="ss">Trải nghiệm Minecraft tuyệt vời với những tính năng độc đáo</p>
+  <h2 class="st">VÌ SAO CHỌN ZAYMC TIÊN MÔN?</h2>
+  <p class="ss">Động thiên phúc địa với vô vàn bí thuật độc đáo chờ đạo hữu khám phá</p>
   <div class="stats">
-    <div class="sc"><div class="sv" id="onlinePlayers">--</div><div class="sl">Người chơi online</div><div class="sn">Cập nhật mỗi 5 phút</div></div>
-    <div class="sc"><div class="sv">24/7</div><div class="sl">Hoạt động</div></div>
-    <div class="sc"><div class="sv">Java+BE</div><div class="sl">Cross-play</div></div>
-    <div class="sc"><div class="sv">100</div><div class="sl">Slot tối đa</div></div>
+    <div class="sc"><div class="sv" id="onlinePlayers">--</div><div class="sl">Đạo hữu tại môn</div><div class="sn">Thiên cơ cập nhật mỗi 5 phút</div></div>
+    <div class="sc"><div class="sv">24/7</div><div class="sl">Tiên môn khai mở</div></div>
+    <div class="sc"><div class="sv">Java+BE</div><div class="sl">Lưỡng giới tương thông</div></div>
+    <div class="sc"><div class="sv">100</div><div class="sl">Tiên vị tối đa</div></div>
   </div>
 
   <div class="feats">
     <a href="#wiki" class="fc" onclick="openWiki(event,'w-tu-tien')">
       <div class="fi">✨</div>
-      <h3>Tu Tiên</h3>
+      <h3>Tu Tiên Đạo</h3>
       <p>Nhập môn, tu luyện, đột phá, phi thăng, công pháp và chiêu pháp — trọn bộ hành trình tu tiên.</p>
     </a>
     <a href="#wiki" class="fc" onclick="openWiki(event,'w-claim')">
       <div class="fi">🏡</div>
-      <h3>Bảo vệ đất</h3>
-      <p>Giữ an toàn khu vực xây dựng, kiểm tra ranh giới và quản lý quyền thành viên.</p>
+      <h3>Trận Pháp Hộ Sơn</h3>
+      <p>Dựng trận pháp bảo vệ động phủ, kiểm tra ranh giới và quản lý quyền đạo hữu.</p>
     </a>
     <a href="#wiki" class="fc" onclick="openWiki(event,'w-marry')">
       <div class="fi">💕</div>
-      <h3>Kết hôn</h3>
-      <p>Kết hôn trong game, nhận buff XP và hồi máu ×2 khi ở gần người ấy.</p>
+      <h3>Đạo Lữ Kết Duyên</h3>
+      <p>Kết giao đạo lữ, nhận buff XP và hồi máu ×2 khi ở cạnh người thương.</p>
     </a>
     <a href="#wiki" class="fc" onclick="openWiki(event,'w-spawner')">
       <div class="fi">⚙️</div>
-      <h3>Spawner</h3>
-      <p>Dựng khu farm quái và vật phẩm, mẹo dùng hiệu quả và cách xử lý khi spawner lỗi.</p>
+      <h3>Yêu Thú Sào</h3>
+      <p>Khai mở yêu thú sào luyện bảo, mẹo vận hành hiệu quả và cách xử lý khi sào lỗi.</p>
     </a>
     <a href="#wiki" class="fc" onclick="openWiki(event,'w-rank')">
       <div class="fi">👑</div>
-      <h3>Hệ thống Rank</h3>
-      <p>Mua rank VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích.</p>
+      <h3>Tiên Giai Hệ Thống</h3>
+      <p>Thăng tiên giai VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích.</p>
+    </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-trade')">
+      <div class="fi">🛡️</div>
+      <h3>Linh Giáp Trade</h3>
+      <p>Đổi linh giáp donate cấp 1–30 bằng Linh Thạch, xem giá đổi và công thức chế 8 bậc Linh Thạch.</p>
     </a>
   </div>
 </section>
 
 <section id="howto">
-  <h2 class="st">HƯỚNG DẪN THAM GIA</h2>
-  <p class="ss">Chọn phiên bản bạn đang chơi để xem hướng dẫn</p>
+  <h2 class="st">NHẬP MÔN CHỈ NAM</h2>
+  <p class="ss">Chọn phiên bản đạo hữu đang hành tẩu để xem chỉ dẫn nhập môn</p>
   <div class="jcols">
     <div class="jc">
-      <div class="jh"><div class="ji java">☕</div><div><h3>Java Edition</h3><span>PC / Mac / Linux</span></div></div>
+      <div class="jh"><div class="ji java">☕</div><div><h3>Java Đạo</h3><span>PC / Mac / Linux</span></div></div>
       <ul class="steps">
-        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Mở Minecraft Java Edition</h4><p>Khởi động Minecraft phiên bản 1.12 - 1.21+ trên máy tính của bạn.</p></div></li>
-        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Vào Multiplayer → Add Server</h4><p>Nhấn "Multiplayer", sau đó chọn "Add Server" để thêm server mới.</p></div></li>
-        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Nhập địa chỉ server</h4><p>Điền <code>zaymc.dnipo.fun:25126</code> vào ô "Server Address" rồi nhấn Done.</p></div></li>
-        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Join Server và chơi thôi!</h4><p>Double-click vào server vừa thêm để kết nối. Chúc bạn chơi vui!</p></div></li>
+        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Khai mở Minecraft Java Edition</h4><p>Khởi động Minecraft phiên bản 1.12 - 1.21+ trên linh bảo của đạo hữu.</p></div></li>
+        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Nhập Multiplayer → Add Server</h4><p>Nhấn "Multiplayer", sau đó chọn "Add Server" để tạo liên kết tiên môn mới.</p></div></li>
+        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Khắc Tiên Môn Lệnh</h4><p>Điền <code>zaymc.dnipo.fun:25126</code> vào ô "Server Address" rồi nhấn Done.</p></div></li>
+        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Đạp Kiếm Nhập Môn!</h4><p>Double-click vào tiên môn vừa khắc để kết nối. Chúc đạo hữu hành trình hanh thông!</p></div></li>
       </ul>
     </div>
     <div class="jc">
-      <div class="jh"><div class="ji bedrock">📱</div><div><h3>Bedrock Edition</h3><span>Mobile / Windows / Console</span></div></div>
+      <div class="jh"><div class="ji bedrock">📱</div><div><h3>Bedrock Đạo</h3><span>Mobile / Windows / Console</span></div></div>
       <ul class="steps">
-        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Mở Minecraft Bedrock</h4><p>Khởi động Minecraft Bedrock Edition trên thiết bị của bạn.</p></div></li>
-        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Vào Play → Servers → Add Server</h4><p>Nhấn "Play", chọn tab "Servers", sau đó nhấn "Add Server".</p></div></li>
-        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Nhập IP và Port</h4><p>Server Address: <code>zaymc.dnipo.fun</code><br>Port: <code>25126</code></p></div></li>
-        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Save & Join</h4><p>Nhấn "Save" rồi "Play" để vào server. Chúc bạn chơi vui!</p></div></li>
+        <li class="step"><div class="sn2">1</div><div class="sco"><h4>Khai mở Minecraft Bedrock</h4><p>Khởi động Minecraft Bedrock Edition trên linh bảo của đạo hữu.</p></div></li>
+        <li class="step"><div class="sn2">2</div><div class="sco"><h4>Nhập Play → Servers → Add Server</h4><p>Nhấn "Play", chọn tab "Servers", sau đó nhấn "Add Server".</p></div></li>
+        <li class="step"><div class="sn2">3</div><div class="sco"><h4>Khắc IP và Linh Môn Khẩu</h4><p>Server Address: <code>zaymc.dnipo.fun</code><br>Port: <code>25126</code></p></div></li>
+        <li class="step"><div class="sn2">4</div><div class="sco"><h4>Lưu Ấn & Nhập Môn</h4><p>Nhấn "Save" rồi "Play" để bước vào tiên môn. Chúc đạo hữu hanh thông!</p></div></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ĐĂNG KÝ TÀI KHOẢN -->
+<!-- KHAI MỞ TIÊN DUYÊN -->
 <section id="register">
-  <h2 class="st">ĐĂNG KÝ TÀI KHOẢN</h2>
-  <p class="ss">Tạo tài khoản trước khi vào game — đăng nhập 1 lần là chơi được luôn</p>
+  <h2 class="st">KHAI MỞ TIÊN DUYÊN</h2>
+  <p class="ss">Khai sinh đạo hiệu trước khi nhập môn — một lần kết ấn, vạn kiếp hanh thông</p>
 
   <div class="reg-wrap">
-    <h3>🎮 Tạo tài khoản Minecraft</h3>
-    <p>Nhập tên nhân vật + mật khẩu bên dưới. Sau đó vào game, gõ <code>/login &lt;mật_khẩu&gt;</code> là vào được.</p>
+    <h3>🎮 Khai Sinh Đạo Hiệu</h3>
+    <p>Nhập đạo hiệu + linh mật bên dưới. Sau đó vào tiên môn, gõ <code>/login &lt;linh_mật&gt;</code> là nhập đạo được ngay.</p>
 
     <form id="regForm" onsubmit="submitRegister(event)">
       <div class="reg-group">
-        <label>Tên nhân vật (Minecraft Username)</label>
+        <label>Đạo Hiệu (Minecraft Username)</label>
         <input type="text" id="regUsername" placeholder="Ví dụ: OneTopSV" required minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}">
       </div>
 
       <div class="reg-group">
-        <label>Mật khẩu (6-30 ký tự)</label>
-        <input type="password" id="regPassword" placeholder="Nhập mật khẩu..." required minlength="6" maxlength="30">
+        <label>Linh Mật (6-30 ký tự)</label>
+        <input type="password" id="regPassword" placeholder="Nhập linh mật..." required minlength="6" maxlength="30">
       </div>
 
       <div class="reg-group">
-        <label>Nhập lại mật khẩu</label>
-        <input type="password" id="regPassword2" placeholder="Nhập lại mật khẩu..." required minlength="6" maxlength="30">
+        <label>Khắc lại linh mật</label>
+        <input type="password" id="regPassword2" placeholder="Nhập lại linh mật..." required minlength="6" maxlength="30">
       </div>
 
-      <button type="submit" class="reg-btn" id="regBtn">📝 ĐĂNG KÝ NGAY</button>
+      <button type="submit" class="reg-btn" id="regBtn">📝 KHAI DUYÊN NGAY</button>
     </form>
 
     <div class="reg-msg" id="regMsg"></div>
 
     <div class="reg-note">
-      💡 <strong>Hướng dẫn:</strong>
-      <br>1. Đăng ký xong → vào Minecraft → kết nối server
-      <br>2. Khi vào game, chat sẽ hiện yêu cầu đăng nhập
-      <br>3. Gõ <code>/login &lt;mật_khẩu_bạn_vừa_tạo&gt;</code> để vào chơi
-      <br>4. Lần sau vào lại cũng gõ <code>/login</code> với mật khẩu đó
+      💡 <strong>Chỉ dẫn:</strong>
+      <br>1. Khai duyên xong → mở Minecraft → liên kết tiên môn
+      <br>2. Khi nhập môn, thiên cơ sẽ hiện yêu cầu đăng nhập
+      <br>3. Gõ <code>/login &lt;linh_mật_vừa_tạo&gt;</code> để nhập đạo
+      <br>4. Lần sau tái nhập cũng gõ <code>/login</code> với linh mật đó
     </div>
   </div>
 </section>
 
 <section id="wiki">
   <h2 class="st">TU TIÊN BÍ ĐIỂN</h2>
-  <p class="ss">Bí điển ZAYMC — đạo hữu chọn một mục để tra cứu công pháp, quy tắc và các bí thuật trong server.</p>
+  <p class="ss">Bí điển ZAYMC — đạo hữu chọn một mục để tra cứu công pháp, quy tắc và các bí thuật trong tiên môn.</p>
 
   <input type="radio" name="wiki-tab" id="w-tu-tien" class="wradio" checked>
   <input type="radio" name="wiki-tab" id="w-claim" class="wradio">
@@ -469,14 +491,16 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
   <input type="radio" name="wiki-tab" id="w-spawner" class="wradio">
   <input type="radio" name="wiki-tab" id="w-rank" class="wradio">
   <input type="radio" name="wiki-tab" id="w-napthe" class="wradio">
+  <input type="radio" name="wiki-tab" id="w-trade" class="wradio">
 
   <div class="wtabs">
     <label class="wtab" for="w-tu-tien">✨ Tu Tiên</label>
-    <label class="wtab" for="w-claim">🏡 Bảo vệ đất</label>
-    <label class="wtab" for="w-marry">💕 Kết hôn</label>
-    <label class="wtab" for="w-spawner">⚙️ Spawner</label>
-    <label class="wtab" for="w-rank">👑 Rank</label>
-    <label class="wtab" for="w-napthe">💳 Nạp thẻ</label>
+    <label class="wtab" for="w-claim">🏡 Trận Pháp Hộ Sơn</label>
+    <label class="wtab" for="w-marry">💕 Đạo Lữ</label>
+    <label class="wtab" for="w-spawner">⚙️ Yêu Thú Sào</label>
+    <label class="wtab" for="w-rank">👑 Tiên Giai</label>
+    <label class="wtab" for="w-napthe">💳 Hiến Nạp</label>
+    <label class="wtab" for="w-trade">🛡️ Linh Giáp Trade</label>
   </div>
 
   <div class="wpanels">
@@ -488,65 +512,92 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
       <h3>🧭 Con đường tu hành</h3>
       <div class="wgrid"><div class="wcard"><h5>1. Nhập môn</h5><p>Dùng <code>/nhapmon</code> để bắt đầu hành trình.</p></div><div class="wcard"><h5>2. Ngồi thiền</h5><p>Vận hành <code>/tuluyen</code> để tĩnh tọa, hấp thu thiên địa linh khí.</p></div><div class="wcard"><h5>3. Đột phá</h5><p>Khi tu vi viên mãn và đủ điều kiện, vận dụng <code>/dotpha</code> để phá cảnh.</p></div><div class="wcard"><h5>4. Khám phá</h5><p>Tầm bảo, lĩnh ngộ công pháp và chuẩn bị pháp bảo trước khi bước vào hiểm địa.</p></div></div>
       <h3 id="wk-tuluyen">🧘 Tu luyện và đột phá</h3><ul><li>Dùng <code>/tuluyen</code> để bắt đầu hoặc dừng ngồi thiền.</li><li>Tĩnh tọa quá lâu có thể dẫn đến tẩu hỏa nhập ma; đạo hữu chớ nóng vội.</li><li>Từ Trúc Cơ trở đi, đột phá có thể dẫn tới lôi kiếp. Hãy chuẩn bị đầy đủ trước khi nghịch thiên phá cảnh.</li></ul>
-      <h3 id="wk-canhgioi">☁️ Cảnh giới, phi thăng và hạ giới</h3><ul><li><code>/phithang</code> — Thử phi thăng lên giới trên khi đủ điều kiện.</li><li><code>/hagioi</code> — Đi xuống giới dưới.</li><li>Server có Hạ Giới, Tiên Giới và Thần Giới. Thiên kiếp có thể gây tử vong.</li><li>Ở Tiên Giới hoặc Thần Giới, <code>/rtp</code> mở menu dịch chuyển ngẫu nhiên.</li></ul>
-      <h3 id="wk-congphap">⚔️ Công pháp và chiêu pháp</h3><ul><li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để lĩnh ngộ.</li><li><code>/chieuphap</code> — Xem chiêu pháp đã học.</li><li><code>/congphap</code> — Xem hoặc vận hành công pháp bị động.</li><li>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong game để biết thao tác cụ thể.</li></ul>
-      <h3>🌿 Linh thảo, linh đan và luyện đan</h3><ul><li>Thu thập hạt giống linh thảo trong quá trình chơi và làm theo hướng dẫn trên vật phẩm.</li><li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li><li>Đọc mô tả vật phẩm và công thức trong game trước khi chế tạo.</li></ul>
+      <h3 id="wk-canhgioi">☁️ Cảnh giới, phi thăng và hạ giới</h3><ul><li><code>/phithang</code> — Thử phi thăng lên giới trên khi đủ điều kiện.</li><li><code>/hagioi</code> — Đi xuống giới dưới.</li><li>Tiên môn có Hạ Giới, Tiên Giới và Thần Giới. Thiên kiếp có thể gây tử vong.</li><li>Ở Tiên Giới hoặc Thần Giới, <code>/rtp</code> mở menu dịch chuyển ngẫu nhiên.</li></ul>
+      <h3 id="wk-bangcanhgioi">🏔️ Bảng cảnh giới (từ thấp đến cao)</h3>
+      <p>Tu sĩ đi từ <strong>Phàm Nhân</strong> lên dần theo thứ tự dưới đây. Mỗi cảnh giới (trừ Phàm Nhân) có <strong>9 tầng</strong>; Phàm Nhân có 3 tầng: Dưỡng Khí → Khai Mạch → Tẩy Tủy. Đạt cảnh giới cuối của một giới thì dùng <code>/phithang</code> để lên giới kế tiếp (không dùng <code>/dotpha</code>).</p>
+      <div class="rplane">🌱 Phàm Nhân <small>Khởi điểm · 3 tầng</small></div>
+      <div class="rplane">🌍 Hạ Giới <small>9 cảnh giới</small></div>
+      <ol class="rlist"><li><b>Luyện Khí</b></li><li><b>Trúc Cơ</b></li><li><b>Kết Đan</b></li><li><b>Nguyên Anh</b></li><li><b>Hóa Thần</b></li><li><b>Luyện Hư</b></li><li><b>Hợp Thể</b></li><li><b>Đại Thừa</b></li><li class="gate"><b>Độ Kiếp</b><em>Cổng phi thăng → Tiên Giới</em></li></ol>
+      <div class="rplane">☁️ Tiên Giới <small>9 cảnh giới · linh khí đậm hơn, quái mạnh hơn</small></div>
+      <ol class="rlist"><li><b>Chân Tiên</b></li><li><b>Thiên Tiên</b></li><li><b>Huyền Tiên</b></li><li><b>Kim Tiên</b></li><li><b>Thái Ất Ngọc Tiên</b></li><li><b>Đại La Kim Tiên</b></li><li><b>Chuẩn Thánh</b></li><li><b>Thánh Nhân</b></li><li class="gate"><b>Đạo Tổ</b><em>Cổng phi thăng → Thần Giới</em></li></ol>
+      <div class="rplane">⚡ Thần Giới <small>8 cảnh giới · linh khí dày nhất</small></div>
+      <ol class="rlist"><li><b>Thần Nhân</b></li><li><b>Thần Tướng</b></li><li><b>Thần Vương</b></li><li><b>Thần Hoàng</b></li><li><b>Thần Đế</b></li><li><b>Thần Tôn</b></li><li><b>Thần Chủ</b></li><li class="gate"><b>Chí Tôn</b><em>Đỉnh cao cảnh giới</em></li></ol>
+      <div class="hl"><p>💡 Cảnh giới càng cao thì máu tối đa, sát thương và sức mạnh chiêu thức càng lớn. Đột phá từ Trúc Cơ trở đi có thể dẫn tới lôi kiếp, phi thăng cũng có thể thất bại, hãy chuẩn bị kỹ.</p></div>
+      <h3 id="wk-congphap">⚔️ Công pháp và chiêu pháp</h3><ul><li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để lĩnh ngộ.</li><li><code>/chieuphap</code> — Xem chiêu pháp đã học.</li><li><code>/congphap</code> — Xem hoặc vận hành công pháp bị động.</li><li>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong tiên môn để biết thao tác cụ thể.</li></ul>
+      <h3>🌿 Linh thảo, linh đan và luyện đan</h3><ul><li>Thu thập hạt giống linh thảo trong quá trình hành tẩu và làm theo chỉ dẫn trên vật phẩm.</li><li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li><li>Đọc mô tả vật phẩm và công thức trong tiên môn trước khi chế tạo.</li></ul>
       <h3>🏯 Bí cảnh và yêu thú trấn thủ</h3><ul><li><code>/tutien biccanh</code> — Xem thông tin bí cảnh.</li><li><code>/tutien vao-bicanh</code> — Vào bí cảnh khi đủ điều kiện.</li><li>Chuẩn bị pháp bảo và linh đan hồi phục trước khi khiêu chiến yêu thú hoặc tiến vào hiểm địa.</li></ul>
-      <div class="hl"><p>💡 Đạo hữu có thể dùng <code>/tutien help</code> để xem các khẩu lệnh được phép sử dụng. Nếu bí điển có điểm khác với thông báo trong game, hãy lấy chỉ dẫn trong game làm chuẩn hoặc thỉnh giáo Staff.</p></div>
+      <div class="hl"><p>💡 Đạo hữu có thể dùng <code>/tutien help</code> để xem các khẩu lệnh được phép sử dụng. Nếu bí điển có điểm khác với thông báo trong tiên môn, hãy lấy chỉ dẫn trong game làm chuẩn hoặc thỉnh giáo Tiên Sư.</p></div>
     </div></div>
 
     <div class="wpanel" id="panel-claim"><div class="wc">
-      <h3>🏡 Bảo vệ đất của bạn</h3>
-      <p>Hệ thống bảo vệ đất giúp bạn giữ an toàn khu vực xây dựng và hạn chế người khác phá hoại. Hãy kiểm tra hướng dẫn/lệnh bảo vệ đất đang được bật trên server trước khi xây căn cứ lớn.</p>
-      <h3>🧱 Cách sử dụng an toàn</h3><ul><li>Chọn khu vực phù hợp để xây nhà, kho đồ và công trình cá nhân.</li><li>Kiểm tra ranh giới khu đất sau khi tạo claim; đừng mặc định rằng toàn bộ khu vực xung quanh đã được bảo vệ.</li><li>Không chia sẻ quyền thành viên cho người lạ nếu bạn không tin tưởng họ.</li><li>Trước khi mở quyền xây/sửa cho bạn bè, hãy kiểm tra đúng tên người chơi và phạm vi quyền.</li></ul>
-      <h3>🛡️ Mẹo tránh mất đồ</h3><div class="wgrid"><div class="wcard"><h5>Kiểm tra ranh giới</h5><p>Đảm bảo rương, lò và các công trình quan trọng nằm trong vùng được bảo vệ.</p></div><div class="wcard"><h5>Quản lý quyền</h5><p>Chỉ thêm người bạn tin tưởng và gỡ quyền khi không còn cần thiết.</p></div><div class="wcard"><h5>Gặp lỗi?</h5><p>Chụp ảnh khu vực và thông báo cho staff để được kiểm tra.</p></div></div>
-      <div class="warn"><p>⚠️ Lệnh tạo claim và giới hạn đất có thể phụ thuộc cấu hình server. Hãy dùng lệnh trợ giúp của hệ thống bảo vệ đất trong game hoặc hỏi staff để biết cú pháp chính xác.</p></div>
+      <h3>🏡 Trận pháp hộ sơn</h3>
+      <p>Hệ thống trận pháp hộ sơn giúp đạo hữu bảo vệ động phủ và ngăn kẻ xấu phá hoại. Hãy kiểm tra chỉ dẫn/khẩu quyết hộ sơn đang vận hành trong tiên môn trước khi dựng đại trận.</p>
+      <h3>🧱 Cách vận hành an toàn</h3><ul><li>Chọn khu vực phù hợp để dựng động phủ, kho bảo và công trình cá nhân.</li><li>Kiểm tra ranh giới trận pháp sau khi khai mở; đừng mặc định rằng toàn bộ khu vực xung quanh đã được hộ vệ.</li><li>Không chia sẻ quyền đạo hữu cho kẻ lạ nếu đạo hữu không tin tưởng.</li><li>Trước khi mở quyền xây/sửa cho bằng hữu, hãy kiểm tra đúng đạo hiệu và phạm vi quyền.</li></ul>
+      <h3>🛡️ Mẹo tránh mất bảo vật</h3><div class="wgrid"><div class="wcard"><h5>Kiểm tra ranh giới</h5><p>Đảm bảo rương, lò và công trình quan trọng nằm trong vùng được hộ vệ.</p></div><div class="wcard"><h5>Quản lý quyền</h5><p>Chỉ thêm người đạo hữu tin tưởng và gỡ quyền khi không còn cần thiết.</p></div><div class="wcard"><h5>Gặp sự cố?</h5><p>Chụp ảnh khu vực và thông báo cho Tiên Sư để được kiểm tra.</p></div></div>
+      <div class="warn"><p>⚠️ Khẩu quyết khai mở trận pháp và giới hạn đất có thể phụ thuộc cấu hình tiên môn. Hãy dùng lệnh trợ giúp của hệ thống hộ sơn trong tiên môn hoặc hỏi Tiên Sư để biết cú pháp chính xác.</p></div>
     </div></div>
 
     <div class="wpanel" id="panel-marry"><div class="wc">
-      <h3>💕 Hệ thống kết hôn</h3><p>Kết hôn là tính năng dành cho hai người chơi muốn ghép đôi trong server. Theo thông tin hiển thị trên website, vợ/chồng có thể nhận buff XP và hiệu ứng hồi máu ×2 khi ở gần nhau.</p>
-      <h3>💌 Trước khi kết hôn</h3><ul><li>Thống nhất với người chơi kia trước khi gửi lời mời.</li><li>Đảm bảo cả hai đang online và làm theo thông báo của hệ thống.</li><li>Đọc kỹ nội dung xác nhận trước khi đồng ý.</li></ul>
-      <h3>✨ Quyền lợi</h3><div class="wgrid"><div class="wcard"><h5>Buff XP</h5><p>Có thể nhận hiệu ứng tăng XP theo cơ chế kết hôn của server.</p></div><div class="wcard"><h5>Ở gần nhau</h5><p>Hiệu ứng hồi máu được mô tả là tăng ×2 khi ở gần người ấy.</p></div></div>
-      <div class="hl"><p>💡 Cú pháp lệnh kết hôn và cách ly hôn chưa được xác nhận trong nội dung hiện có. Hãy kiểm tra menu/lệnh trợ giúp trong game hoặc hỏi staff để tránh dùng sai lệnh.</p></div>
+      <h3>💕 Hệ thống đạo lữ</h3><p>Kết duyên đạo lữ là bí thuật dành cho hai đạo hữu muốn đồng hành trong tiên môn. Theo thông tin hiển thị trên website, đạo lữ có thể nhận buff XP và hiệu ứng hồi máu ×2 khi ở gần nhau.</p>
+      <h3>💌 Trước khi kết duyên</h3><ul><li>Thống nhất với đạo hữu kia trước khi gửi lời mời.</li><li>Đảm bảo cả hai đang tại môn và làm theo thông báo của hệ thống.</li><li>Đọc kỹ nội dung xác nhận trước khi đồng ý.</li></ul>
+      <h3>✨ Quyền lợi</h3><div class="wgrid"><div class="wcard"><h5>Buff XP</h5><p>Có thể nhận hiệu ứng tăng XP theo cơ chế kết duyên của tiên môn.</p></div><div class="wcard"><h5>Ở gần nhau</h5><p>Hiệu ứng hồi máu được mô tả là tăng ×2 khi ở gần người thương.</p></div></div>
+      <div class="hl"><p>💡 Cú pháp khẩu quyết kết duyên và cách ly duyên chưa được xác nhận trong nội dung hiện có. Hãy kiểm tra menu/khẩu quyết trợ giúp trong tiên môn hoặc hỏi Tiên Sư để tránh dùng sai lệnh.</p></div>
     </div></div>
 
     <div class="wpanel" id="panel-spawner"><div class="wc">
-      <h3>⚙️ Spawner và khu farm</h3><p>Spawner hỗ trợ tạo khu farm quái/vật phẩm theo thiết lập của server. Hiệu quả có thể phụ thuộc khoảng cách người chơi, giới hạn khu vực và quy định chống lag.</p>
-      <h3>🔧 Cách dùng hiệu quả</h3><ul><li>Xây khu farm gọn gàng, có đường đi và khu vực thu gom đồ an toàn.</li><li>Đứng trong phạm vi hoạt động mà server yêu cầu nếu spawner cần người chơi ở gần.</li><li>Không đặt quá nhiều máy farm hoặc tạo cơ chế gây lag.</li><li>Kiểm tra quy định server trước khi xây farm tự động.</li></ul>
-      <h3>🧰 Khi spawner không hoạt động</h3><ul><li>Kiểm tra khu vực có bị giới hạn hoặc bảo vệ hay không.</li><li>Thử đứng gần spawner và chờ một lúc.</li><li>Kiểm tra giới hạn mob hoặc thông báo hiển thị trong game.</li><li>Nếu vẫn lỗi, gửi tọa độ và ảnh spawner cho staff.</li></ul>
-      <div class="warn"><p>⚠️ Cách đặt, nâng cấp, giá và giới hạn spawner cụ thể cần theo cấu hình thực tế của ZAYMC. Không nên dựa vào hướng dẫn của server khác.</p></div>
+      <h3>⚙️ Yêu thú sào và khu luyện bảo</h3><p>Yêu thú sào hỗ trợ tạo khu luyện bảo theo thiết lập của tiên môn. Hiệu quả có thể phụ thuộc khoảng cách đạo hữu, giới hạn khu vực và quy định chống lag.</p>
+      <h3>🔧 Cách vận hành hiệu quả</h3><ul><li>Xây khu luyện bảo gọn gàng, có đường đi và khu vực thu gom bảo vật an toàn.</li><li>Đứng trong phạm vi hoạt động mà tiên môn yêu cầu nếu yêu thú sào cần đạo hữu ở gần.</li><li>Không đặt quá nhiều luyện bảo trận hoặc tạo cơ chế gây lag.</li><li>Kiểm tra quy định tiên môn trước khi xây luyện bảo trận tự động.</li></ul>
+      <h3>🧰 Khi yêu thú sào không hoạt động</h3><ul><li>Kiểm tra khu vực có bị giới hạn hoặc hộ vệ hay không.</li><li>Thử đứng gần sào và chờ một lúc.</li><li>Kiểm tra giới hạn yêu thú hoặc thông báo hiển thị trong tiên môn.</li><li>Nếu vẫn lỗi, gửi tọa độ và ảnh sào cho Tiên Sư.</li></ul>
+      <div class="warn"><p>⚠️ Cách đặt, nâng cấp, giá và giới hạn yêu thú sào cụ thể cần theo cấu hình thực tế của ZAYMC Tiên Môn. Không nên dựa vào chỉ dẫn của tiên môn khác.</p></div>
     </div></div>
 
     <div class="wpanel" id="panel-rank"><div class="wc">
-      <h3>👑 Hệ thống Rank</h3><p>Rank là các bậc quyền lợi dành cho người chơi. Website hiện giới thiệu các bậc VIP, MVP, ELITE và GOD, có thể mở khóa home, kit và lệnh tiện ích theo từng cấp.</p>
-      <h3>🏆 Các bậc rank</h3><div class="wgrid"><div class="wcard"><h5>VIP</h5><p>Bậc rank hỗ trợ người chơi với các quyền lợi theo gói.</p></div><div class="wcard"><h5>MVP</h5><p>Bậc rank cao hơn với quyền lợi tùy gói.</p></div><div class="wcard"><h5>ELITE</h5><p>Gói rank với các tiện ích được quy định trên server.</p></div><div class="wcard"><h5>GOD</h5><p>Bậc rank cao trong danh sách gói được giới thiệu.</p></div></div>
-      <h3>🎁 Quyền lợi và mua rank</h3><ul><li>Quyền lợi có thể gồm lệnh home, kit và lệnh tiện ích.</li><li>Kiểm tra bảng giá và danh sách quyền lợi chính thức trước khi mua.</li><li>Giữ lại hóa đơn hoặc ảnh giao dịch nếu cần hỗ trợ.</li><li>Không gửi mật khẩu tài khoản cho bất kỳ ai để nhận rank.</li></ul>
-      <div class="hl"><p>💡 Giá, phương thức thanh toán và quyền lợi chi tiết có thể thay đổi. Hãy xem mục đăng ký/mua rank chính thức trên website hoặc liên hệ staff trước khi thanh toán.</p></div>
+      <h3>👑 Tiên giai hệ thống</h3><p>Tiên giai là các bậc quyền lợi dành cho đạo hữu. Website hiện giới thiệu các bậc VIP, MVP, ELITE và GOD, có thể mở khóa home, kit và lệnh tiện ích theo từng cấp.</p>
+      <h3>🏆 Các bậc tiên giai</h3><div class="wgrid"><div class="wcard"><h5>VIP</h5><p>Bậc tiên giai hỗ trợ đạo hữu với các quyền lợi theo gói.</p></div><div class="wcard"><h5>MVP</h5><p>Bậc tiên giai cao hơn với quyền lợi tùy gói.</p></div><div class="wcard"><h5>ELITE</h5><p>Gói tiên giai với các tiện ích được quy định trong tiên môn.</p></div><div class="wcard"><h5>GOD</h5><p>Bậc tiên giai cao trong danh sách gói được giới thiệu.</p></div></div>
+      <h3>🎁 Quyền lợi và thỉnh tiên giai</h3><ul><li>Quyền lợi có thể gồm lệnh home, kit và lệnh tiện ích.</li><li>Kiểm tra bảng giá và danh sách quyền lợi chính thức trước khi thỉnh.</li><li>Giữ lại hóa đơn hoặc ảnh giao dịch nếu cần hỗ trợ.</li><li>Không gửi linh mật tài khoản cho bất kỳ ai để nhận tiên giai.</li></ul>
+      <div class="hl"><p>💡 Giá, phương thức thanh toán và quyền lợi chi tiết có thể thay đổi. Hãy xem mục khai duyên/thỉnh tiên giai chính thức trên website hoặc liên hệ Tiên Sư trước khi thanh toán.</p></div>
     </div></div>
 
     <div class="wpanel" id="panel-napthe"><div class="wc">
-      <h3>💳 Nạp linh thạch qua thẻ</h3>
-      <p>Đạo hữu có thể dùng lệnh <code>/napthe</code> ngay trong game để nạp thẻ và nhận linh thạch theo hệ thống.</p>
-      <h3>🧾 Khẩu quyết nạp thẻ</h3>
+      <h3>💳 Hiến nạp linh thạch qua thẻ</h3>
+      <p>Đạo hữu có thể dùng khẩu quyết <code>/napthe</code> ngay trong tiên môn để hiến nạp thẻ và nhận linh thạch theo hệ thống.</p>
+      <h3>🧾 Khẩu quyết hiến nạp</h3>
       <div class="hl"><p><code>/napthe &lt;nhà mạng&gt; &lt;mệnh giá&gt; &lt;serial&gt; &lt;mã thẻ&gt;</code></p></div>
       <h3>📌 Trình tự hiến nạp</h3>
       <ul>
         <li>Kiểm tra đúng nhà mạng và mệnh giá của thẻ.</li>
         <li>Nhập chính xác số serial và mã thẻ theo thứ tự trong cú pháp.</li>
         <li>Gửi lệnh một lần và chờ hệ thống xử lý kết quả.</li>
-        <li>Kiểm tra thông báo trong game để biết giao dịch thành công hay thất bại.</li>
+        <li>Kiểm tra thông báo trong tiên môn để biết giao dịch thành công hay thất bại.</li>
       </ul>
-      <div class="warn"><p>⚠️ Kiểm tra kỹ thông tin trước khi gửi. Không chia sẻ mã thẻ hoặc serial công khai trong chat, Discord hay với người khác.</p></div>
+      <div class="warn"><p>⚠️ Kiểm tra kỹ thông tin trước khi gửi. Không chia sẻ mã thẻ hoặc serial công khai trong truyền âm, Quần Tiên Hội hay với người khác.</p></div>
       <h3>🛟 Giao dịch gặp trục trặc?</h3>
-      <p>Nếu quá trình hiến nạp thất bại, linh thạch chưa được ghi nhận hoặc phát sinh vấn đề giao dịch, đạo hữu hãy đến kênh <strong>Discord Ticket</strong> và <strong>tạo một Ticket mới</strong> để thỉnh cầu Staff kiểm tra, hỗ trợ.</p>
-      <p>Khi lập Ticket, hãy cung cấp tên nhân vật cùng thông tin giao dịch cần thiết để Staff tra xét. Tuyệt đối không công khai mã thẻ, serial hoặc mật khẩu tài khoản.</p>
+      <p>Nếu quá trình hiến nạp thất bại, linh thạch chưa được ghi nhận hoặc phát sinh vấn đề giao dịch, đạo hữu hãy đến kênh <strong>Quần Tiên Hội Ticket</strong> và <strong>tạo một Ticket mới</strong> để thỉnh cầu Tiên Sư kiểm tra, hỗ trợ.</p>
+      <p>Khi lập Ticket, hãy cung cấp đạo hiệu cùng thông tin giao dịch cần thiết để Tiên Sư tra xét. Tuyệt đối không công khai mã thẻ, serial hoặc linh mật tài khoản.</p>
+    </div></div>
+
+    <div class="wpanel" id="panel-trade"><div class="wc">
+      <h3>🛡️ Trade linh giáp bằng Linh Thạch</h3>
+      <p>Đạo hữu có thể đổi <strong>linh giáp donate cấp 1–30</strong> (mũ, áo, quần, giày) bằng <strong>Linh Thạch</strong> ngay trong tiên môn, không cần hiến nạp trực tiếp. Linh Thạch tự chế từ nguyên liệu trong tiên môn.</p>
+      <h3>📜 Khẩu quyết</h3>
+      <ul><li><code>/co</code> — Mở menu đổi bảo.</li><li>Chọn <strong>Trade Linh Giáp</strong> → chọn tier → chọn mũ / áo / quần / giày → bấm vào cấp muốn đổi.</li><li>Chọn <strong>Item Trade</strong> để xem công thức chế từng bậc Linh Thạch.</li><li>Gặp <strong>NPC thương nhân</strong> (nếu có), chuột phải để mở menu.</li></ul>
+      <h3>🏅 Ba giai linh giáp</h3>
+      <div class="wgrid"><div class="wcard"><h5 class="t-pham">Phàm Giai · cấp 1–10</h5><p>Chất liệu sắt. Kỹ năng <strong>Hồi Khí</strong>: tự hồi máu theo thời gian.</p></div><div class="wcard"><h5 class="t-dia">Địa Giai · cấp 11–20</h5><p>Chất liệu kim cương. Thêm <strong>Phản Chấn</strong>: có cơ hội phản lại một phần sát thương.</p></div><div class="wcard"><h5 class="t-thien">Thiên Giai · cấp 21–30</h5><p>Chất liệu netherite. Thêm <strong>Bất Diệt</strong>: chí mạng được cứu sống (có hồi chiêu), kèm kháng lửa.</p></div></div>
+      <ul><li>Kỹ năng linh giáp là <strong>bị động</strong>: mặc đủ 4 món donate là tự bật. Tier thấp nhất trong 4 món quyết định tier của bộ; bộ tier cao có luôn kỹ năng tier thấp.</li><li>Linh giáp được phù phép đầy đủ, có thể vượt giới hạn gốc của game.</li><li>Mặc đủ 4 món từ <strong>cấp 20</strong> được cộng thêm tim tối đa; từ <strong>cấp 25</strong> có thêm <strong>Địa Chấn</strong> (rơi từ cao tạo chấn động, giảm sát thương rơi).</li></ul>
+      <h3>💎 Giá đổi theo cấp</h3>
+      <p>Từ cấp 2 trở lên, ngoài Linh Thạch còn phải <strong>nộp thêm 1 món cùng loại ở cấp liền trước</strong>. Mũ, áo, quần, giày cùng cấp có cùng giá. Số lượng tăng dần trong mỗi nhóm, cột cuối là số ở cấp đầu → cấp cuối của nhóm.</p>
+      <div class="wtable-wrap"><table class="wtable"><thead><tr><th>Cấp linh giáp</th><th>Linh Thạch cần</th><th>Số lượng</th></tr></thead><tbody><tr><td>1</td><td>Mảnh Linh Thạch (lt1)</td><td>4 → 4</td></tr><tr><td>2 – 4</td><td>Hạ Phẩm Linh Thạch (lt2)</td><td>6 → 10</td></tr><tr><td>5 – 9</td><td>Trung Phẩm Linh Thạch (lt3)</td><td>6 → 18</td></tr><tr><td>10 – 14</td><td>Thượng Phẩm Linh Thạch (lt4)</td><td>8 → 20</td></tr><tr><td>15 – 19</td><td>Cực Phẩm Linh Thạch (lt5)</td><td>10 → 26</td></tr><tr><td>20 – 24</td><td>Tiên Thạch (lt6)</td><td>13 → 33</td></tr><tr><td>25 – 28</td><td>Thần Thạch (lt7)</td><td>16 → 31</td></tr><tr><td>29 – 30</td><td>Hỗn Độn Thạch (lt8)</td><td>4 → 7</td></tr></tbody></table></div>
+      <h3>⚒️ Chế Linh Thạch (8 bậc)</h3>
+      <p>Bậc thấp là nguyên liệu của bậc cao. Công thức dài chế trong menu <code>/co</code> → <strong>Item Trade</strong> (bấm vào Linh Thạch muốn chế).</p>
+      <div class="wtable-wrap"><table class="wtable"><thead><tr><th>Id</th><th>Tên</th><th>Công thức</th></tr></thead><tbody><tr><td><code>lt1</code></td><td>Mảnh Linh Thạch</td><td>3 Lưu ly + 6 Mảnh sắt + 3 Đá đỏ → ra 2</td></tr><tr><td><code>lt2</code></td><td>Hạ Phẩm Linh Thạch</td><td>4 lt1 + 3 Thỏi sắt + 3 Thỏi đồng → ra 2</td></tr><tr><td><code>lt3</code></td><td>Trung Phẩm Linh Thạch</td><td>3 lt2 + 5 Thỏi vàng + 1 Khối lưu ly</td></tr><tr><td><code>lt4</code></td><td>Thượng Phẩm Linh Thạch</td><td>3 lt3 + 3 Kim cương + 1 Khối vàng + 2 Ngọc lục bảo</td></tr><tr><td><code>lt5</code></td><td>Cực Phẩm Linh Thạch</td><td>3 lt4 + 6 Kim cương + 4 Ngọc lục bảo + 2 Ngọc ender</td></tr><tr><td><code>lt6</code></td><td>Tiên Thạch</td><td>3 lt5 + 8 Ngọc lục bảo + 3 Mảnh netherite + 4 Blaze rod</td></tr><tr><td><code>lt7</code></td><td>Thần Thạch</td><td>3 lt6 + 6 Mảnh netherite + 1 Khối kim cương + 3 Nước mắt ghast</td></tr><tr><td><code>lt8</code></td><td>Hỗn Độn Thạch</td><td>3 lt7 + 2 Thỏi netherite + 1 Sao Nether + 1 Totem bất tử</td></tr></tbody></table></div>
+      <div class="warn"><p>⚠️ Bảng giá và công thức có thể được Tiên Sư điều chỉnh. Nếu khác với thông tin trong menu tiên môn, hãy lấy menu trong tiên môn làm chuẩn.</p></div>
     </div></div>
   </div>
 </section>
 
 <section id="join">
-  <h2 class="st">SẴN SÀNG CHƯA?</h2>
-  <p class="ss">Copy IP và tham gia ZAYMC Network ngay hôm nay</p>
+  <h2 class="st">ĐẠO HỮU ĐÃ SẴN SÀNG?</h2>
+  <p class="ss">Khắc Tiên Môn Lệnh và nhập đạo ZAYMC Tiên Môn ngay hôm nay</p>
   <div style="text-align:center">
     <div class="tabs">
       <button class="tab active" data-type="java" onclick="switchTab('java')">☕ Java</button>
@@ -554,17 +605,17 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
     </div>
     <div class="panel active" id="panel-2-java">
       <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun:25126')">
-        <div><span class="iplabel">Java IP</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
+        <div><span class="iplabel">Java Tiên Môn Lệnh</span><span class="ipval">zaymc.dnipo.fun:25126</span></div>
         <div class="cicon">📋</div>
       </div>
     </div>
     <div class="panel" id="panel-2-bedrock">
       <div class="ipbox" onclick="copyIP('zaymc.dnipo.fun')">
-        <div><span class="iplabel">Bedrock IP</span><span class="ipval">zaymc.dnipo.fun</span></div>
+        <div><span class="iplabel">Bedrock Tiên Môn Lệnh</span><span class="ipval">zaymc.dnipo.fun</span></div>
         <div class="cicon">📋</div>
       </div>
       <div class="portbox" onclick="copyIP('25126')">
-        <div><span class="portlabel">Port</span><span class="portval">25126</span></div>
+        <div><span class="portlabel">Linh Môn Khẩu</span><span class="portval">25126</span></div>
         <div class="cicon" style="font-size:18px">📋</div>
       </div>
     </div>
@@ -572,32 +623,32 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 </section>
 
 <footer>
-  <div class="flogo">ZAYMC</div>
-  <p>© 2026 ZAYMC Network. Made with ❤️ by the community.</p>
+  <div class="flogo">ZAYMC TIÊN MÔN</div>
+  <p>© 2026 ZAYMC Tiên Môn. Kết tinh từ đạo tâm của cộng đồng đạo hữu.</p>
   <div class="socs">
-    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="dc" title="Discord">
+    <a href="https://discord.gg/7PDHeGmXmA" target="_blank" rel="noopener noreferrer" class="dc" title="Quần Tiên Hội">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
     </a>
-    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="ms" title="Messenger">
+    <a href="https://m.me/j/G_gPnjlazQPT_o0F/?send_source=gc:share_to_more_c" target="_blank" rel="noopener noreferrer" class="ms" title="Phi Kiếm Truyền Thư">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.35.27.57l.05 1.78c.02.57.6.94 1.12.71l1.99-.88c.17-.07.36-.09.53-.05.92.25 1.9.39 2.9.39 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm6 7.46l-2.94 4.66c-.47.74-1.47.93-2.18.4l-2.34-1.75a.6.6 0 00-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.94-4.66c.47-.74 1.47-.93 2.18-.4l2.34 1.75a.6.6 0 00.72 0l3.16-2.4c.42-.32.97.18.69.63z"/></svg>
     </a>
-    <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="tt" title="TikTok">
+    <a href="https://www.tiktok.com/@zaymcnetwork" target="_blank" rel="noopener noreferrer" class="tt" title="Linh Ảnh Các">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
     </a>
-    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="fb" title="Facebook">
+    <a href="https://web.facebook.com/profile.php?id=61595228516434" target="_blank" rel="noopener noreferrer" class="fb" title="Thiên Mệnh Các">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     </a>
-    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="ig" title="Instagram">
+    <a href="https://instagram.com/zaymcnetwork" target="_blank" rel="noopener noreferrer" class="ig" title="Huyễn Ảnh Các">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913a5.885 5.885 0 001.384 2.126A5.868 5.868 0 004.14 23.37c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558a5.898 5.898 0 002.126-1.384 5.86 5.86 0 001.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913a5.89 5.89 0 00-1.384-2.126A5.847 5.847 0 0019.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 01-.899 1.382 3.744 3.744 0 01-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 01-1.379-.899 3.644 3.644 0 01-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
     </a>
   </div>
 </footer>
 
-<div class="toast" id="toast">✅ Đã copy!</div>
+<div class="toast" id="toast">✅ Đã khắc linh văn!</div>
 
 <script>
 function copyIP(ip){
-  var show=function(){var t=document.getElementById('toast');t.textContent='✅ Đã copy: '+ip;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)};
+  var show=function(){var t=document.getElementById('toast');t.textContent='✅ Đã khắc linh văn: '+ip;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)};
   var fb=function(x){var a=document.createElement('textarea');a.value=x;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a)};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ip).then(show).catch(function(){fb(ip);show()})}else{fb(ip);show()}
 }
@@ -609,11 +660,10 @@ function switchTab(type){
     el.classList.toggle('active',t===type);
   });
 }
-// Mở Wiki: chọn đúng tab (radio) rồi cuộn tới mục con (nếu có) hoặc tới thanh tab
+// Mở Bí Điển: chọn đúng tab (radio) rồi cuộn tới mục con (nếu có) hoặc tới thanh tab
 function openWiki(e,tabId,anchorId){
   e.preventDefault();
   if(tabId){var radio=document.getElementById(tabId);if(radio){radio.checked=true}}
-  // Đợi trình duyệt hiển thị panel mới rồi mới cuộn
   requestAnimationFrame(function(){
     var target=(anchorId&&document.getElementById(anchorId))||document.querySelector('#wiki .wtabs')||document.getElementById('wiki');
     if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}
@@ -624,10 +674,10 @@ function setStatus(online){
   if(!b)return;
   if(online){
     b.className='badge online';
-    b.innerHTML='<span class="dot"></span>SERVER ĐANG ONLINE';
+    b.innerHTML='<span class="dot"></span>TIÊN MÔN KHAI MỞ';
   }else{
     b.className='badge offline';
-    b.innerHTML='<span class="dot"></span>SERVER ĐANG OFFLINE';
+    b.innerHTML='<span class="dot"></span>TIÊN MÔN PHONG BẾ';
   }
 }
 async function fetchStatus(){
@@ -646,7 +696,7 @@ document.querySelectorAll('.smooth').forEach(function(a){
   a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
 });
 
-// ==== ĐĂNG KÝ TÀI KHOẢN ====
+// ==== KHAI MỞ TIÊN DUYÊN ====
 async function submitRegister(e){
   e.preventDefault();
   var username = document.getElementById('regUsername').value.trim();
@@ -658,19 +708,19 @@ async function submitRegister(e){
   msg.className = 'reg-msg';
 
   if(pass1 !== pass2){
-    msg.textContent = '❌ Mật khẩu nhập lại không khớp!';
+    msg.textContent = '❌ Linh mật khắc lại không khớp!';
     msg.className = 'reg-msg err show';
     return;
   }
   if(!/^[A-Za-z0-9_]{3,16}$/.test(username)){
-    msg.textContent = '❌ Tên chỉ được chứa chữ, số, dấu gạch dưới (3-16 ký tự).';
+    msg.textContent = '❌ Đạo hiệu chỉ được chứa chữ, số, dấu gạch dưới (3-16 ký tự).';
     msg.className = 'reg-msg err show';
     return;
   }
 
   btn.disabled = true;
-  btn.textContent = '⏳ ĐANG XỬ LÝ...';
-  msg.textContent = 'Đang gửi yêu cầu đăng ký lên server...';
+  btn.textContent = '⏳ ĐANG KHAI DUYÊN...';
+  msg.textContent = 'Đang dâng lên thiên cơ yêu cầu khai duyên...';
   msg.className = 'reg-msg ok show';
 
   try {
@@ -682,19 +732,19 @@ async function submitRegister(e){
     var data = await res.json();
 
     if(res.ok && data.success){
-      msg.textContent = '✅ Đăng ký thành công! Tên: ' + username + '. Bây giờ vào game và gõ /login với mật khẩu vừa tạo.';
+      msg.textContent = '✅ Khai duyên thành công! Đạo hiệu: ' + username + '. Bây giờ nhập tiên môn và gõ /login với linh mật vừa tạo.';
       msg.className = 'reg-msg ok show';
       document.getElementById('regForm').reset();
     } else {
-      msg.textContent = '❌ ' + (data.message || 'Đăng ký thất bại, thử lại sau.');
+      msg.textContent = '❌ ' + (data.message || 'Khai duyên thất bại, thử lại sau.');
       msg.className = 'reg-msg err show';
     }
   } catch(err) {
-    msg.textContent = '❌ Không kết nối được server. Vui lòng thử lại sau.';
+    msg.textContent = '❌ Không kết nối được tiên môn. Vui lòng thử lại sau.';
     msg.className = 'reg-msg err show';
   } finally {
     btn.disabled = false;
-    btn.textContent = '📝 ĐĂNG KÝ NGAY';
+    btn.textContent = '📝 KHAI DUYÊN NGAY';
   }
 }
 </script>
