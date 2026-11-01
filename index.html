@@ -144,6 +144,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .wtab.active{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
 .wpanel{display:none}
 #w-tu-tien:checked~.wtabs label[for=w-tu-tien],
+#w-dao-nghe:checked~.wtabs label[for=w-dao-nghe],
 #w-claim:checked~.wtabs label[for=w-claim],
 #w-marry:checked~.wtabs label[for=w-marry],
 #w-spawner:checked~.wtabs label[for=w-spawner],
@@ -151,6 +152,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 #w-napthe:checked~.wtabs label[for=w-napthe],
 #w-trade:checked~.wtabs label[for=w-trade]{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 8px 25px rgba(108,92,231,.5)}
 #w-tu-tien:checked~.wpanels #panel-tu-tien,
+#w-dao-nghe:checked~.wpanels #panel-dao-nghe,
 #w-claim:checked~.wpanels #panel-claim,
 #w-marry:checked~.wpanels #panel-marry,
 #w-spawner:checked~.wpanels #panel-spawner,
@@ -590,6 +592,11 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
       <h3>Tu Tiên Đạo</h3>
       <p>Nhập môn, tu luyện, đột phá, phi thăng, công pháp và chiêu pháp — trọn bộ hành trình tu tiên.</p>
     </a>
+    <a href="#wiki" class="fc" onclick="openWiki(event,'w-dao-nghe')">
+      <div class="fi">🧬</div>
+      <h3>Đạo, Hướng Tu &amp; Nghề</h3>
+      <p>7 đạo do thiên đạo định đoạt, 10 hướng tu chiến đấu và 9 nghề tu tiên — mỗi đạo hữu một con đường riêng.</p>
+    </a>
     <a href="#wiki" class="fc" onclick="openWiki(event,'w-claim')">
       <div class="fi">🏡</div>
       <h3>Trận Pháp Hộ Sơn</h3>
@@ -688,6 +695,7 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
   <p class="ss">Bí điển ZAYMC — đạo hữu chọn một mục để tra cứu công pháp, quy tắc và các bí thuật trong tiên môn.</p>
 
   <input type="radio" name="wiki-tab" id="w-tu-tien" class="wradio" checked>
+  <input type="radio" name="wiki-tab" id="w-dao-nghe" class="wradio">
   <input type="radio" name="wiki-tab" id="w-claim" class="wradio">
   <input type="radio" name="wiki-tab" id="w-marry" class="wradio">
   <input type="radio" name="wiki-tab" id="w-spawner" class="wradio">
@@ -697,6 +705,7 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 
   <div class="wtabs">
     <label class="wtab" for="w-tu-tien">✨ Tu Tiên</label>
+    <label class="wtab" for="w-dao-nghe">🧬 Đạo, Hướng Tu &amp; Nghề</label>
     <label class="wtab" for="w-claim">🏡 Trận Pháp Hộ Sơn</label>
     <label class="wtab" for="w-marry">💕 Đạo Lữ</label>
     <label class="wtab" for="w-spawner">⚙️ Yêu Thú Sào</label>
@@ -710,7 +719,7 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
       <h3 id="wk-nhapmon">🌱 Bắt đầu con đường tu tiên</h3>
       <p>Hoan nghênh đạo hữu bước vào tiên lộ ZAYMC. Từ hôm nay, hãy nhập môn, hấp thu linh khí, tôi luyện đạo tâm và từng bước vấn đỉnh cảnh giới cao hơn.</p>
       <h3>📜 Khẩu quyết nhập môn</h3>
-      <ul><li><code>/nhapmon</code> — Chính thức nhập môn, khai mở tiên duyên.</li><li><code>/tutien</code> — Mở bí lục tu tiên, tra cứu các mục có thể sử dụng.</li><li><code>/tutien thongtin</code> — Quan sát cảnh giới, tu vi, linh khí, sinh mệnh và giới vực hiện tại.</li><li><code>/hud</code> — Bật hoặc ẩn bảng hiển thị sinh mệnh và linh khí trên thanh hotbar.</li></ul>
+      <ul><li><code>/nhapmon</code> — Chính thức nhập môn, khai mở tiên duyên.</li><li><code>/tutien</code> — Mở bí lục tu tiên, tra cứu các mục có thể sử dụng.</li><li><code>/tutien thongtin</code> — Quan sát cảnh giới, tu vi, linh khí, sinh mệnh và giới vực hiện tại.</li><li><code>/hud</code> — Bật hoặc ẩn bảng hiển thị sinh mệnh và linh khí trên thanh hotbar.</li><li><code>/dao</code> — Để thiên đạo định đoạt đạo của đạo hữu (một lần duy nhất). Xem mục <a href="#wiki" onclick="openWiki(event,'w-dao-nghe','wk-dao')" style="color:var(--a)">Đạo, Hướng Tu &amp; Nghề</a>.</li><li><code>/huongtu</code> — Chọn hướng tu chiến đấu: Kiếm Tu, Thể Tu, Ma Tu, Pháp Tu và nhiều hướng khác.</li><li><code>/nghe</code> — Bái nhập nghề tu tiên: luyện đan, luyện khí, khai khoáng, trồng trọt, săn yêu, câu cá...</li></ul>
       <h3>🧭 Con đường tu hành</h3>
       <div class="wgrid"><div class="wcard"><h5>1. Nhập môn</h5><p>Dùng <code>/nhapmon</code> để bắt đầu hành trình.</p></div><div class="wcard"><h5>2. Ngồi thiền</h5><p>Vận hành <code>/tuluyen</code> để tĩnh tọa, hấp thu thiên địa linh khí.</p></div><div class="wcard"><h5>3. Đột phá</h5><p>Khi tu vi viên mãn và đủ điều kiện, vận dụng <code>/dotpha</code> để phá cảnh.</p></div><div class="wcard"><h5>4. Khám phá</h5><p>Tầm bảo, lĩnh ngộ công pháp và chuẩn bị pháp bảo trước khi bước vào hiểm địa.</p></div></div>
       <h3 id="wk-tuluyen">🧘 Tu luyện và đột phá</h3><ul><li>Dùng <code>/tuluyen</code> để bắt đầu hoặc dừng ngồi thiền.</li><li>Tĩnh tọa quá lâu có thể dẫn đến tẩu hỏa nhập ma; đạo hữu chớ nóng vội.</li><li>Từ Trúc Cơ trở đi, đột phá có thể dẫn tới lôi kiếp. Hãy chuẩn bị đầy đủ trước khi nghịch thiên phá cảnh.</li></ul>
@@ -725,10 +734,92 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
       <div class="rplane">⚡ Thần Giới <small>8 cảnh giới · linh khí dày nhất</small></div>
       <ol class="rlist"><li><b>Thần Nhân</b></li><li><b>Thần Tướng</b></li><li><b>Thần Vương</b></li><li><b>Thần Hoàng</b></li><li><b>Thần Đế</b></li><li><b>Thần Tôn</b></li><li><b>Thần Chủ</b></li><li class="gate"><b>Chí Tôn</b><em>Đỉnh cao cảnh giới</em></li></ol>
       <div class="hl"><p>💡 Cảnh giới càng cao thì máu tối đa, sát thương và sức mạnh chiêu thức càng lớn. Đột phá từ Trúc Cơ trở đi có thể dẫn tới lôi kiếp, phi thăng cũng có thể thất bại, hãy chuẩn bị kỹ.</p></div>
+      <div class="hl"><p>💡 Tu sĩ <strong>Tà Đạo</strong> thấy tên cảnh giới riêng (ví dụ Hạ Giới: Luyện Ma → Ma Kiếp; Tiên Giới: Ma Tiên → Ma Tổ; Thần Giới: Tà Thần → Hỗn Độn Ma Tôn). Chỉ là tên gọi khác, cơ chế cảnh giới vẫn như bảng trên. Xem thêm mục <a href="#wiki" onclick="openWiki(event,'w-dao-nghe','wk-dao')" style="color:var(--a)">Đạo, Hướng Tu &amp; Nghề</a>.</p></div>
       <h3 id="wk-congphap">⚔️ Công pháp và chiêu pháp</h3><ul><li>Cầm sách chiêu thức hoặc công pháp rồi dùng <code>/hoc</code> để lĩnh ngộ.</li><li><code>/chieuphap</code> — Xem chiêu pháp đã học.</li><li><code>/congphap</code> — Xem hoặc vận hành công pháp bị động.</li><li>Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong tiên môn để biết thao tác cụ thể.</li></ul>
-      <h3>🌿 Linh thảo, linh đan và luyện đan</h3><ul><li>Thu thập hạt giống linh thảo trong quá trình hành tẩu và làm theo chỉ dẫn trên vật phẩm.</li><li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li><li>Đọc mô tả vật phẩm và công thức trong tiên môn trước khi chế tạo.</li></ul>
+      <h3>🌿 Linh thảo, linh đan và luyện đan</h3><ul><li>Thu thập hạt giống linh thảo trong quá trình hành tẩu và làm theo chỉ dẫn trên vật phẩm.</li><li>Đập cỏ ngoài thiên nhiên cũng có <strong>xác suất thấp</strong> rơi ra linh thảo. Xem chi tiết ở mục <a href="#wiki" onclick="openWiki(event,'w-dao-nghe','wk-thaoco')" style="color:var(--a)">Linh thảo từ bụi cỏ</a>.</li><li><code>/tutien luyendan</code> — Mở bảng công thức lò luyện đan.</li><li>Đọc mô tả vật phẩm và công thức trong tiên môn trước khi chế tạo.</li></ul>
       <h3>🏯 Bí cảnh và yêu thú trấn thủ</h3><ul><li><code>/tutien biccanh</code> — Xem thông tin bí cảnh.</li><li><code>/tutien vao-bicanh</code> — Vào bí cảnh khi đủ điều kiện.</li><li>Chuẩn bị pháp bảo và linh đan hồi phục trước khi khiêu chiến yêu thú hoặc tiến vào hiểm địa.</li></ul>
       <div class="hl"><p>💡 Đạo hữu có thể dùng <code>/tutien help</code> để xem các khẩu lệnh được phép sử dụng. Nếu bí điển có điểm khác với thông báo trong tiên môn, hãy lấy chỉ dẫn trong game làm chuẩn hoặc thỉnh giáo Tiên Sư.</p></div>
+    </div></div>
+
+    <div class="wpanel" id="panel-dao-nghe"><div class="wc">
+      <h3 id="wk-dao">🧬 Đạo — con đường do thiên đạo định đoạt</h3>
+      <p>Khi nhập môn, thiên đạo sẽ định cho đạo hữu một <strong>đạo</strong>. Đạo quyết định tốc độ hấp thu linh khí, độ dày huyết khí, sức công kích và mức nguy hiểm khi tẩu hỏa nhập ma. Đạo được định <strong>một lần duy nhất</strong>, đã định thì không thể đổi.</p>
+      <ul>
+        <li>Nhập môn lần đầu, đạo sẽ được định ngẫu nhiên cùng thiên phú, tộc và linh căn. Đạo hữu cũ chưa có đạo có thể gõ <code>/dao</code> để thiên đạo định đoạt.</li>
+        <li><strong>Thiên Mệnh Chi Tử</strong> luôn bước trên Chính Đạo.</li>
+        <li>Muốn biết đạo hiện tại của mình, mở bảng nhập môn hoặc xem trên bảng thông tin tu sĩ.</li>
+      </ul>
+      <div class="wtable-wrap"><table class="wtable"><thead><tr><th>Đạo</th><th>Xác suất</th><th>Hấp thu linh khí</th><th>Huyết khí</th><th>Sát thương</th><th>Tẩu hỏa nhập ma</th></tr></thead><tbody>
+        <tr><td><strong style="color:#ffd166">Chính Đạo</strong></td><td>~42%</td><td>×1.00</td><td>×1.35</td><td>×1.35</td><td>Khó</td></tr>
+        <tr><td><strong style="color:#b36bff">Tà Đạo</strong></td><td>~42%</td><td>×1.50</td><td>×1.35</td><td>×1.35</td><td>Rất dễ</td></tr>
+        <tr><td><strong style="color:#ffe66d">Phật Đạo</strong></td><td>~5%</td><td>×0.85</td><td>×1.50</td><td>×1.20</td><td>Gần như không</td></tr>
+        <tr><td><strong style="color:#69e7ff">Tiêu Dao Đạo</strong></td><td>~4.8%</td><td>×1.20</td><td>×1.15</td><td>×1.15</td><td>Bình thường</td></tr>
+        <tr><td><strong style="color:#ff5d5d">Huyết Đạo</strong></td><td>~2.7%</td><td>×1.30</td><td>×1.50</td><td>×1.55</td><td>Cực dễ</td></tr>
+        <tr><td><strong style="color:#e49bff">Lôi Đạo</strong></td><td>~2.6%</td><td>×1.00</td><td>×1.20</td><td>×1.60</td><td>Bình thường</td></tr>
+        <tr><td><strong style="color:#7ee08a">Trường Sinh Đạo</strong></td><td>~1.7%</td><td>×0.90</td><td>×1.80</td><td>×1.00</td><td>Rất khó</td></tr>
+      </tbody></table></div>
+      <div class="wgrid">
+        <div class="wcard"><h5>Chính Đạo</h5><p>Căn cơ vững chắc, tu luyện tốc độ thường, ít khi tẩu hỏa nhập ma.</p></div>
+        <div class="wcard"><h5>Tà Đạo</h5><p>Hấp thu linh khí nhanh hơn nhưng căn cơ bất ổn, dễ tẩu hỏa. Có tên cảnh giới riêng và học được sách chiêu thức Tà Đạo.</p></div>
+        <div class="wcard"><h5>Phật Đạo</h5><p>Từ bi hộ thể: tu chậm hơn, huyết khí cực dày, tu liên tục rất lâu cũng không lo tẩu hỏa.</p></div>
+        <div class="wcard"><h5>Tiêu Dao Đạo</h5><p>Tiêu dao tự tại: tu nhanh hơn thường, thể chất vừa phải, nguy cơ tẩu hỏa như người thường.</p></div>
+        <div class="wcard"><h5>Huyết Đạo</h5><p>Lấy huyết luyện thân: huyết khí và sát thương rất cao, tu nhanh, đổi lại cực dễ tẩu hỏa nhập ma.</p></div>
+        <div class="wcard"><h5>Lôi Đạo</h5><p>Dẫn lôi nhập thể: sát thương vượt trội, huyết khí khá, tu luyện tốc độ thường.</p></div>
+        <div class="wcard"><h5>Trường Sinh Đạo</h5><p>Cầu trường sinh bất tử: huyết khí dày nhất, căn cơ vững như bàn thạch; sát thương thấp, tu luyện chậm.</p></div>
+      </div>
+      <div class="warn"><p>⚠️ Xác suất và các hệ số trên có thể được Tiên Sư điều chỉnh. Phật Đạo, Tiêu Dao Đạo, Huyết Đạo, Lôi Đạo và Trường Sinh Đạo dùng chung tên cảnh giới với Chính Đạo và không học được sách chiêu thức riêng của Tà Đạo. Nếu khác với thông tin hiển thị trong tiên môn, hãy lấy thông tin trong tiên môn làm chuẩn.</p></div>
+
+      <h3 id="wk-huongtu">⚔️ Hướng tu — con đường chiến đấu</h3>
+      <p>Khác với đạo (do thiên đạo định), <strong>hướng tu</strong> là con đường chiến đấu do chính đạo hữu lựa chọn. Hướng tu nhân thêm vào chỉ số có sẵn từ cảnh giới và đạo, không thay thế chúng.</p>
+      <ul>
+        <li><code>/huongtu</code> — Mở bảng chọn hướng tu, bấm vào hướng muốn chọn.</li>
+        <li>Lần chọn đầu tiên miễn phí; muốn đổi hướng phải chờ <strong>72 giờ</strong> kể từ lần chọn trước.</li>
+        <li>Bấm vào nút <strong>Bỏ hướng tu</strong> để trở về con đường cân bằng (không buff, không nhược điểm).</li>
+      </ul>
+      <div class="wtable-wrap"><table class="wtable"><thead><tr><th>Hướng tu</th><th>Sở trường</th><th>Đánh đổi</th></tr></thead><tbody>
+        <tr><td><strong>Kiếm Tu</strong></td><td>Đánh thường +15%, chiêu thức +10%, chiêu kiếm mạnh thêm +30%, ngự kiếm nhanh +30%</td><td>Máu −15%, nhận thêm 5% sát thương</td></tr>
+        <tr><td><strong>Thể Tu</strong></td><td>Máu +35%, đánh thường +20%, nhận ít hơn 18% sát thương</td><td>Chiêu thức −15%, ngự kiếm chậm hơn 10%</td></tr>
+        <tr><td><strong>Ma Tu</strong></td><td>Đánh thường +10%, chiêu thức +15%, hút máu 8% sát thương đánh thường</td><td>Máu −5%</td></tr>
+        <tr><td><strong>Pháp Tu</strong></td><td>Chiêu thức +20%, chiêu diện rộng / hình quạt / tia / mưa mạnh thêm +15%</td><td>Máu −10%, đánh thường −20%, nhận thêm 5% sát thương</td></tr>
+        <tr><td><strong>Võ Tu</strong></td><td>Đánh thường +35%, máu +5%, chí mạng 15% (sát thương ×1.6)</td><td>Chiêu thức −20%</td></tr>
+        <tr><td><strong>Phong Tu</strong></td><td>Né đòn 15%, chiêu lướt và dịch chuyển mạnh thêm +30%, ngự kiếm nhanh +20%</td><td>Máu −10%</td></tr>
+        <tr><td><strong>Cung Tu</strong></td><td>Chiêu phóng mạnh thêm +35%, chiêu tia +20%, chiêu đánh thẳng +10%, chiêu thức +5%, né đòn 5%</td><td>Máu −10%, đánh thường −10%</td></tr>
+        <tr><td><strong>Phật Tu</strong></td><td>Máu +15%, nhận ít hơn 12% sát thương, hút máu 4%</td><td>Đánh thường −10%, chiêu thức −10%</td></tr>
+        <tr><td><strong>Sát Tu</strong></td><td>Đánh thường +20%, chí mạng 22% (sát thương ×1.8), hút máu 5%</td><td>Máu −15%, nhận thêm 15% sát thương</td></tr>
+        <tr><td><strong>Hộ Pháp</strong></td><td>Máu +25%, nhận ít hơn 10% sát thương, phản chấn 25% sát thương về phía kẻ đánh</td><td>Đánh thường −10%, chiêu thức −15%, ngự kiếm chậm hơn 5%</td></tr>
+      </tbody></table></div>
+      <div class="hl"><p>💡 <strong>Né đòn</strong> chỉ áp dụng với đòn do quái, người chơi hoặc mũi tên gây ra (không né được rơi từ cao, lửa, ngạt...). <strong>Chí mạng</strong> chỉ áp dụng với đòn đánh thường. <strong>Phản chấn</strong> dội lại một phần sát thương đã gây ra cho kẻ đánh đạo hữu.</p></div>
+
+      <h3 id="wk-nghe">🛠️ Nghề tu tiên</h3>
+      <p>Bên cạnh con đường chiến đấu, đạo hữu có thể bái nhập <strong>nghề</strong> để hưởng buff trong sản xuất và hành tẩu. Mỗi nghề có cấp từ <strong>Nhất Phẩm đến Cửu Phẩm</strong>; làm đúng việc của nghề sẽ tích kinh nghiệm nghề, đủ thì lên cấp.</p>
+      <ul>
+        <li><code>/nghe</code> — Mở bảng nghề, bấm vào nghề muốn bái nhập.</li>
+        <li>Mỗi đạo hữu học được tối đa <strong>2 nghề</strong> cùng lúc.</li>
+        <li><strong>Shift + chuột phải</strong> vào nghề trong bảng để bỏ nghề.</li>
+      </ul>
+      <div class="wtable-wrap"><table class="wtable"><thead><tr><th>Nghề</th><th>Làm gì để lên cấp</th><th>Buff mỗi cấp</th></tr></thead><tbody>
+        <tr><td><strong>Luyện Đan Sư</strong></td><td>Luyện đan ở Lò Luyện Đan</td><td>Giảm 1.5% nổ lò, +3% xác suất mẻ luyện ra gấp đôi</td></tr>
+        <tr><td><strong>Luyện Khí Sư</strong></td><td>Luyện khí ở Lò Luyện Kim</td><td>Giảm 1.5% nổ lò, +2.5% xác suất mẻ luyện ra gấp đôi</td></tr>
+        <tr><td><strong>Trận Pháp Sư</strong></td><td>Lập trận pháp</td><td>Trận pháp do đạo hữu lập có bán kính lớn thêm 4%</td></tr>
+        <tr><td><strong>Dược Sư</strong></td><td>Thu hoạch linh thảo đã trồng</td><td>+5% rơi thêm linh thảo, +3% rơi thêm hạt giống</td></tr>
+        <tr><td><strong>Khai Khoáng Sư</strong></td><td>Đào quặng</td><td>+4% xác suất quặng rơi thêm một lượt khoáng thạch</td></tr>
+        <tr><td><strong>Linh Nông Sư</strong></td><td>Gặt cây trồng thường đã chín (lúa mì, cà rốt, khoai tây, củ cải đường, dưa hấu, bí ngô...)</td><td>+5% xác suất cây trồng rơi thêm một lượt</td></tr>
+        <tr><td><strong>Liệp Sư</strong></td><td>Tự tay giết quái hung hãn</td><td>+6% tỉ lệ quái rơi sách chiêu thức và đan dược</td></tr>
+        <tr><td><strong>Ngư Sư</strong></td><td>Câu cá</td><td>+4% xác suất câu được thêm một phần</td></tr>
+        <tr><td><strong>Tĩnh Tọa Sư</strong></td><td>Ngồi thiền hấp thu linh khí bằng <code>/tuluyen</code></td><td>+2% tốc độ hấp thu linh khí</td></tr>
+      </tbody></table></div>
+      <div class="hl"><p>💡 Buff nhân theo cấp: nghề ở <strong>Cửu Phẩm</strong> nhận gấp 9 lần buff mỗi cấp (ví dụ Khai Khoáng Sư Cửu Phẩm có 36% xác suất quặng rơi thêm). Linh thảo đã trồng thuộc về Dược Sư; cây trồng thường mới thuộc về Linh Nông Sư.</p></div>
+      <div class="warn"><p>⚠️ Chỉ tính kinh nghiệm và buff khi đạo hữu ở chế độ sinh tồn. Liệp Sư không tăng tỉ lệ rơi đồ từ boss. Các con số buff có thể được Tiên Sư điều chỉnh để cân bằng tiên môn.</p></div>
+
+      <h3 id="wk-thaoco">🌿 Linh thảo từ bụi cỏ</h3>
+      <p>Không chỉ trồng trọt, đạo hữu đi ngang đồng cỏ cũng có thể gặp may: <strong>đập cỏ thấp hoặc cỏ cao</strong> có xác suất thấp (khoảng <strong>2%</strong> mỗi lần) rơi ra <strong>1 linh thảo</strong>.</p>
+      <ul>
+        <li>Chỉ áp dụng khi đạo hữu ở chế độ sinh tồn.</li>
+        <li>Loại thảo rơi ra là ngẫu nhiên: <strong>Thanh Linh Thảo</strong> và <strong>Tử Vân Hoa</strong> hay gặp nhất; <strong>Nguyệt Quang Lan</strong>, <strong>Tinh Thần Diệp</strong>, <strong>Cốt Linh Chi</strong> ít hơn; <strong>Kim Nguyên Sâm</strong>, <strong>Băng Tâm Liên</strong>, <strong>Long Huyết Thảo</strong>, <strong>Huyết Ma Hoa</strong> rất hiếm; <strong>Cửu Chuyển Tiên Thảo</strong> hiếm nhất.</li>
+        <li><strong>Khai Mạch Thảo</strong> (dành cho giai đoạn Phàm Nhân) không rơi từ bụi cỏ, đạo hữu vẫn lấy từ hạt giống theo hướng dẫn trong tiên môn.</li>
+        <li>Linh thảo nhặt được dùng làm nguyên liệu luyện đan trong lò, giống như linh thảo tự trồng.</li>
+      </ul>
+      <div class="warn"><p>⚠️ Tỉ lệ rơi và danh sách loại thảo có thể được Tiên Sư điều chỉnh. Nếu khác với thông tin trong tiên môn, hãy lấy thông tin trong tiên môn làm chuẩn.</p></div>
     </div></div>
 
     <div class="wpanel" id="panel-claim"><div class="wc">
