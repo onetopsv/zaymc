@@ -192,7 +192,7 @@ h1{font-size:clamp(40px,8vw,90px);font-weight:800;line-height:1.1;margin-bottom:
 .wtable th{color:#e8d39f;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
 .wtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .t-pham{color:#7ee08a!important}.t-dia{color:#69e7ff!important}.t-thien{color:#e49bff!important}
-footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,231,.2);background:rgba(10,10,26,.8)}
+footer{padding:60px 5% 30px;text-align:center;border-top:1px solid rgba(108,92,231,.2);background:rgba(10,10,26,.8);position:relative;z-index:1}
 .flogo{font-family:'Press Start 2P',cursive;font-size:18px;color:var(--a);margin-bottom:15px;text-shadow:0 0 15px var(--a)}
 footer p{color:var(--td);font-size:13px;margin-bottom:20px}
 .socs{display:flex;gap:15px;justify-content:center;margin-bottom:25px;flex-wrap:wrap}
@@ -288,10 +288,252 @@ footer{padding:55px 20px 35px;background:#060912;border-top:1px solid #ffffff12}
 #wiki .tag{background:rgba(125,161,125,.15);color:#c5dfbb}
 @media(max-width:768px){#wiki{background-attachment:scroll}#wiki .wc{background:rgba(18,31,30,.96)}}
 
+
+/* ================= CẢNH TRÍ NỀN ================= */
+.scenery{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;overflow:hidden;
+  contain:layout paint style;
+}
+.scenery > i,.scenery > div{position:absolute;display:block}
+
+/* ---------- TRĂNG ---------- */
+.moon{
+  top:7vh;right:9vw;
+  width:clamp(62px,7.5vw,116px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 36% 32%,#fffdf0 0%,#fdf3d0 44%,#efdca6 74%,#dcc286 100%);
+  box-shadow:
+    0 0 0 9px  rgba(253,243,208,.055),
+    0 0 0 24px rgba(253,243,208,.032),
+    0 0 0 46px rgba(253,243,208,.018),
+    0 0 0 78px rgba(253,243,208,.009);
+  animation:moonPulse 14s ease-in-out infinite;
+}
+.moon::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 63% 58%,rgba(196,170,110,.26) 0 9%,transparent 10%),
+    radial-gradient(circle at 40% 71%,rgba(196,170,110,.19) 0 6%,transparent 7%),
+    radial-gradient(circle at 71% 33%,rgba(196,170,110,.15) 0 5%,transparent 6%);
+}
+@keyframes moonPulse{0%,100%{opacity:1}50%{opacity:.82}}
+
+/* ---------- SAO THƯA ---------- */
+.stars{top:0;left:0;width:2px;height:2px;border-radius:50%;background:transparent}
+.s1{
+  box-shadow:
+    3vw 7vh 0 0 rgba(255,255,255,.80),  8vw 19vh 0 0 rgba(200,225,255,.50),
+    13vw 4vh 0 0 rgba(255,255,255,.65), 19vw 26vh 0 0 rgba(255,255,255,.45),
+    24vw 11vh 0 0 rgba(210,235,255,.70),30vw 21vh 0 0 rgba(255,255,255,.55),
+    36vw 6vh 0 0 rgba(255,255,255,.80), 42vw 17vh 0 0 rgba(190,220,255,.40),
+    48vw 29vh 0 0 rgba(255,255,255,.60),54vw 9vh 0 0 rgba(255,255,255,.70),
+    60vw 23vh 0 0 rgba(210,235,255,.45),66vw 14vh 0 0 rgba(255,255,255,.75),
+    72vw 31vh 0 0 rgba(255,255,255,.40),78vw 5vh 0 0 rgba(200,225,255,.65),
+    84vw 20vh 0 0 rgba(255,255,255,.55),90vw 12vh 0 0 rgba(255,255,255,.70),
+    95vw 27vh 0 0 rgba(210,235,255,.45),6vw 36vh 0 0 rgba(255,255,255,.50),
+    17vw 41vh 0 0 rgba(255,255,255,.40),28vw 34vh 0 0 rgba(210,235,255,.60),
+    39vw 44vh 0 0 rgba(255,255,255,.45),50vw 37vh 0 0 rgba(255,255,255,.55),
+    61vw 46vh 0 0 rgba(190,220,255,.35),73vw 40vh 0 0 rgba(255,255,255,.50),
+    86vw 48vh 0 0 rgba(255,255,255,.40),33vw 52vh 0 0 rgba(255,255,255,.35);
+  animation:twinkle 7s ease-in-out infinite;
+}
+.s2{
+  box-shadow:
+    5vw 15vh 0 0 rgba(255,255,255,.90), 16vw 8vh 0 0 rgba(220,240,255,.70),
+    27vw 19vh 0 0 rgba(255,255,255,.80),38vw 3vh 0 0 rgba(255,255,255,.60),
+    49vw 24vh 0 0 rgba(220,240,255,.85),58vw 12vh 0 0 rgba(255,255,255,.70),
+    69vw 28vh 0 0 rgba(255,255,255,.75),79vw 16vh 0 0 rgba(220,240,255,.60),
+    88vw 33vh 0 0 rgba(255,255,255,.80),96vw 8vh 0 0 rgba(255,255,255,.65),
+    12vw 32vh 0 0 rgba(255,255,255,.70),35vw 39vh 0 0 rgba(220,240,255,.55),
+    57vw 43vh 0 0 rgba(255,255,255,.65),71vw 50vh 0 0 rgba(255,255,255,.50),
+    92vw 45vh 0 0 rgba(220,240,255,.60);
+  animation:twinkle 5.5s ease-in-out .8s infinite;
+}
+.s3{
+  box-shadow:
+    21vw 13vh 0 1px rgba(255,255,255,.95),44vw 7vh 0 1px rgba(255,255,255,.85),
+    63vw 21vh 0 1px rgba(230,245,255,.90),82vw 11vh 0 1px rgba(255,255,255,.80),
+    9vw 27vh 0 1px rgba(255,255,255,.85), 34vw 30vh 0 1px rgba(230,245,255,.75),
+    55vw 35vh 0 1px rgba(255,255,255,.85),75vw 36vh 0 1px rgba(255,255,255,.70),
+    96vw 22vh 0 1px rgba(230,245,255,.80);
+  animation:twinkleAlt 9s ease-in-out 1.5s infinite;
+}
+@keyframes twinkle{0%,100%{opacity:.95}50%{opacity:.30}}
+@keyframes twinkleAlt{0%,100%{opacity:.40}50%{opacity:1}}
+
+/* ---------- 3 LỚP NÚI ---------- */
+.mtn{left:-2%;width:104%;bottom:0;backface-visibility:hidden}
+.mtn.far{
+  height:32vh;
+  background:linear-gradient(180deg,#243553 0%,#182541 60%,#111c33 100%);
+  clip-path:polygon(0% 100%,0% 74%,5% 58%,9% 68%,14% 44%,19% 62%,25% 50%,31% 68%,37% 42%,43% 64%,49% 52%,55% 70%,61% 46%,67% 66%,73% 54%,79% 70%,85% 48%,91% 66%,96% 56%,100% 68%,100% 100%);
+}
+.mtn.mid{
+  height:24vh;
+  background:linear-gradient(180deg,#18243d 0%,#101a2e 60%,#0a1223 100%);
+  clip-path:polygon(0% 100%,0% 82%,6% 62%,12% 78%,19% 48%,26% 74%,33% 58%,40% 80%,47% 52%,54% 76%,62% 56%,69% 78%,77% 50%,84% 76%,91% 60%,96% 78%,100% 66%,100% 100%);
+}
+.mtn.near{
+  height:16vh;
+  background:linear-gradient(180deg,#0e1729 0%,#080e1b 70%,#05080f 100%);
+  clip-path:polygon(0% 100%,0% 80%,8% 58%,16% 84%,25% 52%,34% 78%,43% 60%,52% 82%,61% 54%,70% 80%,80% 62%,88% 84%,95% 66%,100% 78%,100% 100%);
+}
+
+/* ---------- MÂY TRÔI ---------- */
+.cloud{
+  border-radius:50%;
+  background:radial-gradient(ellipse at 50% 55%,rgba(178,205,255,.11),rgba(178,205,255,.045) 55%,rgba(178,205,255,0) 72%);
+}
+.c1{top:14vh;left:-38vw;width:38vw;height:11vw;animation:drift 130s linear infinite}
+.c2{top:30vh;left:-30vw;width:26vw;height:7vw;opacity:.75;animation:drift 96s linear infinite 14s}
+.c3{top:47vh;left:-46vw;width:46vw;height:13vw;opacity:.55;animation:drift 165s linear infinite 32s}
+@keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(200vw,0,0)}}
+
+/* ---------- SƯƠNG MÙ ---------- */
+.mist{left:-25%;right:-25%;bottom:0;height:26vh;
+  background:linear-gradient(180deg,rgba(120,160,220,0) 0%,rgba(120,160,220,.055) 45%,rgba(140,180,240,.10) 78%,rgba(150,190,255,.13) 100%);
+  animation:mistSway 46s ease-in-out infinite alternate;
+}
+.mist.m2{bottom:7vh;height:15vh;opacity:.55;animation-duration:31s;animation-direction:alternate-reverse}
+@keyframes mistSway{from{transform:translate3d(-3vw,0,0)}to{transform:translate3d(3vw,0,0)}}
+
+/* ---------- ĐOM ĐÓM ---------- */
+.fly{
+  width:5px;height:5px;border-radius:50%;
+  background:#dcff8c;
+  box-shadow:0 0 0 2px rgba(200,255,130,.14),0 0 0 6px rgba(200,255,130,.055);
+  opacity:0;
+  animation:flyFloat var(--t,10s) ease-in-out var(--d,0s) infinite;
+}
+@keyframes flyFloat{
+  0%{opacity:0;transform:translate3d(0,0,0)}
+  15%{opacity:.9;transform:translate3d(4px,-8px,0)}
+  35%{opacity:.35;transform:translate3d(11px,-17px,0)}
+  55%{opacity:.85;transform:translate3d(-7px,-27px,0)}
+  75%{opacity:.30;transform:translate3d(12px,-11px,0)}
+  100%{opacity:0;transform:translate3d(0,-36px,0)}
+}
+
+/* ---------- HẠC BAY ---------- */
+.crane{
+  top:var(--y,26vh);left:0;width:24px;height:14px;
+  color:rgba(205,225,255,.6);
+  animation:craneFly var(--t,60s) linear var(--d,0s) infinite;
+}
+.crane.small{width:18px;height:11px;color:rgba(205,225,255,.42)}
+.crane::before,.crane::after{
+  content:"";position:absolute;left:0;top:6px;
+  width:14px;height:2px;border-radius:2px;
+  background:currentColor;transform-origin:0 50%;
+}
+.crane.small::before,.crane.small::after{width:11px;height:1.5px}
+.crane::before{transform:rotate(28deg);animation:flapA 1.6s ease-in-out infinite}
+.crane::after{transform:rotate(-28deg);animation:flapB 1.6s ease-in-out infinite}
+@keyframes flapA{0%,100%{transform:rotate(28deg)}50%{transform:rotate(5deg)}}
+@keyframes flapB{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(-5deg)}}
+@keyframes craneFly{
+  0%{transform:translate3d(-14vw,0,0)}
+  50%{transform:translate3d(50vw,-4vh,0)}
+  100%{transform:translate3d(114vw,0,0)}
+}
+
+/* ---------- CÁNH HOA RƠI ---------- */
+.petal{
+  top:-6vh;left:var(--x,50vw);
+  width:11px;height:8px;
+  border-radius:60% 0 60% 0;
+  background:linear-gradient(135deg,rgba(255,183,214,.85),rgba(232,110,170,.32));
+  opacity:0;
+  animation:petalFall var(--t,16s) linear var(--d,0s) infinite;
+}
+@keyframes petalFall{
+  0%{opacity:0;transform:translate3d(0,0,0) rotate(0deg)}
+  8%{opacity:.85}
+  50%{transform:translate3d(9vw,52vh,0) rotate(240deg)}
+  92%{opacity:.55}
+  100%{opacity:0;transform:translate3d(-4vw,108vh,0) rotate(560deg)}
+}
+
+/* ---------- TỐI ƯU / GIẢM CHUYỂN ĐỘNG ---------- */
+@media(max-width:768px){
+  .moon{top:5vh;right:7vw}
+  .mtn.far{height:26vh}
+  .mtn.mid{height:19vh}
+  .mtn.near{height:13vh}
+  .c1,.c2,.c3{opacity:.55}
+  .fly{box-shadow:0 0 0 2px rgba(200,255,130,.12)}
+  .petal{width:9px;height:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  .scenery *{animation:none!important}
+  .petal,.fly,.crane{display:none}
+}
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="glow g1"></div><div class="glow g2"></div>
+
+<!-- ===== CẢNH TRÍ NỀN (thuần CSS, không ảnh, không blur) ===== -->
+<div class="scenery" aria-hidden="true">
+  <!-- Sao thưa -->
+  <i class="stars s1"></i>
+  <i class="stars s2"></i>
+  <i class="stars s3"></i>
+
+  <!-- Trăng sáng -->
+  <div class="moon"></div>
+
+  <!-- Lớp núi xa -->
+  <div class="mtn far"></div>
+
+  <!-- Mây trôi -->
+  <i class="cloud c1"></i>
+  <i class="cloud c2"></i>
+  <i class="cloud c3"></i>
+
+  <!-- Lớp núi giữa -->
+  <div class="mtn mid"></div>
+
+  <!-- Sương mù -->
+  <div class="mist m1"></div>
+  <div class="mist m2"></div>
+
+  <!-- Lớp núi gần -->
+  <div class="mtn near"></div>
+
+  <!-- Đom đóm -->
+  <i class="fly" style="--x:9vw;--y:62vh;--d:0s;--t:9s"></i>
+  <i class="fly" style="--x:21vw;--y:70vh;--d:-2s;--t:11s"></i>
+  <i class="fly" style="--x:33vw;--y:58vh;--d:-4s;--t:8s"></i>
+  <i class="fly" style="--x:44vw;--y:74vh;--d:-6s;--t:12s"></i>
+  <i class="fly" style="--x:56vw;--y:65vh;--d:-1s;--t:10s"></i>
+  <i class="fly" style="--x:67vw;--y:77vh;--d:-8s;--t:13s"></i>
+  <i class="fly" style="--x:78vw;--y:60vh;--d:-3s;--t:9s"></i>
+  <i class="fly" style="--x:88vw;--y:72vh;--d:-5s;--t:11s"></i>
+  <i class="fly" style="--x:14vw;--y:80vh;--d:-7s;--t:14s"></i>
+  <i class="fly" style="--x:50vw;--y:84vh;--d:-10s;--t:10s"></i>
+  <i class="fly" style="--x:71vw;--y:88vh;--d:-12s;--t:12s"></i>
+  <i class="fly" style="--x:94vw;--y:82vh;--d:-9s;--t:9s"></i>
+
+  <!-- Hạc bay -->
+  <i class="crane" style="--y:22vh;--t:58s;--d:0s"></i>
+  <i class="crane small" style="--y:31vh;--t:74s;--d:-26s"></i>
+  <i class="crane small" style="--y:15vh;--t:88s;--d:-54s"></i>
+
+  <!-- Cánh hoa rơi -->
+  <i class="petal" style="--x:6vw;--t:15s;--d:0s"></i>
+  <i class="petal" style="--x:16vw;--t:19s;--d:-4s"></i>
+  <i class="petal" style="--x:27vw;--t:13s;--d:-8s"></i>
+  <i class="petal" style="--x:33vw;--t:24s;--d:-17s"></i>
+  <i class="petal" style="--x:38vw;--t:21s;--d:-2s"></i>
+  <i class="petal" style="--x:49vw;--t:16s;--d:-11s"></i>
+  <i class="petal" style="--x:58vw;--t:18s;--d:-6s"></i>
+  <i class="petal" style="--x:67vw;--t:14s;--d:-13s"></i>
+  <i class="petal" style="--x:76vw;--t:22s;--d:-3s"></i>
+  <i class="petal" style="--x:84vw;--t:17s;--d:-9s"></i>
+  <i class="petal" style="--x:91vw;--t:20s;--d:-15s"></i>
+  <i class="petal" style="--x:97vw;--t:12s;--d:-7s"></i>
+</div>
 
 <nav>
   <a href="#home" class="logo-link">
