@@ -579,7 +579,7 @@
     {
       "id": "claim",
       "icon": "🏡",
-      "label": "Trận Pháp Hộ Sơn",
+      "label": "Tông Môn",
       "blocks": [
         {
           "t": "h",
@@ -630,8 +630,8 @@
       ],
       "card": {
         "icon": "🏡",
-        "title": "Trận Pháp Hộ Sơn",
-        "desc": "Dựng trận pháp bảo vệ động phủ, kiểm tra ranh giới và quản lý quyền đạo hữu."
+        "title": "Tông Môn",
+        "desc": "Dựng trận pháp bảo vệ tông môn, kiểm tra ranh giới và quản lý quyền đạo hữu."
       }
     },
     {
