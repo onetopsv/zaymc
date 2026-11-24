@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#070b13">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ZAYMC Admin">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>ZAYMC · Quản trị bí điển</title>
+<link rel="manifest" href="/admin/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon-96x96.png">
+<style>
+:root{--bg:#070b13;--panel:#0f1727;--panel2:#141f35;--line:rgba(180,195,255,.14);--t:#f4f7ff;--td:#aab5ca;--a:#69e7ff;--p:#7c5cff;--pd:#6045d8;--ok:#62f5b0;--warn:#ffc107;--bad:#ff6b7a;--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t);font-size:15px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+[hidden]{display:none!important}
+
+/* ---------- kết nối ---------- */
+.connect{max-width:460px;margin:0 auto;padding:calc(40px + env(safe-area-inset-top)) 20px 40px}
+.connect h1{font-size:22px;margin-bottom:6px}
+.connect p.lead{color:var(--td);font-size:14px;margin-bottom:22px}
+.lbl{display:block;font-size:13px;color:var(--td);margin:14px 0 6px}
+.in{width:100%;background:#0a1020;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:15px}
+.in:focus{border-color:var(--a);outline:none}
+textarea.in{min-height:92px;resize:vertical;line-height:1.6}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.help{font-size:12.5px;color:var(--td);margin-top:8px;line-height:1.6}
+.help code,.hint code{background:#0a1020;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12px;color:var(--a)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 18px;border-radius:10px;background:var(--panel2);border:1px solid var(--line);font-weight:600;font-size:14px}
+.btn:hover{border-color:var(--a)}
+.btn.pri{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff}
+.btn.sm{padding:7px 12px;font-size:13px}
+.btn.bad{color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.err{margin-top:14px;padding:11px 14px;border-radius:10px;background:rgba(255,107,122,.1);border:1px solid rgba(255,107,122,.4);color:#ffb3bb;font-size:14px}
+
+/* ---------- khung chính ---------- */
+header.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;background:rgba(7,11,19,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.top h1{font-size:15px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.state{font-size:12px;color:var(--td);white-space:nowrap}
+.state.dirty{color:var(--warn)}
+.seg{display:flex;gap:6px;padding:10px 14px 0}
+.seg button{flex:1;padding:9px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--td)}
+.seg button.on{background:var(--panel2);border-color:var(--a);color:var(--t)}
+main.wrap{display:block;padding:12px 14px 120px;max-width:1280px;margin:0 auto}
+body.v-edit .previewcol{display:none}
+body.v-prev .editcol{display:none}
+.tabbar{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:9px 14px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--td);white-space:nowrap}
+.chip.on{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff}
+.chip.add{border-style:dashed;color:var(--a)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px}
+.card h2{font-size:14px;color:var(--a);margin-bottom:10px}
+.grow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.iconin{width:64px;text-align:center;font-size:20px}
+
+/* khối nội dung */
+details.blk{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+details.blk[open]{border-color:rgba(105,231,255,.35)}
+details.blk>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:11px 12px;cursor:pointer}
+details.blk>summary::-webkit-details-marker{display:none}
+.tag{flex:none;font-size:12px;font-weight:700;color:var(--a);background:rgba(105,231,255,.1);border:1px solid rgba(105,231,255,.25);border-radius:7px;padding:2px 8px}
+.sum{flex:1;min-width:0;font-size:14px;color:var(--td);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ico{flex:none;width:34px;height:34px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);font-size:15px;line-height:1}
+.ico:hover{border-color:var(--a)}.ico:disabled{opacity:.3}
+.body{padding:2px 12px 14px}
+.tools{display:flex;gap:6px;margin:0 0 6px}
+.tools button{padding:4px 11px;border-radius:7px;background:var(--panel2);border:1px solid var(--line);font-size:13px;color:var(--td)}
+.tools button:hover{color:var(--t);border-color:var(--a)}
+.hint{font-size:12px;color:var(--td);margin-top:6px}
+.sub{border:1px solid var(--line);border-radius:10px;padding:10px;margin-top:10px;background:#0b1322}
+.tblscroll{overflow-x:auto;margin-top:6px;-webkit-overflow-scrolling:touch}
+.tbl table{border-collapse:separate;border-spacing:6px}
+.tbl td,.tbl th{padding:0;vertical-align:top}
+.tbl input{min-width:150px;width:100%;background:#0a1020;border:1px solid var(--line);border-radius:8px;padding:8px 9px;font-size:14px}
+.tbl th input{font-weight:700;color:var(--a)}
+.tbl .x{display:block;margin:3px auto 0;font-size:12px;color:var(--bad)}
+.addmenu{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:14px}
+.addmenu button{padding:11px 10px;border-radius:10px;background:var(--panel);border:1px dashed rgba(105,231,255,.4);color:var(--a);font-size:13.5px;font-weight:600}
+.empty{padding:26px;text-align:center;color:var(--td);border:1px dashed var(--line);border-radius:var(--r)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(30px);opacity:0;pointer-events:none;background:#12304a;border:1px solid var(--a);padding:11px 18px;border-radius:12px;font-size:14px;transition:.25s;z-index:50;max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.toast.bad{background:#3a1520;border-color:var(--bad)}
+
+/* ---------- xem trước: copy kiểu của trang chính ---------- */
+.previewcol .wc{background:rgba(15,23,39,.82);border:1px solid rgba(180,195,255,.13);border-radius:20px;padding:22px 20px}
+.previewcol .wc h3{font-size:20px;font-weight:700;color:var(--a);margin:28px 0 14px;padding-bottom:10px;border-bottom:1px solid rgba(108,92,231,.3)}
+.previewcol .wc h3:first-child{margin-top:0}
+.previewcol .wc p{color:var(--td);font-size:14px;line-height:1.85;margin-bottom:12px}
+.previewcol .wc ul{list-style:none;margin-bottom:15px}
+.previewcol .wc ul li{color:var(--td);font-size:14px;line-height:1.85;padding-left:24px;position:relative;margin-bottom:6px}
+.previewcol .wc ul li::before{content:'▸';position:absolute;left:0;color:var(--a);font-weight:700}
+.previewcol .wc code{background:rgba(0,217,255,.15);color:var(--a);padding:3px 9px;border-radius:6px;font-family:Consolas,monospace;font-size:13px;border:1px solid rgba(0,217,255,.2);overflow-wrap:anywhere}
+.previewcol .wc strong{color:var(--t);font-weight:700}
+.previewcol .hl{background:rgba(0,217,255,.08);border-left:3px solid var(--a);padding:15px 20px;border-radius:8px;margin:15px 0}
+.previewcol .warn{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:15px 20px;border-radius:8px;margin:15px 0}
+.previewcol .warn p{color:#ffda6b;margin-bottom:0}
+.previewcol .hl p{margin-bottom:0}
+.previewcol .wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:15px 0}
+.previewcol .wcard{background:rgba(10,10,26,.6);border:1px solid rgba(108,92,231,.25);border-radius:12px;padding:18px}
+.previewcol .wcard h5{color:var(--a);font-size:15px;margin-bottom:8px}
+.previewcol .wcard p{font-size:13px;margin-bottom:0}
+.previewcol .rplane{margin:18px 0 6px;font-size:15px;font-weight:700;color:var(--a);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.previewcol .rplane small{font-weight:500;color:var(--td);font-size:12px}
+.previewcol .rlist{list-style:none;counter-reset:r;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:8px 0 14px}
+.previewcol .rlist li{counter-increment:r;padding:9px 12px 9px 42px;border:1px solid rgba(108,92,231,.25);border-radius:10px;background:rgba(10,10,26,.45);position:relative;margin:0}
+.previewcol .rlist li::before{content:counter(r);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:rgba(0,217,255,.15);color:var(--a);font-size:11px;display:flex;align-items:center;justify-content:center;padding:0}
+.previewcol .rlist li b{color:var(--t)}
+.previewcol .rlist li em{display:block;font-style:normal;font-size:11px;color:var(--td)}
+.previewcol .rlist li.gate{border-color:var(--a);background:rgba(0,217,255,.08)}
+.previewcol .wtable{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:13px}
+.previewcol .wtable th,.previewcol .wtable td{padding:9px 12px;text-align:left;border-bottom:1px solid rgba(108,92,231,.18);color:var(--td)}
+.previewcol .wtable th{color:var(--a);font-size:12px}
+.previewcol .wtable-wrap{overflow-x:auto}
+.previewcol .t-pham{color:#7ee08a!important}.previewcol .t-dia{color:#69e7ff!important}.previewcol .t-thien{color:#e49bff!important}
+.prevtitle{font-size:13px;color:var(--td);margin:4px 0 10px}
+
+@media(min-width:1000px){
+  .seg{display:none}
+  main.wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;padding-top:18px}
+  body.v-edit .previewcol,body.v-prev .editcol{display:block}
+  .previewcol{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto}
+}
+</style>
+</head>
+<body class="v-edit">
+
+<!-- ===== Màn hình kết nối GitHub ===== -->
+<section class="connect" id="connect" hidden>
+  <h1>Quản trị bí điển ZAYMC</h1>
+  <p class="lead">Nhập thông tin kho GitHub của web một lần. Trang này chỉ lưu trong trình duyệt của đạo hữu, không gửi đi đâu ngoài GitHub.</p>
+  <div class="row2">
+    <div><label class="lbl" for="cOwner">Tên tài khoản GitHub</label><input class="in" id="cOwner" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="vd: zaymc"></div>
+    <div><label class="lbl" for="cRepo">Tên kho (repo)</label><input class="in" id="cRepo" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="vd: zaymc"></div>
+  </div>
+  <div class="row2">
+    <div><label class="lbl" for="cBranch">Nhánh</label><input class="in" id="cBranch" autocapitalize="off" autocorrect="off" spellcheck="false" value="main"></div>
+    <div><label class="lbl" for="cPath">File nội dung</label><input class="in" id="cPath" autocapitalize="off" autocorrect="off" spellcheck="false" value="wiki.json"></div>
+  </div>
+  <label class="lbl" for="cToken">GitHub token</label>
+  <input class="in" id="cToken" type="password" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_...">
+  <p class="help">Tạo token: GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate. Chọn <b>Only select repositories</b> (chỉ kho của web này), mục Permissions → <b>Contents: Read and write</b>. Token này chính là chìa khóa: ai không có nó thì không sửa được web.</p>
+  <div class="err" id="cErr" hidden></div>
+  <div class="grow" style="margin-top:18px"><button class="btn pri" id="cGo">Kết nối</button></div>
+</section>
+
+<!-- ===== Màn hình soạn ===== -->
+<div id="app" hidden>
+  <header class="top">
+    <h1>Bí điển ZAYMC</h1>
+    <span class="state" id="state">Đã đồng bộ</span>
+    <button class="btn sm" id="bSettings" title="Cài đặt kết nối" aria-label="Cài đặt kết nối">⚙️</button>
+    <button class="btn sm pri" id="bSave">Lưu & đăng</button>
+  </header>
+  <div class="seg"><button id="sEdit" class="on">Soạn</button><button id="sPrev">Xem trước</button></div>
+  <main class="wrap">
+    <div class="editcol">
+      <div class="tabbar" id="tabbar"></div>
+      <div id="editor"></div>
+    </div>
+    <div class="previewcol">
+      <p class="prevtitle">Xem trước mục đang soạn (giống hệt trang thật)</p>
+      <div id="preview"></div>
+    </div>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/wiki-render.js"></script>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var cfg={owner:'',repo:'',branch:'main',path:'wiki.json',token:''};
+var data=null, sha=null, cur=0, dirty=false, saving=false, draftTimer=null, prevTimer=null;
+
+/* ---------- tiện ích ---------- */
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function h(tag,props){
+  var e=document.createElement(tag),k,v;props=props||{};
+  for(k in props){v=props[k];
+    if(k==='class')e.className=v;
+    else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),v);
+    else if(k==='value')e.value=v;
+    else if(v===true)e.setAttribute(k,'');
+    else if(v!==false&&v!=null)e.setAttribute(k,v);
+  }
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];
+    (Array.isArray(c)?c:[c]).forEach(function(x){if(x==null||x===false)return;e.append(x.nodeType?x:document.createTextNode(x))});
+  }
+  return e;
+}
+function toast(msg,bad){var t=$('toast');t.textContent=msg;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(function(){t.className='toast'+(bad?' bad':'')},bad?5000:2400)}
+function slug(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'muc'}
+function uniqueId(base,skip){var id=base,n=2;while(data.tabs.some(function(t){return t!==skip&&t.id===id}))id=base+'-'+n++;return id}
+function b64enc(str){var b=new TextEncoder().encode(str),s='';for(var i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s)}
+function b64dec(b){var s=atob(b.replace(/\s/g,'')),a=new Uint8Array(s.length);for(var i=0;i<s.length;i++)a[i]=s.charCodeAt(i);return new TextDecoder().decode(a)}
+function clean(o){return JSON.parse(JSON.stringify(o,function(k,v){return k.charAt(0)==='_'?undefined:v}))}
+
+/* ---------- GitHub API ---------- */
+function api(method,body){
+  var url='https://api.github.com/repos/'+encodeURIComponent(cfg.owner)+'/'+encodeURIComponent(cfg.repo)+'/contents/'+cfg.path.split('/').map(encodeURIComponent).join('/');
+  if(method==='GET')url+='?ref='+encodeURIComponent(cfg.branch);
+  return fetch(url,{method:method,headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+cfg.token,'X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'},body:body?JSON.stringify(body):undefined})
+    .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok){var e=new Error(j.message||('HTTP '+r.status));e.status=r.status;throw e}return j})});
+}
+function explain(e){
+  if(e.status===401)return 'Token sai hoặc đã hết hạn. Tạo token mới rồi dán lại.';
+  if(e.status===403)return 'Token chưa đủ quyền. Cần Contents: Read and write cho đúng kho này.';
+  if(e.status===404)return 'Không thấy kho hoặc file. Kiểm tra lại tên tài khoản, tên kho, nhánh, tên file và quyền của token.';
+  if(e.status===409||e.status===422)return 'File trên GitHub vừa bị sửa ở nơi khác. Tải lại trang rồi soạn lại (bản nháp của đạo hữu vẫn được giữ).';
+  if(e instanceof TypeError)return 'Không kết nối được GitHub. Kiểm tra mạng.';
+  return e.message;
+}
+
+/* ---------- kết nối & tải ---------- */
+function showConnect(msg){
+  $('app').hidden=true;$('connect').hidden=false;
+  ['Owner','Repo','Branch','Path','Token'].forEach(function(k){$('c'+k).value=cfg[k.toLowerCase()]||''});
+  var er=$('cErr');er.hidden=!msg;er.textContent=msg||'';
+}
+function connect(){
+  cfg.owner=$('cOwner').value.trim();cfg.repo=$('cRepo').value.trim();cfg.branch=$('cBranch').value.trim()||'main';
+  cfg.path=$('cPath').value.trim()||'wiki.json';cfg.token=$('cToken').value.trim();
+  if(!cfg.owner||!cfg.repo||!cfg.token){showConnect('Nhập đủ tên tài khoản, tên kho và token.');return}
+  $('cGo').disabled=true;$('cGo').textContent='Đang kết nối...';
+  load().then(function(){store('zaymc_cfg',JSON.stringify(cfg))}).catch(function(e){showConnect(explain(e))}).then(function(){$('cGo').disabled=false;$('cGo').textContent='Kết nối'});
+}
+function load(){
+  return api('GET').then(function(j){
+    var remote=JSON.parse(b64dec(j.content));
+    if(!remote||!Array.isArray(remote.tabs))throw new Error('File '+cfg.path+' không đúng định dạng.');
+    sha=j.sha;data=remote;dirty=false;cur=0;
+    var draft=store('zaymc_draft');
+    if(draft){try{var d=JSON.parse(draft);
+      if(d&&d.sha===sha&&JSON.stringify(d.data)!==JSON.stringify(clean(remote))&&confirm('Có bản nháp chưa đăng từ lần trước. Mở lại bản nháp này?')){data=d.data;dirty=true}
+      else store('zaymc_draft',null)}catch(e){store('zaymc_draft',null)}}
+    $('connect').hidden=true;$('app').hidden=false;render();
+  });
+}
+
+/* ---------- lưu ---------- */
+function markDirty(){
+  dirty=true;renderState();
+  clearTimeout(draftTimer);draftTimer=setTimeout(function(){store('zaymc_draft',JSON.stringify({sha:sha,data:clean(data)}))},500);
+  clearTimeout(prevTimer);prevTimer=setTimeout(renderPreview,200);
+}
+function validate(){
+  if(!data.tabs.length)return 'Cần ít nhất một mục.';
+  var seen={};
+  for(var i=0;i<data.tabs.length;i++){var t=data.tabs[i];
+    if(!t.label.trim())return 'Mục số '+(i+1)+' chưa có tên.';
+    if(!/^[a-z0-9-]+$/.test(t.id))return 'Mã của mục "'+t.label+'" chỉ được gồm chữ thường không dấu, số và dấu gạch ngang.';
+    if(seen[t.id])return 'Hai mục trùng mã "'+t.id+'".';seen[t.id]=1;
+  }
+  return null;
+}
+function save(){
+  if(saving)return;
+  var bad=validate();if(bad){toast(bad,true);return}
+  saving=true;$('bSave').disabled=true;$('bSave').textContent='Đang lưu...';
+  var out=clean(data);out.version=1;
+  api('PUT',{message:'Cập nhật bí điển (trang quản trị)',content:b64enc(JSON.stringify(out,null,2)+'\n'),sha:sha,branch:cfg.branch})
+    .then(function(j){sha=j.content.sha;dirty=false;store('zaymc_draft',null);renderState();toast('Đã đăng lên GitHub. Web sẽ cập nhật sau ít phút.')})
+    .catch(function(e){toast(explain(e),true)})
+    .then(function(){saving=false;$('bSave').disabled=false;$('bSave').textContent='Lưu & đăng'});
+}
+function renderState(){var s=$('state');s.textContent=dirty?'● Chưa đăng':'Đã đồng bộ';s.className='state'+(dirty?' dirty':'')}
+
+/* ---------- ô nhập có gắn dữ liệu ---------- */
+function wrapSel(el,a,b,ph){
+  var s=el.selectionStart,e=el.selectionEnd,v=el.value,sel=v.slice(s,e)||ph;
+  el.value=v.slice(0,s)+a+sel+b+v.slice(e);el.focus();
+  el.setSelectionRange(s+a.length,s+a.length+sel.length);el.dispatchEvent(new Event('input',{bubbles:true}));
+}
+function toolbar(el){
+  return h('div',{class:'tools'},
+    h('button',{type:'button',onclick:function(){wrapSel(el,'**','**','chữ đậm')}},h('b',null,'B')),
+    h('button',{type:'button',onclick:function(){wrapSel(el,'`','`','/lenh')}},'Lệnh'),
+    h('button',{type:'button',onclick:function(){
+      var u=prompt('Dán link (https://...) hoặc nhập tab:ma-muc để nhảy sang mục khác');
+      if(u)wrapSel(el,'[','](' +u.trim()+')','chữ hiện')}},'Link'));
+}
+function field(obj,key,o){
+  o=o||{};
+  var el=o.multi?h('textarea',{class:'in',rows:o.rows||3,placeholder:o.ph||''}):h('input',{class:'in',placeholder:o.ph||'',autocapitalize:o.raw?'off':null,spellcheck:o.raw?'false':null});
+  el.value=o.get?o.get(obj[key]):(obj[key]==null?'':obj[key]);
+  el.addEventListener('input',function(){var v=el.value;if(o.fix){var f=o.fix(v);if(f!==v){el.value=f;v=f}}obj[key]=o.set?o.set(v):v;if(o.after)o.after();markDirty()});
+  var w=h('div',null);if(o.label)w.append(h('label',{class:'lbl'},o.label));
+  if(o.rich)w.append(toolbar(el));w.append(el);if(o.hint)w.append(h('div',{class:'hint'},o.hint));
+  return w;
+}
+function mv(arr,i,d){var j=i+d;if(j<0||j>=arr.length)return false;var x=arr.splice(i,1)[0];arr.splice(j,0,x);return true}
+
+/* ---------- các loại khối ---------- */
+var TYPES={
+  h:{name:'Tiêu đề',make:function(){return {t:'h',text:'Tiêu đề mới',id:''}}},
+  p:{name:'Đoạn chữ',make:function(){return {t:'p',text:''}}},
+  ul:{name:'Danh sách',make:function(){return {t:'ul',items:['']}}},
+  note:{name:'Lưu ý 💡',make:function(){return {t:'note',text:'💡 '}}},
+  warn:{name:'Cảnh báo ⚠️',make:function(){return {t:'warn',text:'⚠️ '}}},
+  table:{name:'Bảng',make:function(){return {t:'table',head:['Cột 1','Cột 2'],rows:[['','']]}}},
+  cards:{name:'Nhóm thẻ',make:function(){return {t:'cards',cards:[{title:'',text:''}]}}},
+  realm:{name:'Danh sách cảnh giới',make:function(){return {t:'realm',title:'',sub:'',items:[]}}},
+  html:{name:'HTML tự viết',make:function(){return {t:'html',html:''}}}
+};
+function summary(b){
+  var s='';
+  if(b.t==='h'||b.t==='p'||b.t==='note'||b.t==='warn')s=b.text;
+  else if(b.t==='ul')s=(b.items||[]).join(' · ');
+  else if(b.t==='table')s=(b.head||[]).join(' | ');
+  else if(b.t==='cards')s=(b.cards||[]).map(function(c){return c.title}).join(', ');
+  else if(b.t==='realm')s=b.title;
+  else s=(b.html||'').replace(/<[^>]+>/g,' ');
+  return (s||'(trống)').replace(/[*`]|\{#[0-9a-fA-F]+\}|\{\/\}/g,'').slice(0,80);
+}
+function tableEd(b){
+  var box=h('div',{class:'tbl'}),sc=h('div',{class:'tblscroll'});
+  function draw(){
+    sc.innerHTML='';var t=h('table'),hr=h('tr');
+    b.head.forEach(function(c,ci){
+      var inp=h('input',{value:c,'aria-label':'Tên cột '+(ci+1)});inp.addEventListener('input',function(){b.head[ci]=inp.value;markDirty()});
+      var th=h('th',null,inp);
+      if(b.head.length>1)th.append(h('button',{type:'button',class:'x',onclick:function(){b.head.splice(ci,1);b.rows.forEach(function(r){r.splice(ci,1)});markDirty();draw()}},'xóa cột'));
+      hr.append(th);
+    });
+    hr.append(h('th'));t.append(hr);
+    b.rows.forEach(function(r,ri){
+      var tr=h('tr');
+      b.head.forEach(function(_,ci){
+        var inp=h('input',{value:r[ci]||'','aria-label':'Hàng '+(ri+1)+', cột '+(ci+1)});
+        inp.addEventListener('input',function(){r[ci]=inp.value;markDirty()});tr.append(h('td',null,inp));
+      });
+      tr.append(h('td',null,h('button',{type:'button',class:'x',style:'margin-top:8px',onclick:function(){b.rows.splice(ri,1);markDirty();draw()}},'xóa hàng')));
+      t.append(tr);
+    });
+    sc.append(t);
+  }
+  draw();
+  box.append(sc,h('div',{class:'grow',style:'margin-top:8px'},
+    h('button',{type:'button',class:'btn sm',onclick:function(){b.rows.push(b.head.map(function(){return ''}));markDirty();draw()}},'+ Thêm hàng'),
+    h('button',{type:'button',class:'btn sm',onclick:function(){b.head.push('Cột mới');b.rows.forEach(function(r){r.push('')});markDirty();draw()}},'+ Thêm cột')),
+    h('div',{class:'hint'},'Trong ô gõ được ',h('code',null,'**đậm**'),', ',h('code',null,'`lệnh`'),', ',h('code',null,'{#ffd166}chữ màu{/}'),'.'));
+  return box;
+}
+function cardsEd(b){
+  var box=h('div');
+  function draw(){
+    box.innerHTML='';
+    b.cards.forEach(function(c,i){
+      box.append(h('div',{class:'sub'},
+        field(c,'title',{label:'Tên thẻ'}),
+        field(c,'text',{label:'Nội dung',multi:true,rows:2,rich:true}),
+        h('div',{class:'grow',style:'margin-top:8px'},
+          h('select',{class:'in',style:'width:auto',onchange:function(){if(this.value)c.tone=this.value;else delete c.tone;markDirty()}},
+            [['','Màu thường'],['pham','Màu Phàm (xanh lá)'],['dia','Màu Địa (xanh dương)'],['thien','Màu Thiên (tím)']].map(function(o){return h('option',{value:o[0],selected:(c.tone||'')===o[0]},o[1])})),
+          h('button',{type:'button',class:'ico',disabled:i===0,onclick:function(){mv(b.cards,i,-1);markDirty();draw()}},'↑'),
+          h('button',{type:'button',class:'ico',disabled:i===b.cards.length-1,onclick:function(){mv(b.cards,i,1);markDirty();draw()}},'↓'),
+          h('button',{type:'button',class:'btn sm bad',onclick:function(){b.cards.splice(i,1);markDirty();draw()}},'Xóa thẻ'))));
+    });
+    box.append(h('button',{type:'button',class:'btn sm',style:'margin-top:10px',onclick:function(){b.cards.push({title:'',text:''});markDirty();draw()}},'+ Thêm thẻ'));
+  }
+  draw();return box;
+}
+function bodyOf(b){
+  var d=h('div',{class:'body'});
+  if(b.t==='h'){d.append(field(b,'text',{label:'Tiêu đề (nên có emoji ở đầu)'}),field(b,'id',{label:'Mã neo (không bắt buộc, để link nhảy tới đây)',raw:true,fix:function(v){return v.replace(/[^A-Za-z0-9_-]/g,'')},hint:'Chỉ chữ không dấu, số, gạch. Link tới tiêu đề này: tab:ma-muc:ma-neo'}))}
+  else if(b.t==='p')d.append(field(b,'text',{multi:true,rows:4,rich:true}));
+  else if(b.t==='note'||b.t==='warn')d.append(field(b,'text',{multi:true,rows:3,rich:true}));
+  else if(b.t==='ul')d.append(field(b,'items',{multi:true,rows:5,rich:true,hint:'Mỗi dòng là một gạch đầu dòng.',get:function(a){return (a||[]).join('\n')},set:function(v){return v.split('\n').filter(function(x){return x.trim()!==''})}}));
+  else if(b.t==='table')d.append(tableEd(b));
+  else if(b.t==='cards')d.append(cardsEd(b));
+  else if(b.t==='realm'){
+    d.append(field(b,'title',{label:'Tên giới',ph:'🌍 Hạ Giới'}),field(b,'sub',{label:'Ghi chú nhỏ',ph:'9 cảnh giới'}),
+      field(b,'items',{label:'Các cảnh giới',multi:true,rows:8,hint:'Mỗi dòng một cảnh giới. Cảnh giới cuối thêm " | ghi chú" để đánh dấu cổng, ví dụ: Độ Kiếp | Cổng phi thăng → Tiên Giới',
+        get:function(a){return (a||[]).map(function(i){return i.note?i.name+' | '+i.note:i.name}).join('\n')},
+        set:function(v){return v.split('\n').filter(function(x){return x.trim()}).map(function(l){var p=l.split('|');var o={name:p[0].trim()};var n=p.slice(1).join('|').trim();if(n)o.note=n;return o})}}));
+  }
+  else if(b.t==='html')d.append(field(b,'html',{multi:true,rows:8,raw:true,hint:'Chỉ dùng khi cần thứ mà các khối trên không làm được.'}));
+  return d;
+}
+function blockEl(blocks,i){
+  var b=blocks[i];
+  var det=h('details',{class:'blk',open:!!b._open});
+  det.addEventListener('toggle',function(){b._open=det.open});
+  function act(label,fn,dis,txt){return h('button',{type:'button',class:'ico','aria-label':label,disabled:dis,onclick:function(e){e.preventDefault();e.stopPropagation();fn()}},txt)}
+  det.append(h('summary',null,
+    h('span',{class:'tag'},TYPES[b.t]?TYPES[b.t].name:b.t),h('span',{class:'sum'},summary(b)),
+    act('Chuyển lên',function(){mv(blocks,i,-1);markDirty();renderEditor();renderPreview()},i===0,'↑'),
+    act('Chuyển xuống',function(){mv(blocks,i,1);markDirty();renderEditor();renderPreview()},i===blocks.length-1,'↓'),
+    act('Xóa khối',function(){if(confirm('Xóa khối này?')){blocks.splice(i,1);markDirty();renderEditor();renderPreview()}},false,'✕')));
+  det.append(bodyOf(b));
+  var sumEl=det.querySelector('.sum');
+  det.addEventListener('input',function(){sumEl.textContent=summary(b)});
+  return det;
+}
+
+/* ---------- vẽ giao diện ---------- */
+function renderTabs(){
+  var bar=$('tabbar');bar.innerHTML='';
+  data.tabs.forEach(function(t,i){bar.append(h('button',{type:'button',class:'chip'+(i===cur?' on':''),onclick:function(){cur=i;render()}},(t.icon||'')+' '+(t.label||'(chưa đặt tên)')))});
+  bar.append(h('button',{type:'button',class:'chip add',onclick:addTab},'+ Mục mới'));
+}
+function addTab(){
+  var t={id:uniqueId('muc-moi'),icon:'📄',label:'Mục mới',_auto:true,blocks:[{t:'h',text:'📄 Tiêu đề mục',id:''},{t:'p',text:'',_open:true}]};
+  data.tabs.push(t);cur=data.tabs.length-1;markDirty();render();
+}
+function renderEditor(){
+  var ed=$('editor');ed.innerHTML='';var t=data.tabs[cur];
+  if(!t){ed.append(h('div',{class:'empty'},'Chưa có mục nào. Bấm "+ Mục mới" ở trên.'));return}
+  var info=h('div',{class:'card'},h('h2',null,'Thông tin mục'));
+  var ic=field(t,'icon',{label:'Biểu tượng',fix:function(v){return Array.from(v).slice(0,2).join('')}});ic.querySelector('input').classList.add('iconin');
+  info.append(h('div',{class:'row2'},ic,field(t,'label',{label:'Tên mục',after:function(){
+    if(t._auto){t.id=uniqueId(slug(t.label),t);var m=info.querySelector('[data-idin]');if(m)m.value=t.id}renderTabs()}})));
+  var idf=field(t,'id',{label:'Mã mục (dùng trong link, đừng đổi nếu đã có link trỏ tới)',raw:true,fix:function(v){return v.toLowerCase().replace(/[^a-z0-9-]/g,'')},after:function(){t._auto=false}});
+  idf.querySelector('input').setAttribute('data-idin','1');info.append(idf);
+  var on=!!t.card;
+  var cardBox=h('div');
+  function drawCard(){
+    cardBox.innerHTML='';if(!t.card)return;
+    cardBox.append(field(t.card,'icon',{label:'Biểu tượng thẻ'}),field(t.card,'title',{label:'Tên thẻ'}),field(t.card,'desc',{label:'Mô tả ngắn',multi:true,rows:2}));
+  }
+  var cb=h('input',{type:'checkbox',id:'cardOn',checked:on,style:'width:18px;height:18px;margin-right:8px;vertical-align:-3px'});
+  cb.addEventListener('change',function(){if(cb.checked)t.card={icon:t.icon,title:t.label,desc:''};else delete t.card;markDirty();drawCard()});
+  info.append(h('div',{style:'margin-top:14px'},h('label',{for:'cardOn',style:'font-size:14px'},cb,'Hiện thêm thẻ ở mục "Vì sao chọn" (trang chủ)')),cardBox);drawCard();
+  info.append(h('div',{class:'grow',style:'margin-top:14px'},
+    h('button',{type:'button',class:'btn sm',disabled:cur===0,onclick:function(){mv(data.tabs,cur,-1);cur--;markDirty();render()}},'← Dời trái'),
+    h('button',{type:'button',class:'btn sm',disabled:cur===data.tabs.length-1,onclick:function(){mv(data.tabs,cur,1);cur++;markDirty();render()}},'Dời phải →'),
+    h('button',{type:'button',class:'btn sm bad',onclick:function(){if(confirm('Xóa cả mục "'+t.label+'" và toàn bộ nội dung bên trong?')){data.tabs.splice(cur,1);cur=Math.max(0,cur-1);markDirty();render()}}},'Xóa mục')));
+  ed.append(info);
+  if(!t.blocks.length)ed.append(h('div',{class:'empty'},'Mục này chưa có nội dung. Thêm khối bên dưới.'));
+  t.blocks.forEach(function(_,i){ed.append(blockEl(t.blocks,i))});
+  var menu=h('div',{class:'addmenu'});
+  Object.keys(TYPES).forEach(function(k){menu.append(h('button',{type:'button',onclick:function(){var b=TYPES[k].make();b._open=true;t.blocks.push(b);markDirty();renderEditor();renderPreview();var all=document.querySelectorAll('details.blk');if(all.length)all[all.length-1].scrollIntoView({behavior:'smooth',block:'center'})}},'+ '+TYPES[k].name))});
+  ed.append(h('h2',{style:'font-size:14px;color:var(--a);margin:18px 0 0'},'Thêm khối nội dung'),menu);
+}
+function renderPreview(){
+  var t=data&&data.tabs[cur];var pv=$('preview');
+  pv.innerHTML=t?WikiRender.panel(t,true):'';
+  pv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+}
+function render(){renderTabs();renderEditor();renderPreview();renderState()}
+
+/* ---------- sự kiện ---------- */
+$('cGo').addEventListener('click',connect);
+$('cToken').addEventListener('keydown',function(e){if(e.key==='Enter')connect()});
+$('bSave').addEventListener('click',save);
+$('bSettings').addEventListener('click',function(){
+  var m=dirty?'Còn thay đổi chưa đăng. ':'';
+  if(confirm(m+'Mở cài đặt kết nối?'))showConnect();
+});
+$('sEdit').addEventListener('click',function(){document.body.className='v-edit';$('sEdit').className='on';$('sPrev').className='';renderPreview()});
+$('sPrev').addEventListener('click',function(){document.body.className='v-prev';$('sPrev').className='on';$('sEdit').className='';renderPreview();window.scrollTo(0,0)});
+window.addEventListener('beforeunload',function(e){if(dirty){e.preventDefault();e.returnValue=''}});
+
+/* ---------- khởi động ---------- */
+var saved=store('zaymc_cfg');
+if(saved){try{cfg=Object.assign(cfg,JSON.parse(saved))}catch(e){}}
+if(cfg.token&&cfg.owner&&cfg.repo){load().catch(function(e){showConnect(explain(e))})}
+else showConnect();
+})();
+</script>
+</body>
+</html>

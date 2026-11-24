@@ -1,0 +1,1040 @@
+{
+  "version": 1,
+  "tabs": [
+    {
+      "id": "tu-tien",
+      "icon": "✨",
+      "label": "Tu Tiên",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "🌱 Bắt đầu con đường tu tiên",
+          "id": "wk-nhapmon"
+        },
+        {
+          "t": "p",
+          "text": "Hoan nghênh đạo hữu bước vào tiên lộ ZAYMC. Từ hôm nay, hãy nhập môn, hấp thu linh khí, tôi luyện đạo tâm và từng bước vấn đỉnh cảnh giới cao hơn."
+        },
+        {
+          "t": "h",
+          "text": "📜 Khẩu quyết nhập môn"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "`/nhapmon` — Chính thức nhập môn, khai mở tiên duyên.",
+            "`/tutien` — Mở bí lục tu tiên, tra cứu các mục có thể sử dụng.",
+            "`/tutien thongtin` — Quan sát cảnh giới, tu vi, linh khí, sinh mệnh và giới vực hiện tại.",
+            "`/hud` — Bật hoặc ẩn bảng hiển thị sinh mệnh và linh khí trên thanh hotbar.",
+            "`/dao` — Để thiên đạo định đoạt đạo của đạo hữu (một lần duy nhất). Xem mục [Đạo, Hướng Tu & Nghề](tab:dao-nghe:wk-dao).",
+            "`/huongtu` — Chọn hướng tu chiến đấu: Kiếm Tu, Thể Tu, Ma Tu, Pháp Tu và nhiều hướng khác.",
+            "`/nghe` — Bái nhập nghề tu tiên: luyện đan, luyện khí, khai khoáng, trồng trọt, săn yêu, câu cá..."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🧭 Con đường tu hành"
+        },
+        {
+          "t": "cards",
+          "cards": [
+            {
+              "title": "1. Nhập môn",
+              "text": "Dùng `/nhapmon` để bắt đầu hành trình."
+            },
+            {
+              "title": "2. Ngồi thiền",
+              "text": "Vận hành `/tuluyen` để tĩnh tọa, hấp thu thiên địa linh khí."
+            },
+            {
+              "title": "3. Đột phá",
+              "text": "Khi tu vi viên mãn và đủ điều kiện, vận dụng `/dotpha` để phá cảnh."
+            },
+            {
+              "title": "4. Khám phá",
+              "text": "Tầm bảo, lĩnh ngộ công pháp và chuẩn bị pháp bảo trước khi bước vào hiểm địa."
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🧘 Tu luyện và đột phá",
+          "id": "wk-tuluyen"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Dùng `/tuluyen` để bắt đầu hoặc dừng ngồi thiền.",
+            "Tĩnh tọa quá lâu có thể dẫn đến tẩu hỏa nhập ma; đạo hữu chớ nóng vội.",
+            "Từ Trúc Cơ trở đi, đột phá có thể dẫn tới lôi kiếp. Hãy chuẩn bị đầy đủ trước khi nghịch thiên phá cảnh."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "☁️ Cảnh giới, phi thăng và hạ giới",
+          "id": "wk-canhgioi"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "`/phithang` — Thử phi thăng lên giới trên khi đủ điều kiện.",
+            "`/hagioi` — Đi xuống giới dưới.",
+            "Tiên môn có Hạ Giới, Tiên Giới và Thần Giới. Thiên kiếp có thể gây tử vong.",
+            "Ở Tiên Giới hoặc Thần Giới, `/rtp` mở menu dịch chuyển ngẫu nhiên."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🏔️ Bảng cảnh giới (từ thấp đến cao)",
+          "id": "wk-bangcanhgioi"
+        },
+        {
+          "t": "p",
+          "text": "Tu sĩ đi từ **Phàm Nhân** lên dần theo thứ tự dưới đây. Mỗi cảnh giới (trừ Phàm Nhân) có **9 tầng**; Phàm Nhân có 3 tầng: Dưỡng Khí → Khai Mạch → Tẩy Tủy. Đạt cảnh giới cuối của một giới thì dùng `/phithang` để lên giới kế tiếp (không dùng `/dotpha`)."
+        },
+        {
+          "t": "realm",
+          "title": "🌱 Phàm Nhân",
+          "sub": "Khởi điểm · 3 tầng",
+          "items": []
+        },
+        {
+          "t": "realm",
+          "title": "🌍 Hạ Giới",
+          "sub": "9 cảnh giới",
+          "items": [
+            {
+              "name": "Luyện Khí"
+            },
+            {
+              "name": "Trúc Cơ"
+            },
+            {
+              "name": "Kết Đan"
+            },
+            {
+              "name": "Nguyên Anh"
+            },
+            {
+              "name": "Hóa Thần"
+            },
+            {
+              "name": "Luyện Hư"
+            },
+            {
+              "name": "Hợp Thể"
+            },
+            {
+              "name": "Đại Thừa"
+            },
+            {
+              "name": "Độ Kiếp",
+              "note": "Cổng phi thăng → Tiên Giới"
+            }
+          ]
+        },
+        {
+          "t": "realm",
+          "title": "☁️ Tiên Giới",
+          "sub": "9 cảnh giới · linh khí đậm hơn, quái mạnh hơn",
+          "items": [
+            {
+              "name": "Chân Tiên"
+            },
+            {
+              "name": "Thiên Tiên"
+            },
+            {
+              "name": "Huyền Tiên"
+            },
+            {
+              "name": "Kim Tiên"
+            },
+            {
+              "name": "Thái Ất Ngọc Tiên"
+            },
+            {
+              "name": "Đại La Kim Tiên"
+            },
+            {
+              "name": "Chuẩn Thánh"
+            },
+            {
+              "name": "Thánh Nhân"
+            },
+            {
+              "name": "Đạo Tổ",
+              "note": "Cổng phi thăng → Thần Giới"
+            }
+          ]
+        },
+        {
+          "t": "realm",
+          "title": "⚡ Thần Giới",
+          "sub": "8 cảnh giới · linh khí dày nhất",
+          "items": [
+            {
+              "name": "Thần Nhân"
+            },
+            {
+              "name": "Thần Tướng"
+            },
+            {
+              "name": "Thần Vương"
+            },
+            {
+              "name": "Thần Hoàng"
+            },
+            {
+              "name": "Thần Đế"
+            },
+            {
+              "name": "Thần Tôn"
+            },
+            {
+              "name": "Thần Chủ"
+            },
+            {
+              "name": "Chí Tôn",
+              "note": "Đỉnh cao cảnh giới"
+            }
+          ]
+        },
+        {
+          "t": "note",
+          "text": "💡 Cảnh giới càng cao thì máu tối đa, sát thương và sức mạnh chiêu thức càng lớn. Đột phá từ Trúc Cơ trở đi có thể dẫn tới lôi kiếp, phi thăng cũng có thể thất bại, hãy chuẩn bị kỹ."
+        },
+        {
+          "t": "note",
+          "text": "💡 Tu sĩ **Tà Đạo** thấy tên cảnh giới riêng (ví dụ Hạ Giới: Luyện Ma → Ma Kiếp; Tiên Giới: Ma Tiên → Ma Tổ; Thần Giới: Tà Thần → Hỗn Độn Ma Tôn). Chỉ là tên gọi khác, cơ chế cảnh giới vẫn như bảng trên. Xem thêm mục [Đạo, Hướng Tu & Nghề](tab:dao-nghe:wk-dao)."
+        },
+        {
+          "t": "h",
+          "text": "⚔️ Công pháp và chiêu pháp",
+          "id": "wk-congphap"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Cầm sách chiêu thức hoặc công pháp rồi dùng `/hoc` để lĩnh ngộ.",
+            "`/chieuphap` — Xem chiêu pháp đã học.",
+            "`/congphap` — Xem hoặc vận hành công pháp bị động.",
+            "Khi đã bật chiêu pháp, cầm kiếm và giữ chuột phải để xuất chiêu. Xem hướng dẫn trong tiên môn để biết thao tác cụ thể."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🌿 Linh thảo, linh đan và luyện đan"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Thu thập hạt giống linh thảo trong quá trình hành tẩu và làm theo chỉ dẫn trên vật phẩm.",
+            "Đập cỏ ngoài thiên nhiên cũng có **xác suất thấp** rơi ra linh thảo. Xem chi tiết ở mục [Linh thảo từ bụi cỏ](tab:dao-nghe:wk-thaoco).",
+            "`/tutien luyendan` — Mở bảng công thức lò luyện đan.",
+            "Đọc mô tả vật phẩm và công thức trong tiên môn trước khi chế tạo."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🏯 Bí cảnh và yêu thú trấn thủ"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "`/tutien biccanh` — Xem thông tin bí cảnh.",
+            "`/tutien vao-bicanh` — Vào bí cảnh khi đủ điều kiện.",
+            "Chuẩn bị pháp bảo và linh đan hồi phục trước khi khiêu chiến yêu thú hoặc tiến vào hiểm địa."
+          ]
+        },
+        {
+          "t": "note",
+          "text": "💡 Đạo hữu có thể dùng `/tutien help` để xem các khẩu lệnh được phép sử dụng. Nếu bí điển có điểm khác với thông báo trong tiên môn, hãy lấy chỉ dẫn trong game làm chuẩn hoặc thỉnh giáo Tiên Sư."
+        }
+      ],
+      "card": {
+        "icon": "✨",
+        "title": "Tu Tiên Đạo",
+        "desc": "Nhập môn, tu luyện, đột phá, phi thăng, công pháp và chiêu pháp — trọn bộ hành trình tu tiên."
+      }
+    },
+    {
+      "id": "dao-nghe",
+      "icon": "🧬",
+      "label": "Đạo, Hướng Tu & Nghề",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "🧬 Đạo — con đường do thiên đạo định đoạt",
+          "id": "wk-dao"
+        },
+        {
+          "t": "p",
+          "text": "Khi nhập môn, thiên đạo sẽ định cho đạo hữu một **đạo**. Đạo quyết định tốc độ hấp thu linh khí, độ dày huyết khí, sức công kích và mức nguy hiểm khi tẩu hỏa nhập ma. Đạo được định **một lần duy nhất**, đã định thì không thể đổi."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Nhập môn lần đầu, đạo sẽ được định ngẫu nhiên cùng thiên phú, tộc và linh căn. Đạo hữu cũ chưa có đạo có thể gõ `/dao` để thiên đạo định đoạt.",
+            "**Thiên Mệnh Chi Tử** luôn bước trên Chính Đạo.",
+            "Muốn biết đạo hiện tại của mình, mở bảng nhập môn hoặc xem trên bảng thông tin tu sĩ."
+          ]
+        },
+        {
+          "t": "table",
+          "head": [
+            "Đạo",
+            "Xác suất",
+            "Hấp thu linh khí",
+            "Huyết khí",
+            "Sát thương",
+            "Tẩu hỏa nhập ma"
+          ],
+          "rows": [
+            [
+              "{#ffd166}Chính Đạo{/}",
+              "~42%",
+              "×1.00",
+              "×1.35",
+              "×1.35",
+              "Khó"
+            ],
+            [
+              "{#b36bff}Tà Đạo{/}",
+              "~42%",
+              "×1.50",
+              "×1.35",
+              "×1.35",
+              "Rất dễ"
+            ],
+            [
+              "{#ffe66d}Phật Đạo{/}",
+              "~5%",
+              "×0.85",
+              "×1.50",
+              "×1.20",
+              "Gần như không"
+            ],
+            [
+              "{#69e7ff}Tiêu Dao Đạo{/}",
+              "~4.8%",
+              "×1.20",
+              "×1.15",
+              "×1.15",
+              "Bình thường"
+            ],
+            [
+              "{#ff5d5d}Huyết Đạo{/}",
+              "~2.7%",
+              "×1.30",
+              "×1.50",
+              "×1.55",
+              "Cực dễ"
+            ],
+            [
+              "{#e49bff}Lôi Đạo{/}",
+              "~2.6%",
+              "×1.00",
+              "×1.20",
+              "×1.60",
+              "Bình thường"
+            ],
+            [
+              "{#7ee08a}Trường Sinh Đạo{/}",
+              "~1.7%",
+              "×0.90",
+              "×1.80",
+              "×1.00",
+              "Rất khó"
+            ]
+          ]
+        },
+        {
+          "t": "cards",
+          "cards": [
+            {
+              "title": "Chính Đạo",
+              "text": "Căn cơ vững chắc, tu luyện tốc độ thường, ít khi tẩu hỏa nhập ma."
+            },
+            {
+              "title": "Tà Đạo",
+              "text": "Hấp thu linh khí nhanh hơn nhưng căn cơ bất ổn, dễ tẩu hỏa. Có tên cảnh giới riêng và học được sách chiêu thức Tà Đạo."
+            },
+            {
+              "title": "Phật Đạo",
+              "text": "Từ bi hộ thể: tu chậm hơn, huyết khí cực dày, tu liên tục rất lâu cũng không lo tẩu hỏa."
+            },
+            {
+              "title": "Tiêu Dao Đạo",
+              "text": "Tiêu dao tự tại: tu nhanh hơn thường, thể chất vừa phải, nguy cơ tẩu hỏa như người thường."
+            },
+            {
+              "title": "Huyết Đạo",
+              "text": "Lấy huyết luyện thân: huyết khí và sát thương rất cao, tu nhanh, đổi lại cực dễ tẩu hỏa nhập ma."
+            },
+            {
+              "title": "Lôi Đạo",
+              "text": "Dẫn lôi nhập thể: sát thương vượt trội, huyết khí khá, tu luyện tốc độ thường."
+            },
+            {
+              "title": "Trường Sinh Đạo",
+              "text": "Cầu trường sinh bất tử: huyết khí dày nhất, căn cơ vững như bàn thạch; sát thương thấp, tu luyện chậm."
+            }
+          ]
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Xác suất và các hệ số trên có thể được Tiên Sư điều chỉnh. Phật Đạo, Tiêu Dao Đạo, Huyết Đạo, Lôi Đạo và Trường Sinh Đạo dùng chung tên cảnh giới với Chính Đạo và không học được sách chiêu thức riêng của Tà Đạo. Nếu khác với thông tin hiển thị trong tiên môn, hãy lấy thông tin trong tiên môn làm chuẩn."
+        },
+        {
+          "t": "h",
+          "text": "⚔️ Hướng tu — con đường chiến đấu",
+          "id": "wk-huongtu"
+        },
+        {
+          "t": "p",
+          "text": "Khác với đạo (do thiên đạo định), **hướng tu** là con đường chiến đấu do chính đạo hữu lựa chọn. Hướng tu nhân thêm vào chỉ số có sẵn từ cảnh giới và đạo, không thay thế chúng."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "`/huongtu` — Mở bảng chọn hướng tu, bấm vào hướng muốn chọn.",
+            "Lần chọn đầu tiên miễn phí; muốn đổi hướng phải chờ **72 giờ** kể từ lần chọn trước.",
+            "Bấm vào nút **Bỏ hướng tu** để trở về con đường cân bằng (không buff, không nhược điểm)."
+          ]
+        },
+        {
+          "t": "table",
+          "head": [
+            "Hướng tu",
+            "Sở trường",
+            "Đánh đổi"
+          ],
+          "rows": [
+            [
+              "**Kiếm Tu**",
+              "Đánh thường +15%, chiêu thức +10%, chiêu kiếm mạnh thêm +30%, ngự kiếm nhanh +30%",
+              "Máu −15%, nhận thêm 5% sát thương"
+            ],
+            [
+              "**Thể Tu**",
+              "Máu +35%, đánh thường +20%, nhận ít hơn 18% sát thương",
+              "Chiêu thức −15%, ngự kiếm chậm hơn 10%"
+            ],
+            [
+              "**Ma Tu**",
+              "Đánh thường +10%, chiêu thức +15%, hút máu 8% sát thương đánh thường",
+              "Máu −5%"
+            ],
+            [
+              "**Pháp Tu**",
+              "Chiêu thức +20%, chiêu diện rộng / hình quạt / tia / mưa mạnh thêm +15%",
+              "Máu −10%, đánh thường −20%, nhận thêm 5% sát thương"
+            ],
+            [
+              "**Võ Tu**",
+              "Đánh thường +35%, máu +5%, chí mạng 15% (sát thương ×1.6)",
+              "Chiêu thức −20%"
+            ],
+            [
+              "**Phong Tu**",
+              "Né đòn 15%, chiêu lướt và dịch chuyển mạnh thêm +30%, ngự kiếm nhanh +20%",
+              "Máu −10%"
+            ],
+            [
+              "**Cung Tu**",
+              "Chiêu phóng mạnh thêm +35%, chiêu tia +20%, chiêu đánh thẳng +10%, chiêu thức +5%, né đòn 5%",
+              "Máu −10%, đánh thường −10%"
+            ],
+            [
+              "**Phật Tu**",
+              "Máu +15%, nhận ít hơn 12% sát thương, hút máu 4%",
+              "Đánh thường −10%, chiêu thức −10%"
+            ],
+            [
+              "**Sát Tu**",
+              "Đánh thường +20%, chí mạng 22% (sát thương ×1.8), hút máu 5%",
+              "Máu −15%, nhận thêm 15% sát thương"
+            ],
+            [
+              "**Hộ Pháp**",
+              "Máu +25%, nhận ít hơn 10% sát thương, phản chấn 25% sát thương về phía kẻ đánh",
+              "Đánh thường −10%, chiêu thức −15%, ngự kiếm chậm hơn 5%"
+            ]
+          ]
+        },
+        {
+          "t": "note",
+          "text": "💡 **Né đòn** chỉ áp dụng với đòn do quái, người chơi hoặc mũi tên gây ra (không né được rơi từ cao, lửa, ngạt...). **Chí mạng** chỉ áp dụng với đòn đánh thường. **Phản chấn** dội lại một phần sát thương đã gây ra cho kẻ đánh đạo hữu."
+        },
+        {
+          "t": "h",
+          "text": "🛠️ Nghề tu tiên",
+          "id": "wk-nghe"
+        },
+        {
+          "t": "p",
+          "text": "Bên cạnh con đường chiến đấu, đạo hữu có thể bái nhập **nghề** để hưởng buff trong sản xuất và hành tẩu. Mỗi nghề có cấp từ **Nhất Phẩm đến Cửu Phẩm**; làm đúng việc của nghề sẽ tích kinh nghiệm nghề, đủ thì lên cấp."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "`/nghe` — Mở bảng nghề, bấm vào nghề muốn bái nhập.",
+            "Mỗi đạo hữu học được tối đa **2 nghề** cùng lúc.",
+            "**Shift + chuột phải** vào nghề trong bảng để bỏ nghề."
+          ]
+        },
+        {
+          "t": "table",
+          "head": [
+            "Nghề",
+            "Làm gì để lên cấp",
+            "Buff mỗi cấp"
+          ],
+          "rows": [
+            [
+              "**Luyện Đan Sư**",
+              "Luyện đan ở Lò Luyện Đan",
+              "Giảm 1.5% nổ lò, +3% xác suất mẻ luyện ra gấp đôi"
+            ],
+            [
+              "**Luyện Khí Sư**",
+              "Luyện khí ở Lò Luyện Kim",
+              "Giảm 1.5% nổ lò, +2.5% xác suất mẻ luyện ra gấp đôi"
+            ],
+            [
+              "**Trận Pháp Sư**",
+              "Lập trận pháp",
+              "Trận pháp do đạo hữu lập có bán kính lớn thêm 4%"
+            ],
+            [
+              "**Dược Sư**",
+              "Thu hoạch linh thảo đã trồng",
+              "+5% rơi thêm linh thảo, +3% rơi thêm hạt giống"
+            ],
+            [
+              "**Khai Khoáng Sư**",
+              "Đào quặng",
+              "+4% xác suất quặng rơi thêm một lượt khoáng thạch"
+            ],
+            [
+              "**Linh Nông Sư**",
+              "Gặt cây trồng thường đã chín (lúa mì, cà rốt, khoai tây, củ cải đường, dưa hấu, bí ngô...)",
+              "+5% xác suất cây trồng rơi thêm một lượt"
+            ],
+            [
+              "**Liệp Sư**",
+              "Tự tay giết quái hung hãn",
+              "+6% tỉ lệ quái rơi sách chiêu thức và đan dược"
+            ],
+            [
+              "**Ngư Sư**",
+              "Câu cá",
+              "+4% xác suất câu được thêm một phần"
+            ],
+            [
+              "**Tĩnh Tọa Sư**",
+              "Ngồi thiền hấp thu linh khí bằng `/tuluyen`",
+              "+2% tốc độ hấp thu linh khí"
+            ]
+          ]
+        },
+        {
+          "t": "note",
+          "text": "💡 Buff nhân theo cấp: nghề ở **Cửu Phẩm** nhận gấp 9 lần buff mỗi cấp (ví dụ Khai Khoáng Sư Cửu Phẩm có 36% xác suất quặng rơi thêm). Linh thảo đã trồng thuộc về Dược Sư; cây trồng thường mới thuộc về Linh Nông Sư."
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Chỉ tính kinh nghiệm và buff khi đạo hữu ở chế độ sinh tồn. Liệp Sư không tăng tỉ lệ rơi đồ từ boss. Các con số buff có thể được Tiên Sư điều chỉnh để cân bằng tiên môn."
+        },
+        {
+          "t": "h",
+          "text": "🌿 Linh thảo từ bụi cỏ",
+          "id": "wk-thaoco"
+        },
+        {
+          "t": "p",
+          "text": "Không chỉ trồng trọt, đạo hữu đi ngang đồng cỏ cũng có thể gặp may: **đập cỏ thấp hoặc cỏ cao** có xác suất thấp (khoảng **2%** mỗi lần) rơi ra **1 linh thảo**."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Chỉ áp dụng khi đạo hữu ở chế độ sinh tồn.",
+            "Loại thảo rơi ra là ngẫu nhiên: **Thanh Linh Thảo** và **Tử Vân Hoa** hay gặp nhất; **Nguyệt Quang Lan**, **Tinh Thần Diệp**, **Cốt Linh Chi** ít hơn; **Kim Nguyên Sâm**, **Băng Tâm Liên**, **Long Huyết Thảo**, **Huyết Ma Hoa** rất hiếm; **Cửu Chuyển Tiên Thảo** hiếm nhất.",
+            "**Khai Mạch Thảo** (dành cho giai đoạn Phàm Nhân) không rơi từ bụi cỏ, đạo hữu vẫn lấy từ hạt giống theo hướng dẫn trong tiên môn.",
+            "Linh thảo nhặt được dùng làm nguyên liệu luyện đan trong lò, giống như linh thảo tự trồng."
+          ]
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Tỉ lệ rơi và danh sách loại thảo có thể được Tiên Sư điều chỉnh. Nếu khác với thông tin trong tiên môn, hãy lấy thông tin trong tiên môn làm chuẩn."
+        }
+      ],
+      "card": {
+        "icon": "🧬",
+        "title": "Đạo, Hướng Tu & Nghề",
+        "desc": "7 đạo do thiên đạo định đoạt, 10 hướng tu chiến đấu và 9 nghề tu tiên — mỗi đạo hữu một con đường riêng."
+      }
+    },
+    {
+      "id": "claim",
+      "icon": "🏡",
+      "label": "Trận Pháp Hộ Sơn",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "🏡 Trận pháp hộ sơn"
+        },
+        {
+          "t": "p",
+          "text": "Hệ thống trận pháp hộ sơn giúp đạo hữu bảo vệ động phủ và ngăn kẻ xấu phá hoại. Hãy kiểm tra chỉ dẫn/khẩu quyết hộ sơn đang vận hành trong tiên môn trước khi dựng đại trận."
+        },
+        {
+          "t": "h",
+          "text": "🧱 Cách vận hành an toàn"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Chọn khu vực phù hợp để dựng động phủ, kho bảo và công trình cá nhân.",
+            "Kiểm tra ranh giới trận pháp sau khi khai mở; đừng mặc định rằng toàn bộ khu vực xung quanh đã được hộ vệ.",
+            "Không chia sẻ quyền đạo hữu cho kẻ lạ nếu đạo hữu không tin tưởng.",
+            "Trước khi mở quyền xây/sửa cho bằng hữu, hãy kiểm tra đúng đạo hiệu và phạm vi quyền."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🛡️ Mẹo tránh mất bảo vật"
+        },
+        {
+          "t": "cards",
+          "cards": [
+            {
+              "title": "Kiểm tra ranh giới",
+              "text": "Đảm bảo rương, lò và công trình quan trọng nằm trong vùng được hộ vệ."
+            },
+            {
+              "title": "Quản lý quyền",
+              "text": "Chỉ thêm người đạo hữu tin tưởng và gỡ quyền khi không còn cần thiết."
+            },
+            {
+              "title": "Gặp sự cố?",
+              "text": "Chụp ảnh khu vực và thông báo cho Tiên Sư để được kiểm tra."
+            }
+          ]
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Khẩu quyết khai mở trận pháp và giới hạn đất có thể phụ thuộc cấu hình tiên môn. Hãy dùng lệnh trợ giúp của hệ thống hộ sơn trong tiên môn hoặc hỏi Tiên Sư để biết cú pháp chính xác."
+        }
+      ],
+      "card": {
+        "icon": "🏡",
+        "title": "Trận Pháp Hộ Sơn",
+        "desc": "Dựng trận pháp bảo vệ động phủ, kiểm tra ranh giới và quản lý quyền đạo hữu."
+      }
+    },
+    {
+      "id": "marry",
+      "icon": "💕",
+      "label": "Đạo Lữ",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "💕 Hệ thống đạo lữ"
+        },
+        {
+          "t": "p",
+          "text": "Kết duyên đạo lữ là bí thuật dành cho hai đạo hữu muốn đồng hành trong tiên môn. Theo thông tin hiển thị trên website, đạo lữ có thể nhận buff XP và hiệu ứng hồi máu ×2 khi ở gần nhau."
+        },
+        {
+          "t": "h",
+          "text": "💌 Trước khi kết duyên"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Thống nhất với đạo hữu kia trước khi gửi lời mời.",
+            "Đảm bảo cả hai đang tại môn và làm theo thông báo của hệ thống.",
+            "Đọc kỹ nội dung xác nhận trước khi đồng ý."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "✨ Quyền lợi"
+        },
+        {
+          "t": "cards",
+          "cards": [
+            {
+              "title": "Buff XP",
+              "text": "Có thể nhận hiệu ứng tăng XP theo cơ chế kết duyên của tiên môn."
+            },
+            {
+              "title": "Ở gần nhau",
+              "text": "Hiệu ứng hồi máu được mô tả là tăng ×2 khi ở gần người thương."
+            }
+          ]
+        },
+        {
+          "t": "note",
+          "text": "💡 Cú pháp khẩu quyết kết duyên và cách ly duyên chưa được xác nhận trong nội dung hiện có. Hãy kiểm tra menu/khẩu quyết trợ giúp trong tiên môn hoặc hỏi Tiên Sư để tránh dùng sai lệnh."
+        }
+      ],
+      "card": {
+        "icon": "💕",
+        "title": "Đạo Lữ Kết Duyên",
+        "desc": "Kết giao đạo lữ, nhận buff XP và hồi máu ×2 khi ở cạnh người thương."
+      }
+    },
+    {
+      "id": "spawner",
+      "icon": "⚙️",
+      "label": "Yêu Thú Sào",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "⚙️ Yêu thú sào và khu luyện bảo"
+        },
+        {
+          "t": "p",
+          "text": "Yêu thú sào hỗ trợ tạo khu luyện bảo theo thiết lập của tiên môn. Hiệu quả có thể phụ thuộc khoảng cách đạo hữu, giới hạn khu vực và quy định chống lag."
+        },
+        {
+          "t": "h",
+          "text": "🔧 Cách vận hành hiệu quả"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Xây khu luyện bảo gọn gàng, có đường đi và khu vực thu gom bảo vật an toàn.",
+            "Đứng trong phạm vi hoạt động mà tiên môn yêu cầu nếu yêu thú sào cần đạo hữu ở gần.",
+            "Không đặt quá nhiều luyện bảo trận hoặc tạo cơ chế gây lag.",
+            "Kiểm tra quy định tiên môn trước khi xây luyện bảo trận tự động."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🧰 Khi yêu thú sào không hoạt động"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Kiểm tra khu vực có bị giới hạn hoặc hộ vệ hay không.",
+            "Thử đứng gần sào và chờ một lúc.",
+            "Kiểm tra giới hạn yêu thú hoặc thông báo hiển thị trong tiên môn.",
+            "Nếu vẫn lỗi, gửi tọa độ và ảnh sào cho Tiên Sư."
+          ]
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Cách đặt, nâng cấp, giá và giới hạn yêu thú sào cụ thể cần theo cấu hình thực tế của ZAYMC Tiên Môn. Không nên dựa vào chỉ dẫn của tiên môn khác."
+        }
+      ],
+      "card": {
+        "icon": "⚙️",
+        "title": "Yêu Thú Sào",
+        "desc": "Khai mở yêu thú sào luyện bảo, mẹo vận hành hiệu quả và cách xử lý khi sào lỗi."
+      }
+    },
+    {
+      "id": "rank",
+      "icon": "👑",
+      "label": "Tiên Giai",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "👑 Tiên giai hệ thống"
+        },
+        {
+          "t": "p",
+          "text": "Tiên giai là các bậc quyền lợi dành cho đạo hữu. Website hiện giới thiệu các bậc VIP, MVP, ELITE và GOD, có thể mở khóa home, kit và lệnh tiện ích theo từng cấp."
+        },
+        {
+          "t": "h",
+          "text": "🏆 Các bậc tiên giai"
+        },
+        {
+          "t": "cards",
+          "cards": [
+            {
+              "title": "VIP",
+              "text": "Bậc tiên giai hỗ trợ đạo hữu với các quyền lợi theo gói."
+            },
+            {
+              "title": "MVP",
+              "text": "Bậc tiên giai cao hơn với quyền lợi tùy gói."
+            },
+            {
+              "title": "ELITE",
+              "text": "Gói tiên giai với các tiện ích được quy định trong tiên môn."
+            },
+            {
+              "title": "GOD",
+              "text": "Bậc tiên giai cao trong danh sách gói được giới thiệu."
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🎁 Quyền lợi và thỉnh tiên giai"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Quyền lợi có thể gồm lệnh home, kit và lệnh tiện ích.",
+            "Kiểm tra bảng giá và danh sách quyền lợi chính thức trước khi thỉnh.",
+            "Giữ lại hóa đơn hoặc ảnh giao dịch nếu cần hỗ trợ.",
+            "Không gửi linh mật tài khoản cho bất kỳ ai để nhận tiên giai."
+          ]
+        },
+        {
+          "t": "note",
+          "text": "💡 Giá, phương thức thanh toán và quyền lợi chi tiết có thể thay đổi. Hãy xem mục khai duyên/thỉnh tiên giai chính thức trên website hoặc liên hệ Tiên Sư trước khi thanh toán."
+        }
+      ],
+      "card": {
+        "icon": "👑",
+        "title": "Tiên Giai Hệ Thống",
+        "desc": "Thăng tiên giai VIP, MVP, ELITE, GOD bằng Xu — mở khóa home, kit và lệnh tiện ích."
+      }
+    },
+    {
+      "id": "napthe",
+      "icon": "💳",
+      "label": "Hiến Nạp",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "💳 Hiến nạp linh thạch qua thẻ"
+        },
+        {
+          "t": "p",
+          "text": "Đạo hữu có thể dùng khẩu quyết `/napthe` ngay trong tiên môn để hiến nạp thẻ và nhận linh thạch theo hệ thống."
+        },
+        {
+          "t": "h",
+          "text": "🧾 Khẩu quyết hiến nạp"
+        },
+        {
+          "t": "note",
+          "text": "`/napthe <nhà mạng> <mệnh giá> <serial> <mã thẻ>`"
+        },
+        {
+          "t": "h",
+          "text": "📌 Trình tự hiến nạp"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Kiểm tra đúng nhà mạng và mệnh giá của thẻ.",
+            "Nhập chính xác số serial và mã thẻ theo thứ tự trong cú pháp.",
+            "Gửi lệnh một lần và chờ hệ thống xử lý kết quả.",
+            "Kiểm tra thông báo trong tiên môn để biết giao dịch thành công hay thất bại."
+          ]
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Kiểm tra kỹ thông tin trước khi gửi. Không chia sẻ mã thẻ hoặc serial công khai trong truyền âm, Quần Tiên Hội hay với người khác."
+        },
+        {
+          "t": "h",
+          "text": "🛟 Giao dịch gặp trục trặc?"
+        },
+        {
+          "t": "p",
+          "text": "Nếu quá trình hiến nạp thất bại, linh thạch chưa được ghi nhận hoặc phát sinh vấn đề giao dịch, đạo hữu hãy đến kênh **Quần Tiên Hội Ticket** và **tạo một Ticket mới** để thỉnh cầu Tiên Sư kiểm tra, hỗ trợ."
+        },
+        {
+          "t": "p",
+          "text": "Khi lập Ticket, hãy cung cấp đạo hiệu cùng thông tin giao dịch cần thiết để Tiên Sư tra xét. Tuyệt đối không công khai mã thẻ, serial hoặc linh mật tài khoản."
+        }
+      ]
+    },
+    {
+      "id": "trade",
+      "icon": "🛡️",
+      "label": "Linh Giáp Trade",
+      "blocks": [
+        {
+          "t": "h",
+          "text": "🛡️ Trade linh giáp bằng Linh Thạch"
+        },
+        {
+          "t": "p",
+          "text": "Đạo hữu có thể đổi **linh giáp donate cấp 1–30** (mũ, áo, quần, giày) bằng **Linh Thạch** ngay trong tiên môn, không cần hiến nạp trực tiếp. Linh Thạch tự chế từ nguyên liệu trong tiên môn."
+        },
+        {
+          "t": "h",
+          "text": "📜 Khẩu quyết"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "`/co` — Mở menu đổi bảo.",
+            "Chọn **Trade Linh Giáp** → chọn tier → chọn mũ / áo / quần / giày → bấm vào cấp muốn đổi.",
+            "Chọn **Item Trade** để xem công thức chế từng bậc Linh Thạch.",
+            "Gặp **NPC thương nhân** (nếu có), chuột phải để mở menu."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "🏅 Ba giai linh giáp"
+        },
+        {
+          "t": "cards",
+          "cards": [
+            {
+              "title": "Phàm Giai · cấp 1–10",
+              "text": "Chất liệu sắt. Kỹ năng **Hồi Khí**: tự hồi máu theo thời gian.",
+              "tone": "pham"
+            },
+            {
+              "title": "Địa Giai · cấp 11–20",
+              "text": "Chất liệu kim cương. Thêm **Phản Chấn**: có cơ hội phản lại một phần sát thương.",
+              "tone": "dia"
+            },
+            {
+              "title": "Thiên Giai · cấp 21–30",
+              "text": "Chất liệu netherite. Thêm **Bất Diệt**: chí mạng được cứu sống (có hồi chiêu), kèm kháng lửa.",
+              "tone": "thien"
+            }
+          ]
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Kỹ năng linh giáp là **bị động**: mặc đủ 4 món donate là tự bật. Tier thấp nhất trong 4 món quyết định tier của bộ; bộ tier cao có luôn kỹ năng tier thấp.",
+            "Linh giáp được phù phép đầy đủ, có thể vượt giới hạn gốc của game.",
+            "Mặc đủ 4 món từ **cấp 20** được cộng thêm tim tối đa; từ **cấp 25** có thêm **Địa Chấn** (rơi từ cao tạo chấn động, giảm sát thương rơi)."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "💎 Giá đổi theo cấp"
+        },
+        {
+          "t": "p",
+          "text": "Từ cấp 2 trở lên, ngoài Linh Thạch còn phải **nộp thêm 1 món cùng loại ở cấp liền trước**. Mũ, áo, quần, giày cùng cấp có cùng giá. Số lượng tăng dần trong mỗi nhóm, cột cuối là số ở cấp đầu → cấp cuối của nhóm."
+        },
+        {
+          "t": "table",
+          "head": [
+            "Cấp linh giáp",
+            "Linh Thạch cần",
+            "Số lượng"
+          ],
+          "rows": [
+            [
+              "1",
+              "Mảnh Linh Thạch (lt1)",
+              "4 → 4"
+            ],
+            [
+              "2 – 4",
+              "Hạ Phẩm Linh Thạch (lt2)",
+              "6 → 10"
+            ],
+            [
+              "5 – 9",
+              "Trung Phẩm Linh Thạch (lt3)",
+              "6 → 18"
+            ],
+            [
+              "10 – 14",
+              "Thượng Phẩm Linh Thạch (lt4)",
+              "8 → 20"
+            ],
+            [
+              "15 – 19",
+              "Cực Phẩm Linh Thạch (lt5)",
+              "10 → 26"
+            ],
+            [
+              "20 – 24",
+              "Tiên Thạch (lt6)",
+              "13 → 33"
+            ],
+            [
+              "25 – 28",
+              "Thần Thạch (lt7)",
+              "16 → 31"
+            ],
+            [
+              "29 – 30",
+              "Hỗn Độn Thạch (lt8)",
+              "4 → 7"
+            ]
+          ]
+        },
+        {
+          "t": "h",
+          "text": "⚒️ Chế Linh Thạch (8 bậc)"
+        },
+        {
+          "t": "p",
+          "text": "Bậc thấp là nguyên liệu của bậc cao. Công thức dài chế trong menu `/co` → **Item Trade** (bấm vào Linh Thạch muốn chế)."
+        },
+        {
+          "t": "table",
+          "head": [
+            "Id",
+            "Tên",
+            "Công thức"
+          ],
+          "rows": [
+            [
+              "`lt1`",
+              "Mảnh Linh Thạch",
+              "3 Lưu ly + 6 Mảnh sắt + 3 Đá đỏ → ra 2"
+            ],
+            [
+              "`lt2`",
+              "Hạ Phẩm Linh Thạch",
+              "4 lt1 + 3 Thỏi sắt + 3 Thỏi đồng → ra 2"
+            ],
+            [
+              "`lt3`",
+              "Trung Phẩm Linh Thạch",
+              "3 lt2 + 5 Thỏi vàng + 1 Khối lưu ly"
+            ],
+            [
+              "`lt4`",
+              "Thượng Phẩm Linh Thạch",
+              "3 lt3 + 3 Kim cương + 1 Khối vàng + 2 Ngọc lục bảo"
+            ],
+            [
+              "`lt5`",
+              "Cực Phẩm Linh Thạch",
+              "3 lt4 + 6 Kim cương + 4 Ngọc lục bảo + 2 Ngọc ender"
+            ],
+            [
+              "`lt6`",
+              "Tiên Thạch",
+              "3 lt5 + 8 Ngọc lục bảo + 3 Mảnh netherite + 4 Blaze rod"
+            ],
+            [
+              "`lt7`",
+              "Thần Thạch",
+              "3 lt6 + 6 Mảnh netherite + 1 Khối kim cương + 3 Nước mắt ghast"
+            ],
+            [
+              "`lt8`",
+              "Hỗn Độn Thạch",
+              "3 lt7 + 2 Thỏi netherite + 1 Sao Nether + 1 Totem bất tử"
+            ]
+          ]
+        },
+        {
+          "t": "warn",
+          "text": "⚠️ Bảng giá và công thức có thể được Tiên Sư điều chỉnh. Nếu khác với thông tin trong menu tiên môn, hãy lấy menu trong tiên môn làm chuẩn."
+        }
+      ],
+      "card": {
+        "icon": "🛡️",
+        "title": "Linh Giáp Trade",
+        "desc": "Đổi linh giáp donate cấp 1–30 bằng Linh Thạch, xem giá đổi và công thức chế 8 bậc Linh Thạch."
+      }
+    }
+  ]
+}
